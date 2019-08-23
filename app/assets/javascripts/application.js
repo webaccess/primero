@@ -62,7 +62,7 @@
 //= require_tree ./views/management
 //= require_tree ./views
 //= require router
-//= require intakes
+//= require intake
 
 
 //= require turbolinks
