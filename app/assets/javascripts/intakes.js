@@ -37,7 +37,7 @@ $(document).ready(function(){
 					$(this).hide();
 				}
 			})
-			$("#ongoing_client_child_" + subform.substring(18, subform.length) + "_ongoing_followup_maha").closest('.row').show();
+			$("#ongoing_client_child_" + subform.substring(18, subform.length) + "_ongoing_followup").closest('.row').show();
 			$("#ongoing_client_child_" + subform.substring(18, subform.length) + "_nature_of_interaction_chosen").closest('.row').show();
 			$("#ongoing_client_child_" + subform.substring(18, subform.length) + "_intervention_by_special_cell__chosen").closest('.row').show();
 			$("#ongoing_client_child_" + subform.substring(18, subform.length) + "_referrals_new_clients_ongoing_clients__chosen").closest('.row').show();
