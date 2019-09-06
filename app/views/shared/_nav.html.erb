@@ -22,11 +22,11 @@
           <% if can? :read, TracingRequest %>
             <li><%= link_to t("navigation.tracing_request"), tracing_requests_path(scope: {:inquiry_status => "list||#{Record::STATUS_OPEN}", :record_state => "list||true"}), class: current_menu("tracings") %></li>
           <% end  %>
-          
+          <% if can?(:group_read, Report) || can?(:read, Report) %>
           <li>
-							<a href="/all_reports">HAQ REPORTS</a>
+							<a href="/all_reports">REPORTS</a>
 					</li>
-            
+          <% end  %>
           
           <% if can? :read, Incident %>
             <li><%= link_to t("navigation.incidents"), incidents_path(scope: {:status => "list||#{Record::STATUS_OPEN}", :record_state => "list||true"}), class: current_menu("incidents") %></li>
@@ -69,13 +69,7 @@
               </a>
             </li>
           <% end %>
-          <% if can?(:index, BulkExport) %>
-            <li>
-              <a class="<%= current_menu('bulk_exports') %>" href="<%= bulk_exports_path %>" title="<%= t('navigation.bulk_exports') %>">
-                <i class="fa fa-download"></i>
-              </a>
-            </li>
-          <% end %>
+          
         </ul>
       <% end %>
     </div>

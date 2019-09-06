@@ -1,0 +1,144 @@
+<div class="container">
+	<div class="row">
+		<div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+		<%= form_tag("/all_reports/status_on_financial_needs/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
+			<div class="title-sub-report">
+				<h3>Progress on Financial Needs Identified</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+					<div class="excel-sheet">
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+						<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
+					</div>
+				</div>
+			<% end %>
+			</div>
+		</div>
+			<div style="margin-top: 5%;" id="report">
+				<table class="dataTable in_content_area reports">
+					<thead>
+						<tr>
+							<td>Status</td>
+							<td>Cases</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>No. of total cases</td>
+							<td><%= @no_of_total_cases %></td>
+						</tr>
+						<tr>
+							<td>No. of cases assessed for financial need</td>
+							<td><%= @total_financial_need %></td>
+						</tr>
+						<tr>
+							<td>No. of cases where financial need identified</td>
+							<td><%= @assessed_need_identified %></td>
+						</tr>
+						<tr>
+							<td>No. of cases where financial needs met fully or partially*</td>
+							<td><%= @financial_met_partially %></td>
+						</tr>
+						<tr>
+							<td>No. of cases where need could not be met and no further action is required/possible</td>
+							<td><%= @could_not_meet_reason %></td>
+						</tr>
+						<tr>
+							<td>No. of cases where efforts to meet financial needs are ongoing</td>
+							<td><%= @efforts_ongoing %></td>
+						</tr>
+						<tr>
+							<td>Status of ongoing efforts for fulfilling the financial need</td>
+							<td><%= @status_financial %></td>
+						</tr>
+						<tr>
+							<td>Not Applied, reviewing grounds</td>
+							<td><%= @application_filed_on_interim %></td>
+						</tr>
+						<tr>
+							<td>Applied, pending</td>
+							<td><%= @interim_compensation_status %></td>
+						</tr>
+						<tr>
+							<td>Trying for other social security schemes as interim compensation may be difficult nature of case and circumstances</td>
+							<td><%= @financial_needs %></td>
+						</tr>
+						<tr>
+							<td>To apply for final compensation</td>
+							<td><%= @application_filed_on_final %></td>
+						</tr>
+					</tbody>	
+				</table>
+				<script>
+				function download_csv(csv, filename) {
+					var csvFile;
+					var downloadLink;
+
+					// CSV FILE
+					csvFile = new Blob([csv], {type: "text/csv"});
+
+					// Download link
+					downloadLink = document.createElement("a");
+
+					// File name
+					downloadLink.download = filename;
+
+					// We have to create a link to the file
+					downloadLink.href = window.URL.createObjectURL(csvFile);
+
+					// Make sure that the link is not displayed
+					downloadLink.style.display = "none";
+
+					// Add the link to your DOM
+					document.body.appendChild(downloadLink);
+
+					// Lanzamos
+					downloadLink.click();
+
+					document.body.removeChild(downloadLink);
+					
+				}
+
+				function export_table_to_csv(html, filename) {
+					var csv = [];
+				
+					csv.push("From Date : <%= @start_date %>");
+					csv.push("To Date : <%= @end_date %>");
+					var rows = html.querySelectorAll("tr");
+					
+					 
+					for (var i = 0; i < rows.length; i++) {
+						var row = [], cols = rows[i].querySelectorAll("td, th");
+							for (var j = 0; j < cols.length; j++)
+							{
+								row.push(cols[j].innerText);
+							}
+							csv.push(row.join(","));		
+						}
+
+						// Download CSV
+						download_csv(csv.join("\n"), filename);
+				}
+
+				document.getElementById("generate").addEventListener("click", function () {
+						var html = document.getElementById("report");
+					export_table_to_csv(html, "Victim Compensation/Financial Needs.csv");
+				});
+			</script>
+			</div>
+		</div>	
+	</div>
+</div>

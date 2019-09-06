@@ -75,32 +75,89 @@ Primero::Application.routes.draw do
   match '/all_reports/appeal_in_appellate' => 'appeal_in_appellate#index', :as => :appeal_in_appellate_index, :via => :get
   match '/all_reports/appeal_in_appellate/submit_form' => 'appeal_in_appellate#submit_form', :as => :appeal_in_appellate_submit_form, :via => :post
   match '/all_reports/appeal_in_appellate/submit_form' => 'appeal_in_appellate#redirect_to_index', :as => :appeal_in_appellate_redirect_to_index, :via => :get
+	
+	# status_on_financial_needs
+  match '/all_reports/status_on_financial_needs' => 'status_on_financial_needs#index', :as => :status_on_financial_needs_index, :via => :get
+  match '/all_reports/status_on_financial_needs/submit_form' => 'status_on_financial_needs#submit_form', :as => :status_on_financial_needs_submit_form, :via => :post
+  match '/all_reports/status_on_financial_needs/submit_form' => 'status_on_financial_needs#redirect_to_index', :as => :status_on_financial_needs_redirect_to_index, :via => :get
 
+  # rightful_conviction_indicators
+  match '/all_reports/rightful_conviction_indicators' => 'rightful_conviction_indicators#index', :as => :rightful_conviction_indicators_index, :via => :get
+  match '/all_reports/rightful_conviction_indicators/submit_form' => 'rightful_conviction_indicators#submit_form', :as => :rightful_conviction_indicators_submit_form, :via => :post
+  match '/all_reports/rightful_conviction_indicators/submit_form' => 'rightful_conviction_indicators#redirect_to_index', :as => :rightful_conviction_indicators_redirect_to_index, :via => :get
+	
+	# victim_testimony_preparation
+  match '/all_reports/victim_testimony_preparation' => 'victim_testimony_preparation#index', :as => :victim_testimony_preparation_index, :via => :get
+  match '/all_reports/victim_testimony_preparation/submit_form' => 'victim_testimony_preparation#submit_form', :as => :victim_testimony_preparation_submit_form, :via => :post
+  match '/all_reports/victim_testimony_preparation/submit_form' => 'victim_testimony_preparation#redirect_to_index', :as => :victim_testimony_preparation_redirect_to_index, :via => :get
+	
+	#-----------------------------------------------------------------------------------------------------------------------------#
+	#bail_interim_compensation 
+  match '/all_reports/bail_interim_compensation' => 'bail_interim_compensation#index', :as => :bail_interim_compensation, :via => :get
+  match '/all_reports/bail_interim_compensation/submit_form' => 'bail_interim_compensation#submit_form', :as => :bail_interim_compensation_submit_form, :via => :post
+  match '/all_reports/bail_interim_compensation/submit_form' => 'bail_interim_compensation#redirect_to_index', :as => :bail_interim_compensation_redirect_to_index, :via => :get
+
+  # supported_by_lawyers
+  match '/all_reports/supported_by_lawyers' => 'supported_by_lawyers#index', :as => :supported_by_lawyers_index, :via => :get
+  match '/all_reports/supported_by_lawyers/submit_form' => 'supported_by_lawyers#submit_form', :as => :supported_by_lawyers_submit_form, :via => :post
+  match '/all_reports/supported_by_lawyers/submit_form' => 'supported_by_lawyers#redirect_to_index', :as => :supported_by_lawyers_redirect_to_index, :via => :get
+
+  # reason_for_adjournments
+  match '/all_reports/reason_for_adjournments' => 'reason_for_adjournments#index', :as => :reason_for_adjournments_index, :via => :get
+  match '/all_reports/reason_for_adjournments/submit_form' => 'reason_for_adjournments#submit_form', :as => :reason_for_adjournments_submit_form, :via => :post
+  match '/all_reports/reason_for_adjournments/submit_form' => 'reason_for_adjournments#redirect_to_index', :as => :reason_for_adjournments_redirect_to_index, :via => :get
+
+  # status_of_psychosocial
+  match '/all_reports/status_of_psychosocial' => 'status_of_psychosocial#index', :as => :status_of_psychosocial_index, :via => :get
+  match '/all_reports/status_of_psychosocial/submit_form' => 'status_of_psychosocial#submit_form', :as => :status_of_psychosocial_submit_form, :via => :post
+  match '/all_reports/status_of_psychosocial/submit_form' => 'status_of_psychosocial#redirect_to_index', :as => :status_of_psychosocial_redirect_to_index, :via => :get
+
+  # cases_where_identified
+  match '/all_reports/cases_where_identified' => 'cases_where_identified#index', :as => :cases_where_identified_index, :via => :get
+  match '/all_reports/cases_where_identified/submit_form' => 'cases_where_identified#submit_form', :as => :cases_where_identified_submit_form, :via => :post
+  match '/all_reports/cases_where_identified/submit_form' => 'cases_where_identified#redirect_to_index', :as => :cases_where_identified_redirect_to_index, :via => :get
+
+  # Table 6A
+  # progress_impact_achievement_psychological_needs_filled_by_social_worker
+  match '/all_reports/psychological_progress_impact_achievement' => 'psychological_progress_impact_achievement#index', :as => :psychological_progress_impact_achievement_index, :via => :get
+  match '/all_reports/psychological_progress_impact_achievement/submit_form' => 'psychological_progress_impact_achievement#submit_form', :as => :psychological_progress_impact_achievement_submit_form, :via => :post
+  match '/all_reports/psychological_progress_impact_achievement/submit_form' => 'psychological_progress_impact_achievement#redirect_to_index', :as => :psychological_progress_impact_achievement_redirect_to_index, :via => :get
+
+  # Table 9
+  # judgement_status web e
+  match '/all_reports/judgement_status' => 'judgement_status#index', :as => :judgement_status_index, :via => :get
+  match '/all_reports/judgement_status/submit_form' => 'judgement_status#submit_form', :as => :judgement_status_submit_form, :via => :post
+  match '/all_reports/judgement_status/submit_form' => 'judgement_status#redirect_to_index', :as => :judgement_status_redirect_to_index, :via => :get
+  
+  # Table 10----------------------------
+  # Disposal
+  match '/all_reports/disposal' => 'disposal#index', :as => :disposal_index, :via => :get
+  match '/all_reports/disposal/submit_form' => 'disposal#submit_form', :as => :disposal_submit_form, :via => :post
+  match '/all_reports/disposal/submit_form' => 'disposal#redirect_to_index', :as => :disposal_redirect_to_index, :via => :get
+
+  # Cases where trial completed
+  match '/all_reports/cases_where_trial_completed' => 'cases_where_trial_completed#index', :as => :cases_where_trial_completed_index, :via => :get
+  match '/all_reports/cases_where_trial_completed/submit_form' => 'cases_where_trial_completed#submit_form', :as => :cases_where_trial_completed_submit_form, :via => :post
+  match '/all_reports/cases_where_trial_completed/submit_form' => 'cases_where_trial_completed#redirect_to_index', :as => :cases_where_trial_completed_redirect_to_index, :via => :get
+
+  # Time taken in disposal of cases
+  match '/all_reports/time_taken_in_disposal_of_cases' => 'time_taken_in_disposal_of_cases#index', :as => :time_taken_in_disposal_of_cases_index, :via => :get
+  match '/all_reports/time_taken_in_disposal_of_cases/submit_form' => 'time_taken_in_disposal_of_cases#submit_form', :as => :time_taken_in_disposal_of_cases_submit_form, :via => :post
+  match '/all_reports/time_taken_in_disposal_of_cases/submit_form' => 'time_taken_in_disposal_of_cases#redirect_to_index', :as => :time_taken_in_disposal_of_cases_redirect_to_index, :via => :get
+  # ---------------------------------------
+	
   resource :general_report
 
-  resources :bail_interim_compensation do
-    collection do
-      post :submit_form
-    end
-  end 
   
   resources :summary_of_cases
 
   resources :trial_completed
   
-  resources :status_of_psychosocial
   
-	resources :status_on_financial_needs do
-		collection do
-      get :generate_pdf
-    end
-  end 
-	
 	resources :status_as_on
 	resources :cases_where_identified
 	
 	resources :supported_by_lawyers
-	resources :reason_for_adjournments
 	
 	#resources :case_intake_and_closure
   
@@ -109,8 +166,6 @@ Primero::Application.routes.draw do
       post :submit_form
       end
     end
-
-	resources :rightful_conviction_indicators
 	
 	resources :sensitisation_trainings
 	

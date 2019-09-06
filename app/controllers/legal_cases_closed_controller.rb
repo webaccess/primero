@@ -28,16 +28,16 @@ class LegalCasesClosedController < ApplicationController
 
 		(1..diff_year).each do |i|
 			year_array.push(start_year+i)
-    end
+    	end
     
 		by_legal_case_closed = Child.by_legal_case_closed.startkey([start_date]).endkey([end_date,{}])['rows']
 		
 		for i in by_legal_case_closed
 			@legal_case.push({"case_id":i['key'][1],"pseudonyms":i['key'][2],"year_closure":i['key'][3],"stage":i['key'][4],"closure_reason":i['key'][5]})
-    end
-    @start_date = start_date
-    @end_date = (Date.parse(end_date)-1).to_s
-    render "show_report"
+    	end
+		@start_date = start_date
+		@end_date = (Date.parse(end_date)-1).to_s
+		render "show_report"
     
-  end
+  	end
 end

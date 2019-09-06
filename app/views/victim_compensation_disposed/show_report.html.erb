@@ -1,19 +1,32 @@
 <div class="container">
 	<div class="row">
-		<div class="large-12 small-12 columns">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
-		<h3>Victim Compensation in cases disposed by courts</h3><br>
-			<div id = "validation_div"></div>
-			<%= form_tag("/all_reports/victim_compensation_disposed/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
-				<label>Start Date</label>
-				<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today)%>
-
-				<label>End Date</label>
-				<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today)%>
-
-				<button type="submit">Submit</button>
+		<div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
 			<% end %>
+			<%= form_tag("/all_reports/victim_compensation_disposed/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
+			<div class="title-sub-report">
+				<h3>Victim Compensation in cases disposed by courts</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+					<div class="excel-sheet">
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+						<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
+					</div>
+				</div>
+			<% end %>
+			</div>
+		</div>
 		<div style="margin-top: 5%;" id="report">
 			<table class="dataTable in_content_area reports">
 				<thead>

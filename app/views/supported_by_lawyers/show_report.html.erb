@@ -1,0 +1,78 @@
+<div class="container">
+	<div class="row">
+		<div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/supported_by_lawyers/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
+			<div class="title-sub-report">
+				<h3>Status of Court Hearings supported by Lawyers</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+				</div>
+			<% end %>
+			</div>
+		</div>
+		<div style="margin-top: 5%;" id="report">
+			<table class="dataTable in_content_area reports">
+				<thead>
+					<tr>
+						<td rowspan="4">Legal Support (Stages as per Criminal Justice Procedure)</td>
+						<td rowspan="4">Year</td>
+						<td colspan="3">Court Hearings</td>
+						<td rowspan="4">No. of  cases</td>
+						<td colspan="6">Presence of HAQ Lawyer</td>
+					</tr>
+					<tr>
+						<td rowspan="3">As per stages of Criminal Justice Procedure</td>
+						<td rowspan="3">Effective Hearing</td>
+						<td rowspan="3">Adjournments</td>
+					</tr>
+					<tr>
+						<td rowspan="3">No. of hearings attended by HAQ Lawyer</td>
+						<td rowspan="3">No. of hearings missed by HAQ Lawyer for different reasons</td>
+						<td colspan="4">No. of hearings missed by HAQ Lawyer for different reasons</td>
+					</tr>
+					<tr>
+						<td>No information available about hearing date</td>
+						<td>Vakalatnama not signed</td>
+						<td>Vakalatnama signed but no lawyer appointed</td>
+						<td>No lawyer attended</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% @data.each do |i|%>
+						<% i['data'].each_with_index do |j,index| %>
+							<tr>
+								<% if index == 0 %>		
+									<td rowspan = <%=i['length']%> > <%= i['stage'] %> </td>
+								<% end %>
+								<td><%= j['year'] %></td>
+								<td><%= j['court_hearings'] %></td>
+								<td><%= j['effective_court_hearing']%></td>
+								<td><%= j['adjornments_count']%></td>
+								<td><%= j['no_of_cases'] %></td>
+								<td><%= j['hearing_atend_by_haq_lawyer'] %></td>
+								<td><%= j['no_of_heaing_missed_by_haq_lawyer'] %></td>
+								<td><%= j['no_info_avail_abt_hearing_date'] %></td>
+								<td><%= j['valkatname_not_signed'] %></td>
+								<td><%= j['valkatnama_signed_bt_no_lawyer_appoint'] %></td>
+								<td><%= j['no_lawyer_appoint'] %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</tbody>	
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,84 @@
+<div class="container">
+	<div class="row">
+    <div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/psychological_progress_impact_achievement/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_psychological_progress_impact_achievement") do %>
+			<div class="title-sub-report">
+				<h3>Family Members Directly Impacted</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+				</div>
+			<% end %>
+			</div>
+		</div>
+		<div style="margin-top: 5%;" id="report">
+            <table class="dataTable in_content_area reports">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th colspan=6 >Emotional Psychological Needs</th>
+                        <th>Educational Needs</th>
+                        <th colspan = 2>Financial Needs</th>
+                        <th colspan = 3>Paralegal Needs</th>
+                        <th colspan = 4>Familial Needs</th>
+                    </tr>
+                    <tr>
+                        <th rowspan = 4></th>
+                        <th rowspan = 4>Family stopped blaming the child  </th>
+                        <th rowspan = 4>Family has attended at least three parents support group meetings</th>
+                        <th rowspan = 4>Family understands the importance of being regular with the child’s Counselling</th>
+                        <th rowspan = 4>Family understands importance of self care </th>
+                        <th rowspan = 4>Family is regular with counselling of the child</th>
+                        <th rowspan = 4>Family is regular with counselling for self</th>
+                        <th rowspan = 4>Family supports the child in continuing education </th>
+                        <th rowspan = 4>Family is using Final Compensation for child’s benefit </th>
+                        <th rowspan = 4>Family is linked to a social security / welfare scheme of the government </th>
+                        <th rowspan = 4>Increase in family’s knowledge and understanding of CSA </th>
+                        <th rowspan = 4>Family understands the importance of being regular with the child’s Court Hearings </th>
+                        <th rowspan = 4>Child/Family is able to procure basic case related documents with HAQ’s intervention </th>
+                        <th rowspan = 4>Complaint of domestic violence is filed </th>
+                        <th rowspan = 4>Referral services provided to family member(s) facing domestic violence </th>
+                        <th rowspan = 4>Family member(s) facing domestic violence are able to find shelter and protection </th>
+                        <th rowspan = 4>Mother is able to find work / employment / financial security (in incest cases)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @data.each do |x| %>
+                        <tr>
+                            <td><%= x["year"] %></td>
+                            <td><%= x["family_stopped_blamming_child"] %></td>
+                            <td><%= x["family_has_attended_atleast_3_parents_supp_grp"] %></td>
+                            <td><%= x["family_understands_the_imp_of_being_reg_with_child"] %></td>
+                            <td><%= x["family_understands_imp_of_self_care"] %></td>
+                            <td><%= x["family_is_regular_with_childs_counselling_of_the_child"] %></td>
+                            <td><%= x["family_regular_with_counselling"] %></td>
+                            <td><%= x["family_is_regular_with_counselling_for_self"] %></td>
+                            <td><%= x["family_is_using_final_compensation_for_childs_benifits"] %></td>
+                            <td><%= x["family_linked_to_social_sec_welfare_scheme"] %></td>
+                            <td><%= x["increase_in_fam_know_under_of_csa"] %></td>
+                            <td><%= x["family_unserderstands_imp_of_reg_with_child_court_heariing"] %></td>
+                            <td><%= x["family_able_to_procure_basic_case_document"] %></td>
+                            <td><%= x["complaint_of_domestic_violence"] %></td>
+                            <td><%= x["reffereal_services_provided_to_family_mem"] %></td>
+                            <td><%= x["family_domestic_vio_able_to_find_shelter"] %></td>
+                            <td><%= x["mother_able_to_file_work_empolyment"] %></td>
+                       </tr>
+                    <% end %>
+                </tbody>	
+			</table>
+		</div>
+	</div>
+</div>
+

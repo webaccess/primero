@@ -1,19 +1,32 @@
 <div class="container">
 	<div class="row">
-		<div class="large-12 small-12 columns">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
-		<h3>High Court iprobono</h3><br>
-			<div id = "validation_div"></div>
-			<%= form_tag("/all_reports/high_court_iprobono/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
-				<label>Start Date</label>
-				<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today)%>
-
-				<label>End Date</label>
-				<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today)%>
-
-				<button type="submit">Submit</button>
+		<div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
 			<% end %>
+			<%= form_tag("/all_reports/high_court_iprobono/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
+			<div class="title-sub-report">
+				<h3>High Court iprobono</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+					<div class="excel-sheet">
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+						<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
+					</div>
+				</div>
+			<% end %>
+			</div>
+		</div>
 		<div style="margin-top: 5%;" id="report">
 			<table class="dataTable in_content_area reports">
 				<thead>
@@ -36,18 +49,18 @@
 
 					<% @high_court.each do |x| %>
 					<tr>
-						<td id="case_id"><%= x[:case_id] %></td>
-						<td id="name"><%= x[:name] %></td>
-						<td id="purpose"><%= x[:purpose] %></td>
-						<td id="groundreasons"><%= x[:groundreasons] %></td>
-						<td id="court"><%= x[:court] %></td>
-						<td id="case_number"><%= x[:case_number] %></td>
-						<td id="case_title"><%= x[:case_title] %></td>
-						<td id="case_is_handled_by"><%= x[:case_is_handled_by] %></td>
-						<td id="date_of_filing"><%= x[:date_of_filing] %></td>
-						<td id="date_of_disposal"><%= x[:date_of_disposal] %></td>
-						<td id="outcome"><%= x[:outcome] %></td>
-						<td id="child_status"><%= x[:child_status] %></td>
+						<td><%= x[:case_id] %></td>
+						<td><%= x[:name] %></td>
+						<td><%= x[:purpose] %></td>
+						<td><%= x[:groundreasons] %></td>
+						<td><%= x[:court] %></td>
+						<td><%= x[:case_number] %></td>
+						<td><%= x[:case_title] %></td>
+						<td><%= x[:case_is_handled_by] %></td>
+						<td><%= x[:date_of_filing] %></td>
+						<td><%= x[:date_of_disposal] %></td>
+						<td><%= x[:outcome] %></td>
+						<td><%= x[:child_status] %></td>
 					</tr>
 					<% end %>
 					

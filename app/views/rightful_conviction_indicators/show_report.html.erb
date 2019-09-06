@@ -1,0 +1,125 @@
+<div class="container">
+	<div class="row">
+    <div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/rightful_conviction_indicators/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_monthly_report") do %>
+			<div class="title-sub-report">
+				<h3>Progress on New Rightful Conviction Indicators</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+					<div class="excel-sheet">
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+						<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
+					</div>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div style="margin-top: 5%;" id="report">
+			<table class="dataTable in_content_area reports">
+				<thead>
+					<tr>
+						<td>New Indicators</td>
+						<td>Achievement in Current Reporting Period</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>In 50% of cases of incest taken up in the course of the project the survivors do not turn hostile and support the prosecution.</td>
+						<td>Of the 48 cases of incest which were legally taken up during the course of project period, there were only three cases, where child turned hostile during her testimony.</td>
+					</tr>
+					<tr>
+						<td>80% of the cases of children in institutional settings or without parental support referred to HAQ are able to secure their right to legal representation.</td>
+						<td><%= @childpercent %>%</td>
+					</tr>
+					<tr>
+						<td>70% of survivors hailing from other states and likely to be restored to their home state are able to testify before or after restoration through HAQ’s support/intervention. </td>
+						<td><p>HAQ has secured 90% achievement in helping children hailing from other states to testify in the court.</p><p>"There were 10 cases in which the child survivor hailed from other states. Of them, there were 7 cases where the child testimony had been completed. In three (3) Cases  – One (1) child had partly testified, One (1) Child untraceable then acquitted by court and One (1) One child testimony was yet to start. Of the 7 cases where testimony had been completed, In 6 cases child testified and in 1 case mother of child victim testified as the child victim had not been made witness in the case by the police."</p></td>
+					</tr>
+					<tr>
+						<td>In 80% of legal cases undertaken by HAQ the parents/family of the survivors seek legal support till the last stage of the case and are satisfied with the services</td>
+						<td><p>Of the 221 legal cases undertaken by HAQ only 17 (7.7%) parents/family of the survivors were not satisfied with our services. If we further categorised, we find that out of 17 cases, only in 5 cases, the parents/family wanted to prosecute the accused but they withdrew from our services as they were not satisfied.</p><p>In 10 (4.5%) cases, the parents/family did not want to prosecute the accused because either they compromised with the accused or the accused was their family member. The HAQ team tried to persuade them for prosecuting the accused but they were not ready. Hence the parents/family withdrew from our services. So in actual there were only 5 (2.3%) cases where the parents/family were not satisfied with our services.</p><p>Note: Of the 51 cases closed during the period, 19 cases were closed where trial was completed or disposed due to abetment, discharge or disposed at stage of PE (VT) or framing of charges. In 15 cases parents/family withdrew from our services.</p><p><ul><li>In the remaining 17 cases, HAQ closed the cases as </li><li>In three (3) the child turned out to be adult, </li><li>In five(5) the parents/family compromised with the accused, </li><li>In Five (5) child/ family did not reveal the facts despite our best efforts.</li><li>In Two (2) Family was untraceable.</li></ul> while in one each the police filed closure report; the case was out of project jurisdiction.</p><p> For details, see Annexure 3</p> </td>
+					</tr>
+					<tr>
+						<td>80% cases where trial was completed end in conviction, thereby reversing the state average of 18% conviction in cases under the POCSO Act.</td>
+						<td><p>Out of 221 legal cases, 23 cases reached judgement. Of these 23, there was acquittal in 13 and conviction in Eight. In Two case, One case it was abated as the accused died during the trial and Second case accused was discharged from all Charges. A conviction rate of 35 per cent was secured in the 23 HDF cases in which trial was completed.</p><p>Apart from this, there were 16 cases which were filed before appellate courts in which judgement was pronounced in 7 cases. Out of these 7 cases, in 5 (71%) cases resulted in getting relief in HAQ’s favour.</p><p>Apart from this, there were 16 cases which were filed before appellate courts in which judgement was pronounced in 7 cases. Out of these 7 cases, in 5 (71%) cases resulted in getting relief in HAQ’s favour.</p></td>
+					</tr>
+					<tr>
+						<td>60% of bail applications result in dismissal/rejection where we attend and oppose. </td>
+						<td>HAQ lawyers attended 124 out of the 253 bail applications moved at different stages of criminal justice procedure. Overall 84 (68 %) bail applications were dismissed / dismissed as withdrawn or by default while 36 (29%) were allowed and 4 (3%) were pending . For details, see Annexure 4.</td>
+					</tr>
+				</tbody>
+					
+			</table>
+			<script>
+			function download_csv(csv, filename) {
+				var csvFile;
+				var downloadLink;
+
+				// CSV FILE
+				csvFile = new Blob([csv], {type: "text/csv"});
+
+				// Download link
+				downloadLink = document.createElement("a");
+
+				// File name
+				downloadLink.download = filename;
+
+				// We have to create a link to the file
+				downloadLink.href = window.URL.createObjectURL(csvFile);
+
+				// Make sure that the link is not displayed
+				downloadLink.style.display = "none";
+
+				// Add the link to your DOM
+				document.body.appendChild(downloadLink);
+
+				// Lanzamos
+				downloadLink.click();
+
+				document.body.removeChild(downloadLink);
+				
+			}
+
+			function export_table_to_csv(html, filename) {
+				var csv = [];
+			
+				csv.push("From Date : <%= @start_date %>");
+				csv.push("To Date : <%= @end_date %>");
+				var rows = html.querySelectorAll("tr");
+				
+				 
+				for (var i = 0; i < rows.length; i++) {
+					var row = [], cols = rows[i].querySelectorAll("td, th");
+						for (var j = 0; j < cols.length; j++)
+						{
+							row.push(cols[j].innerText);
+						}
+						csv.push(row.join(","));		
+					}
+
+					// Download CSV
+					download_csv(csv.join("\n"), filename);
+			}
+
+			document.getElementById("generate").addEventListener("click", function () {
+					var html = document.getElementById("report");
+				export_table_to_csv(html, "Rightful Conviction Indicators.csv");
+			});
+		</script>
+		</div>
+		</div>
+	</div>
+</div>

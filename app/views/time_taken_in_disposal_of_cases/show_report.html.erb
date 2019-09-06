@@ -1,0 +1,124 @@
+<div class="container">
+	<div class="row">
+    <div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/time_taken_in_disposal_of_cases/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_time_taken_in_disposal_of_cases") do %>
+			<div class="title-sub-report">
+				<h3>Time taken in Disposal of Cases</h3>
+			<div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+					<div class="excel-sheet">
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+						<a id="generate" class="fa fa-file-excel-o" style ="font-size:30px;align:right" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
+					</div>
+				</div>	
+			<% end %>
+			</div>
+		</div>
+		<div style="margin-top: 5%;" id="report">
+		<table class="dataTable in_content_area reports">
+				<thead>
+						<tr>
+								<td>S.NO</td>
+								<td>Case</td>
+								<td>Court</td>
+								<td>Client Psyeudonym</td>
+								<td>Outcome</td>
+								<td>Date of Cognizance</td>
+								<td>Judgement Date</td>
+								<td>Duration of Trial rate</td>
+								<td>Effective</td>
+								<td>Adjournment</td>
+								<td>Total</td>
+						</tr>
+				</thead>
+				<tbody>
+				<% @data.each do |x| %>
+						<tr>
+								<td><%= x["noOfCase"] %></td>
+								<td><%= x["caseId"] %></td>
+								<td><%= x["courtName"] %></td>
+								<td><%= x["clientPsyudoname"] %></td>
+								<td><%= x["outcome"] %></td>
+								<td><%= x["dateOfCognizance"] %></td>
+								<td><%= x["dateJudgement"] %></td>
+								<td><%= x["durationOfTrial"] %></td>
+								<td><%= x["effective"] %></td>
+								<td><%= x["adjournment"] %></td>
+								<td><%= x["total"] %></td>
+					 </tr>
+				<% end %>
+		</tbody>
+		</table>
+		<script>
+
+		function download_csv(csv, filename) {
+			var csvFile;
+			var downloadLink;
+
+			// CSV FILE
+			csvFile = new Blob([csv], {type: "text/csv"});
+
+			// Download link
+			downloadLink = document.createElement("a");
+
+			// File name
+			downloadLink.download = filename;
+
+			// We have to create a link to the file
+			downloadLink.href = window.URL.createObjectURL(csvFile);
+
+			// Make sure that the link is not displayed
+			downloadLink.style.display = "none";
+
+			// Add the link to your DOM
+			document.body.appendChild(downloadLink);
+
+			// Lanzamos
+			downloadLink.click();
+
+			document.body.removeChild(downloadLink);
+			
+		}
+
+		function export_table_to_csv(html, filename) {
+		var csv = [];
+
+		csv.push("From Date : <%=@start_date %>");
+		csv.push("To Date : <%=@end_date %>");
+		var rows = html.querySelectorAll("tr");
+
+		 
+		for (var i = 0; i < rows.length; i++) {
+			var row = [], cols = rows[i].querySelectorAll("td, th");
+				for (var j = 0; j < cols.length; j++)
+				{
+					row.push(cols[j].innerText);
+				}
+				csv.push(row.join(","));		
+			}
+
+			// Download CSV
+			download_csv(csv.join("\n"), filename);
+		}
+
+		document.getElementById("generate").addEventListener("click", function () {
+		var html = document.getElementById("report");
+		export_table_to_csv(html, "Disposal of Cases.csv");
+		});
+		</script>
+		</div>
+	</div>
+</div>

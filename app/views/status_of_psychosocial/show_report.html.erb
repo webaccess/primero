@@ -1,0 +1,74 @@
+<div class="container">
+	<div class="row">
+    <div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/status_of_psychosocial/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_status_of_psychosocial") do %>
+			<div class="title-sub-report">
+				<h3>Progress on Psychosocial Needs</h3>
+			<div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">	
+					<button type="submit">Submit</button>
+				</div>
+			<% end %>
+			</div>
+		</div>
+		<div style="margin-top: 5%;">
+			<table class="dataTable in_content_area reports">
+				<thead>
+					<tr>
+						<td rowspan="2">Type of Needs</td>
+						<td rowspan="2">No. of cases</td>
+						<td rowspan="2">Assessment made</td>
+						<td rowspan="2">No Need Assessment Done</td>
+						<td rowspan="2">No Need Identified</td>
+						<td rowspan="2">Need Re-Occurred</td>
+						<td rowspan="2">Need identified</td>
+						<td colspan="2">Need Fulfilled</td>
+						<td rowspan="2">Could not be met</td>
+						<td rowspan="2">Efforts ongoing</td>
+						<td rowspan="2">Total</td>
+					</tr>
+					<tr>	
+						<td>Fully Met</td>
+						<td>Partially</td>
+					</tr>
+				</thead>
+                <tbody>
+                <% @data.each_with_index do |i,index|%>
+                    <tr>
+                        <td><%= i['need'] %></td>
+                        <% if index == 0 %>		
+                            <td rowspan = 7> <%= i['total_cases'] %> </td>
+                        <% else %>
+                            <% if index == 7 %>	
+                                 <td> <%= i['total_cases'] %> </td>
+                            <% end %>
+                        <% end %>
+                        <td><%= i['assessment_made'] %></td>
+                        <td><%= i['no_need_assessment_done']%></td>
+                        <td><%= i['no_need_identified']%></td>
+                        <td><%= i['need_re_occured'] %></td>
+                        <td><%= i['need_identified'] %></td>
+                        <td><%= i['need_fulfilled_fully_met'] %></td>
+                        <td><%= i['need_fulfilled_partially_met'] %></td>
+                        <td><%= i['could_not_be_met'] %></td>
+                        <td><%= i['efforts_ongoing'] %></td>
+                        <td><%= i['total'] %></td>
+                    </tr>
+                <% end %>
+				</tbody>	
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,107 @@
+<div class="container">
+	<div class="row">
+		<div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/time_taken_for_completion_of_childs_testimony/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_time_taken_for_completion_of_childs_testimonyt") do %>
+      <div class="title-sub-report">
+				<h3>Cases where trial completed</h3>
+			</div>
+      <div class="sub-report-filter">
+				<div class="col-sm-3">      
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+				</div>	
+			<% end %>
+			</div>
+		</div>
+		<div style="margin-top: 5%;" id="report">
+		<table class="dataTable in_content_area reports">
+				<thead>
+					<tr>
+						<th>Period</th>
+						<th>No. of Cases</th>
+						<th>Percentage</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr colspan = 3>Case where Trial Completed (From Cognizance to Judgement)</tr>
+						<tr>
+							<td>1 day</td>
+							<td><%= @oneDay %></td>
+							<td><%= @oneDayPercent %>%</td>
+						</tr>
+						<tr>
+								<td>2-10 days</td>
+								<td><%= @twoTenDay %></td>
+								<td><%= @twoTenDayPercent %>%</td>
+						</tr>
+						<tr>
+								<td>0-1 Months (11-30 days)</td>
+								<td><%= @zeroOneMonth %></td>
+								<td><%= @zeroOneMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>1-3 Months (31-90 days)</td>
+								<td><%= @oneThreeMonth %></td>
+								<td><%= @oneThreeMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>3-6 Months (91-180 days)</td>
+								<td><%= @threeSixMonth %></td>
+								<td><%= @threeSixMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>6-9 Months (181-270 days)</td>
+								<td><%= @sixNineMonth %></td>
+								<td><%= @sixNineMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>9-12 Months (271 -365 days)</td>
+								<td><%= @nineTweleveMonth %></td>
+								<td><%= @nineTweleveMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>12-15 Months (366-450 days)</td>
+								<td><%= @tweleveFifteenMonth %></td>
+								<td><%= @tweleveFifteenMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>15-18 Months (451-540 days)</td>
+								<td><%= @fifteenEighteenMonth %></td>
+								<td><%= @fifteenEighteenMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>18-21 Months (541-630 days)</td>
+								<td><%= @eighteenTwentyOneMonth %></td>
+								<td><%= @eighteenTwentyOneMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td>21-27 Months (631-810 days)</td>
+								<td><%= @twentyOneTwentySevenMonth %></td>
+								<td><%= @twentyOneTwentySevenMonthPercent %>%</td>
+						</tr>
+						<tr>
+								<td><b>Total</b></td>
+								<td><%= @total %></td>
+								<td><%= @totalPercent %>%</td>
+						</tr>
+				</tbody>
+		</table>
+		</div>
+		
+		
+	</div>
+</div>
+
+
+
+
