@@ -3,6 +3,10 @@ class BailInterimCompensationController < ApplicationController
 		
 	end
 
+	def redirect_to_index
+		redirect_to '/all_reports/bail_interim_compensation'
+	end
+
 	def submit_form
 		start_date = params[:start_date]
 		end_date = params[:end_date]
@@ -28,19 +32,11 @@ class BailInterimCompensationController < ApplicationController
         stage_array=[]
         stages_of_a_legal_case = Lookup.by_lookup_stages_of_a_legal_case['rows']
         for i in stages_of_a_legal_case[0]['key']
-            stage_array.push(i['id'])
+            stage_array.push([i['id'],i['display_text']])
         end
 		
-		#puts start_date
-		#puts end_date
-
 		bail_interim_compensation_witness_protection = Child.by_bail_interim_compensation_witness_protection.startkey([start_date]).endkey([end_date,{}])['rows']
 		
-		start_date_x = (Date.parse(start_date)-365).to_s
-		end_date_x = (Date.parse(end_date)-365).to_s
-
-		bail_interim_compensation_witness_protection = Child.by_bail_interim_compensation_witness_protection.startkey([start_date_x]).endkey([end_date_x])['rows']
-
 		for stage in stage_array
 			for year in year_array
 				@court_hearings = 0
@@ -60,7 +56,7 @@ class BailInterimCompensationController < ApplicationController
 							if i['key'][1]!=nil
 								if_stage_present = 0
 								for j in i['key'][1] #----looping in all subforms of a case #
-									if j.has_key? ("stage") and j["stage"].include? stage #----match stage
+									if j.has_key? ("stage") and j["stage"].include? stage[0] #----match stage
 										if_stage_present += 1 
 										@court_hearings += 1
 										if j.has_key? ("lawyer_present_for_hearing") and j['lawyer_present_for_hearing'] == true
@@ -95,7 +91,7 @@ class BailInterimCompensationController < ApplicationController
 				if !@data.empty?
 					if_data_present = 0
 					for i in @data
-						if i['stage'] == stage
+						if i['stage'] == stage[1]
 							if_data_present += 1
 							i['length'] += 1 
 							i['data'].push({
@@ -115,7 +111,7 @@ class BailInterimCompensationController < ApplicationController
 					end
 					if if_data_present == 0
 						@data.push({
-						"stage" => stage,
+						"stage" => stage[1],
 						"length" => 1,
 						"data" => [
 							{
@@ -134,7 +130,7 @@ class BailInterimCompensationController < ApplicationController
 					end
 				else
 					@data.push({
-					"stage" => stage,
+					"stage" => stage[1],
 					"length" => 1,
 					"data" => [
 						{
@@ -153,7 +149,42 @@ class BailInterimCompensationController < ApplicationController
 				end
 			end		
 		end	
-		#puts @data		
+		
+		for i in @data
+			if i['length'] >= 2
+				i['length'] += 1
+				i['data'].push({
+					"year" => 'Total',
+					"court_hearings" => 0,
+					"no_of_cases" => 0,
+					"hearing_atend_by_haq_lawyer" => 0,
+					"no_of_heaing_missed_by_haq_lawyer" => 0,
+					"no_info_avail_abt_hearing_date" => 0,
+					"valkatname_not_signed" => 0,
+					"no_lawyer_appoint" => 0,
+					"valkatnama_signed_bt_no_lawyer_appoint" => 0,
+					"no_need_of_lawyer_presence" => 0
+				})
+
+				length = i['length']-1
+
+				for j in i['data']
+					if j['year']!= 'Total'
+						i['data'][length]['court_hearings'] += j['court_hearings']
+						i['data'][length]['no_of_cases'] += j['no_of_cases']
+						i['data'][length]['hearing_atend_by_haq_lawyer'] += j['hearing_atend_by_haq_lawyer']
+						i['data'][length]['no_of_heaing_missed_by_haq_lawyer'] += j['no_of_heaing_missed_by_haq_lawyer']
+						i['data'][length]['no_info_avail_abt_hearing_date'] += j['no_info_avail_abt_hearing_date']
+						i['data'][length]['valkatname_not_signed'] += j['valkatname_not_signed']
+						i['data'][length]['no_lawyer_appoint'] += j['no_lawyer_appoint']
+						i['data'][length]['valkatnama_signed_bt_no_lawyer_appoint'] += j['valkatnama_signed_bt_no_lawyer_appoint']
+						i['data'][length]['no_need_of_lawyer_presence'] += j['no_need_of_lawyer_presence'] 
+					end
+				end
+			end
+		end
+
 		render "show_report"
 	end
 end
+

@@ -24,6 +24,27 @@ class Lookup < CouchRest::Model::Base
         emit(doc.lookup_values_en, 1);
       }	
     }"
+
+    view :by_lookup_reason_of_adjournment,
+    :map => "function(doc) {
+      if(doc._id.match(/lookup-reason-for-adjournments/)){
+        emit(doc.lookup_values_en, 1);
+      }	
+    }"
+    
+     view :by_reason_for_inability_to_meet,
+    :map => "function(doc) {
+      if(doc._id.match(/lookup-reasons-for-inability-to-meet-a-need/)){
+        emit(doc.lookup_values_en, 1);
+      }	
+    }"
+
+    view :by_lookup_court,
+    :map => "function(doc) {
+      if(doc._id.match(/lookup-court-65a6835/)){
+        emit(doc.lookup_values_en, 1);
+      }	
+    }"
   end
 
   #TODO This validate_name_in_base_language is needed in mulitiple models... find a better solution

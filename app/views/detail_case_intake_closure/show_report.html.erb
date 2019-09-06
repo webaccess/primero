@@ -1,21 +1,33 @@
 <div class="container">
 	<div class="row">
-        <div id = "validation_div">
-            <h3>Details of Case Intake and Closure</h3>
-            <% if @date_validation == "true" %>
-                <label style="color: red">start date cannot be greater than end date</label>
-            <% end %>
-            <%= form_tag("/all_reports/detail_case_intake_closure/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_monthly_report") do %>
-                <label>Start Date</label>
-                <%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today)%>
-
-                <label>End Date</label>
-                <%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today)%>
-
-                <button type="submit">Submit</button>
-            <% end %>
-        </div>
-		<div class="large-12 small-12 columns">
+    <div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/detail_case_intake_closure/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_monthly_report") do %>
+			<div class="title-sub-report">
+				<h3>Details of Case Intake and Closure</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">	
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+					<div class="excel-sheet">
+						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+						<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
+					</div>
+				</div>
+			<% end %>
+			</div>
+		</div>
+		<div style="margin-top: 5%;" id="report">
 			<table class="dataTable in_content_area reports">
 				<thead>
 					<tr>
@@ -63,16 +75,96 @@
 							<td><%= i['before_close'] %></td>					
                             <td><%= i['psychosocial'] %></td>
 							<td><%= i['psycholegal'] %></td>
-                            <td><%= i['totalpyscholegal'] %></td>
-                            <td><%= i['psychosocial_closed'] %></td>
-                            <td><%= i['psycholegal_closed'] %></td> 
-                            <td><%= i['totalpyscholegal_closed'] %></td>  
-                            <td><%= i['pending_live'] %></td>
-                            <td><%= i['totalformalcase'] %></td>                                                   
+							<td><%= i['totalpyscholegal'] %></td>
+							<td><%= i['psychosocial_closed'] %></td>
+							<td><%= i['psycholegal_closed'] %></td> 
+							<td><%= i['totalpyscholegal_closed'] %></td>  
+							<td><%= i['pending_live'] %></td>
+							<td><%= i['totalformalcase'] %></td>                                                   
 						</tr>
 					<% end %>
 				</tbody>	
 			</table>
+			<script>
+			function download_csv(csv, filename) {
+				var csvFile;
+				var downloadLink;
+
+				// CSV FILE
+				csvFile = new Blob([csv], {type: "text/csv"});
+
+				// Download link
+				downloadLink = document.createElement("a");
+
+				// File name
+				downloadLink.download = filename;
+
+				// We have to create a link to the file
+				downloadLink.href = window.URL.createObjectURL(csvFile);
+
+				// Make sure that the link is not displayed
+				downloadLink.style.display = "none";
+
+				// Add the link to your DOM
+				document.body.appendChild(downloadLink);
+
+				// Lanzamos
+				downloadLink.click();
+
+				document.body.removeChild(downloadLink);
+				
+			}
+
+			function export_table_to_csv(html, filename) {
+				var csv = [];
+			
+				csv.push("From Date : <%= @start_date %>");
+				csv.push("To Date : <%= @end_date %>");
+				var rows = html.querySelectorAll("tr");
+				
+				 
+				for (var i = 0; i < rows.length; i++) {
+					var row = [], cols = rows[i].querySelectorAll("td, th");
+						for (var j = 0; j < cols.length; j++)
+						{
+							row.push(cols[j].innerText);
+						}
+						csv.push(row.join(","));		
+					}
+
+					// Download CSV
+					download_csv(csv.join("\n"), filename);
+			}
+
+			document.getElementById("generate").addEventListener("click", function () {
+					var html = document.getElementById("report");
+				export_table_to_csv(html, "Case Intake and Closure.csv");
+			});
+			
+			function generateExcel(el) {
+			var clon = el.clone();
+			var html = clon.wrap('<div>').parent().html();
+
+			//add more symbols if needed...
+			while (html.indexOf('á') != -1) html = html.replace(/á/g, '&aacute;');
+			while (html.indexOf('é') != -1) html = html.replace(/é/g, '&eacute;');
+			while (html.indexOf('í') != -1) html = html.replace(/í/g, '&iacute;');
+			while (html.indexOf('ó') != -1) html = html.replace(/ó/g, '&oacute;');
+			while (html.indexOf('ú') != -1) html = html.replace(/ú/g, '&uacute;');
+			while (html.indexOf('º') != -1) html = html.replace(/º/g, '&ordm;');
+			html = html.replace(/<td>/g, "<td>");			
+			
+			return html;
+		}
+		
+		function createDownloadLink(anchorSelector, str, fileName){			
+				var url = "data:application/vnd.ms-excel," + encodeURIComponent(str);
+				$(anchorSelector).attr("download", fileName);               
+				$(anchorSelector).attr("href", url);
+				
+			}
+		
+		</script>
 		</div>
 	</div>
 </div>

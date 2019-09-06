@@ -29,6 +29,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  width: 100%;
 }
 
 .form-inline label {
@@ -37,7 +38,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .form-inline input {
   vertical-align: middle;
-  margin: 5px 10px 5px 0;
+  margin: 5px 10px 0px 0;
   padding: 10px;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -52,15 +53,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 }
 
 
-a#generate {
-    display: block;
-    text-align: end;
-    font-size: 40px;
-    color: green;
-}
-
 tr.test-report {
-  text-align: center;
+    text-align: center;
 }
 
 @media (max-width: 800px) {
@@ -73,3 +67,149 @@ tr.test-report {
     align-items: stretch;
   }
 }
+
+//ALL REPORTS PAGE
+@import url('https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+
+.pcs:after { content: " pcs"; }
+.cur:before { content: "$"; }
+.per:after { content: "%"; }
+// --------------------------
+* { box-sizing: border-box; }
+body { padding: 0px; }
+
+// Table
+table {
+  width: 100%;
+  th { text-align: left; border-bottom: 1px solid #ccc;}
+  th, td { padding: .4em; }
+}
+
+// fold table 
+table.fold-table {
+  > tbody {
+    // view segment
+    > tr.view {
+      td, th {cursor: pointer;}
+      td:first-child, 
+      th:first-child { 
+        position: relative;
+        padding-left:20px;
+        &:before {
+          position: absolute;
+          top:50%; left:5px;
+          width: 9px; height: 16px;
+          margin-top: -8px;
+          font: 16px fontawesome;
+          color: #999;
+          content: "\f0d7";
+          transition: all .3s ease;
+        }
+      }
+      &:nth-child(4n-1) { background: #eee; }
+      &:hover { background: #000; }
+      &.open {
+        background: transparent !important;
+        td:first-child, th:first-child {
+          &:before {
+            transform: rotate(-180deg);
+            color: #333;
+          }
+        }
+      }
+    }
+  
+    // fold segment
+    > tr.fold {
+      display: none;
+      &.open { 
+      display: table-row;
+			background-color: #ebf0e4 !important;
+			font-size: 13px !important;
+			 }
+    }
+  }
+}
+
+table.report:not(.record_list_view) tr td {
+    background: transparent;
+    color: #86A05D !important;
+    font-weight: bold;
+}
+
+table.report:not(.record_list_view) tr td:hover {
+    background-color: #eeeeee !important;
+    color: #333;
+}
+
+// fold content 
+.fold-content {
+  padding: 0px !important;
+  h3 { margin-top:0; }
+  > table {
+    border: none !important;
+    margin-bottom: 0px !important;
+    > tbody {
+      tr:nth-child(even) {
+        background: #eee;
+      }
+    }
+  }
+}
+.fold-table {
+    border: 1px solid #aec687;
+}
+.view.open {
+    color: #86A05D !important;
+}
+.fold-content a {
+    font-weight: normal;
+    font-size: 14px;
+}
+h2.head-reports {
+    padding: 14px !important;
+}
+
+//FILTER-REPORTS
+.title-sub-report {
+    width: 100%;
+    margin-top: 25px;
+    background-color: #ebf0e4 !important;
+    padding: 10px;
+    margin-bottom: 0px;
+}
+.title-sub-report h3 {
+    font-size: 22px;
+    padding-left: 10px;
+}
+.sub-report-filter {
+    padding: 20px;
+    background: #f5f5f5 !important;
+    width: 100%;
+}
+.sub-report-filter .col-sm-3 {
+    width: 22.5%;
+    display: inline-block;
+    margin-right: 25px;
+    vertical-align: bottom;
+}
+
+
+.button-sub {
+    display: inline-block;
+}
+.excel-sheet {
+    display: inline-block;
+    margin-left: 10px;
+}
+.excel-sheet a {
+    color: green;
+    font-size: 30px;
+    vertical-align: bottom;
+}
+	
+
+div#validation_div {
+    width: 100% !important;
+}
+

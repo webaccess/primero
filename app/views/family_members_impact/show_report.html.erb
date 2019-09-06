@@ -29,10 +29,10 @@
 					<% @data.each do |i|%>
 						<tr>
 							<td><%= i['year'] %></td>
-							<td id="family_stop_blame"><%= i['family_stop_blame'] %></td>
-							<td id="in_family_knw_nd_under_csa"><%= i['in_family_knw_nd_under_csa'] %></td>
-							<td id="family_support_edu"><%= i['family_support_edu'] %></td>
-							<td id="family_und_imp"><%= i['family_und_imp'] %></td>
+							<td><%= i['@family_stop_blame'] %></td>
+							<td><%= i['@in_family_knw_nd_under_csa'] %></td>
+							<td><%= i['@family_support_edu'] %></td>
+							<td><%= i['@family_und_imp'] %></td>
 							<td>-</td>
 						</tr>
 					<% end %>

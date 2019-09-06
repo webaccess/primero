@@ -1,0 +1,27 @@
+<div class="container">
+	<div class="row">
+		<div id = "validation_div">
+			<% if @date_validation == "true" %>
+					<label style="color: red">start date cannot be greater than end date</label>
+			<% end %>
+			<%= form_tag("/all_reports/judgement_status/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_judgement_status") do %>
+			<div class="title-sub-report">
+				<h3>Status of Cases where Trial is Completed and Nature of Disposal</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+				</div>	
+			<% end %>
+			</div>
+		</div>
+	</div>
+</div>

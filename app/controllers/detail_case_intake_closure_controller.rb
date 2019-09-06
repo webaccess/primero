@@ -81,11 +81,13 @@ class DetailCaseIntakeClosureController < ApplicationController
 								@pyslegal_formal_close += 1	
 							end
 						end
-						if j['key'][1].include? "referral_84755" and j['key'][2].include? "open" and j['key'][3] == nil
-							@cases_pending += 1	
-						end
-						if j['key'][1].include? "referral_84755" and j['key'][2].include? "closed" and j['key'][3] == nil
-							@before_formal_close += 1	
+						if j['key'][1]!=nil and j['key'][2]!=nil
+							if j['key'][1].include? "referral_84755" and j['key'][2].include? "open" and j['key'][3] == nil
+								@cases_pending += 1	
+							end
+							if j['key'][1].include? "referral_84755" and j['key'][2].include? "closed" and j['key'][3] == nil
+								@before_formal_close += 1	
+							end
 						end
 						@totalpsylegal = @cases_pyscho + @cases_pyslegal
 						@totalpsylegal_close = @pyscho_formal_close + @pyslegal_formal_close

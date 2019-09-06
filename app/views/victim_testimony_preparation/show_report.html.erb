@@ -1,0 +1,60 @@
+<div class="container">
+	<div class="row">
+		<%= form_tag("/all_reports/victim_testimony_preparation/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_monthly_report") do %>
+			<div class="title-sub-report">
+				<h3>Victim Testimony Preparation</h3>
+			</div>
+			<div class="sub-report-filter">
+				<div class="col-sm-3">
+					<label>Start Date</label>
+					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<label>End Date</label>
+					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+				</div>
+				<div class="col-sm-3">
+					<button type="submit">Submit</button>
+				</div>
+			<% end %>
+			</div>
+		<div style="margin-top: 5%;" id="report">
+			<table class="dataTable in_content_area reports">
+				<thead>
+					<tr>
+							<td rowspan="2">Case ID</td>
+							<td rowspan="2">Pseudonyms</td>
+							<td colspan="2">Examination-in-Chief</td>
+							<td colspan="2">Cross-Examination</td>
+							<td colspan="<%= @year.length %>">No. of Session</td>
+					</tr>
+					<tr>
+						<td>Date of Beginning</td>
+						<td>Date of Ending</td>
+						<td>Date of Beginning</td>
+						<td>Date of Ending</td>
+						<% @year.each do |x| %>
+							<td><%=x[0] %></td>
+						<% end %>
+					</tr>
+				</thead>
+				<tbody>
+					<% @data.each do |x| %>
+					<tr>
+						<td><%= x["case_id"] %></td>
+						<td><%= x["pseudonyms"] %></td>
+						<td><%= x["examinationinchief_commenced"] %></td>
+						<td><%= x["examinationinchief_was_completed"] %></td>
+						<td><%= x["crossexamination_commenced"] %></td>
+						<td><%= x["crossexamination_completed"] %></td>
+						<% x["year"].each do |y| %>
+							<td><%= y[1] %></td>
+						<% end %>
+					</tr>
+					<% end %>
+				</tbody>	
+			</table>
+		</div>
+	</div>	
+	</div>
+</div>
