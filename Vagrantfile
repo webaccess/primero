@@ -7,19 +7,11 @@ end
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/ubuntu-16.04"
 
-  config.vm.network :forwarded_port, guest: 3000, host: 3000
-  config.vm.network :forwarded_port, guest: 3001, host: 3001 # Second server for testing replication
-  config.vm.network :forwarded_port, guest: 5984, host: 5984
-  config.vm.network :forwarded_port, guest: 8000, host: 8000
-  config.vm.network :forwarded_port, guest: 8443, host: 8443
+  config.vm.network :forwarded_port, guest: 3005, host: 3005
+  config.vm.network :forwarded_port, guest: 5984, host: 3456
 
   #Sunspot solr servers.
-  config.vm.network :forwarded_port, guest: 8983, host: 8983
-  config.vm.network :forwarded_port, guest: 8982, host: 8982
-  config.vm.network :forwarded_port, guest: 8981, host: 8981
-  config.vm.network :forwarded_port, guest: 8901, host: 8901
-  config.vm.network :forwarded_port, guest: 8903, host: 8903
-  config.vm.network :forwarded_port, guest: 8902, host: 8902
+  config.vm.network :forwarded_port, guest: 8985, host: 8523
 
   if ENV['PUBLIC_NETWORK']
     config.vm.network "public_network"

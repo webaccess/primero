@@ -5,8 +5,8 @@ Primero = _primero.Views.Base.extend({
     'click .btn_submit': 'submit_form',
     'click .gq_popovers': 'engage_popover',
     'click .gq_select_popovers': 'engage_select_popover',
-    'sticky-start .record_controls_container, .index_controls_container': 'start_sticky',
-    'sticky-end .record_controls_container, .index_controls_container': 'end_sticky',
+    //'sticky-start .record_controls_container, .index_controls_container': 'start_sticky',
+    //'sticky-end .record_controls_container, .index_controls_container': 'end_sticky',
     'click .action_btn': 'disable_default_events',
     'change .record_types input:not([type="hidden"])': 'record_type_changed',
     'click #audio_link, .document, .bulk_export_download': '_primero_check_download_status',
@@ -50,7 +50,7 @@ Primero = _primero.Views.Base.extend({
     _primero.apply_filters = this.apply_filters;
 
     this.init_trunc();
-    this.init_sticky();
+    //this.init_sticky();
     this.init_popovers();
     this.init_autosize();
     this.init_action_menu();
