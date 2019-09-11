@@ -17,26 +17,28 @@
         <table class="dataTable in_content_area reports">
             <thead>
                 <tr>
-									<td>Reasons for inability to meet a need</td>
-									<td>Emotional/ Psychological</td>
-									<td>Shelter/ Protection</td>
-									<td>Educational</td>
-									<td>Financial</td>
-									<td>Paralegal</td>
-									<td>Familial</td>
+					<td>Reasons for inability to meet a need</td>
+					<td>Emotional/ Psychological</td>
+					<td>Shelter/ Protection</td>
+					<td>Educational</td>
+					<td>Financial</td>
+					<td>Paralegal</td>
+					<td>Familial</td>
+					<td>Medical</td>
                 </tr>
             </thead>
             <tbody>
-              <% @inability_to_meet.each do |x| %>  
-							<tr>
-								<td><%= x[:display_text] %></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-							</tr>
+              <% @data.each do |x| %>  
+				<tr>
+					<td><%= x["reason"] %></td>
+					<td><%= x["reason_emotional"] %></td>
+					<td><%= x["reason_shelter_protection"] %></td>
+					<td><%= x["reason_educational_vocational"] %></td>
+					<td><%= x["reason_financial"] %></td>
+					<td><%= x["reason_paralegal"] %></td>
+					<td><%= x["reason_familial"] %></td>
+					<td><%= x["reason_medical"] %></td>
+				</tr>
               <% end %>
             </tbody>	
         </table>

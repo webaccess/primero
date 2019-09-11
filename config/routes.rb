@@ -154,9 +154,8 @@ Primero::Application.routes.draw do
   resources :trial_completed
   
   
-	resources :status_as_on
-	resources :cases_where_identified
-	
+  resources :status_as_on
+
 	resources :supported_by_lawyers
 	
 	#resources :case_intake_and_closure
