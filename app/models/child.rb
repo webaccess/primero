@@ -289,7 +289,7 @@ class Child < CouchRest::Model::Base
 						var sec_needs = doc.whether_child_has_secondary_psychological_needs
 						var cons = doc.whether_secondary_psychological_needs_attended_by_counsellor
 					 
-							emit([new Date(doc.registration_date),sec_needs,cons]);
+							emit([new Date(doc.registration_date),sec_needs,cons,doc.cp_mental_health_assessment_subform_counselling_session]);
 						
 					}"
 			
@@ -328,6 +328,12 @@ class Child < CouchRest::Model::Base
 						emit([new Date(doc.registration_date),[doc.case_id_display,doc.pseudonym,doc.date_on_which_examinationinchief_commenced,doc.date_on_which_examinationinchief_was_completed,doc.date_on_which_crossexamination_commenced,doc.date_on_which_cross_examination_was_completed,doc.cp_lawyer_monthly_update_subform_victim_testimony_pevt]]);
         }" 
 
+      # table 9.2 indicator 1
+      view 	:by_closure_form_lawyer,
+      :map => "function(doc) {
+        emit([new Date(doc.registration_date),doc.special_focus,doc.type_of_closure,doc.closure_reason]);      
+      }"
+
       # table 9.2 indicator 2
       view 	:by_vakalatnama_monthly_lawyer,
 				:map => "function(doc) {
@@ -338,6 +344,23 @@ class Child < CouchRest::Model::Base
       view 	:by_child_before_testimony,
       :map => "function(doc) {
         emit([new Date(doc.registration_date),doc.whether_child_restored_to_herhis_home_state_before_testimony,doc.childs_testimony_recorded]);      
+      }"
+
+      # table 9.2 indicator 4 & 5
+      view 	:by_judgement_is_pronounced,
+      :map => "function(doc) {
+        emit([new Date(doc.registration_date),doc.case_type_legal_psycho,doc.date_of_pronouncement_of_judgment,doc.convicted_acquitted_abated_discharged]);      
+      }"
+
+      # table 9.2 indicator 6
+      view 	:by_bail_app_result,
+      :map => "function(doc) {
+        var a = doc.cp_lawyer_monthly_update_subform_bail_related_information
+        if(a!=0){
+          for (var i in a){
+          emit([new Date(doc.registration_date),a[i].date_of_disposal,a[i].decision_on_bail_application,a[i].lawyer_present_and_opposed_bail_application]); 
+          }
+        }     
       }"
 						
 			# ----------------------------------------------------------------------------------------------
@@ -371,6 +394,11 @@ class Child < CouchRest::Model::Base
       view 	:by_cases_where_identified_res_not_met,
       :map => "function(doc) {
             emit([new Date(doc.registration_date),doc.cp_psychosocial_needs_status_subform_type_of_need])
+          }"
+
+      view 	:by_psychological_progress_impact_achievement,
+      :map => "function(doc) {
+            emit([new Date(doc.registration_date),[doc.family_stopped_blaming_the_child, doc.family_has_attended_at_least_three_parents_support_group_meetings, doc.family_understands_importance_of_counselling, doc.family_understands_importance_of_self_care, doc.family_is_regular_with_childs_counselling_of_the_child, doc.family_is_regular_with_counselling_for_self, doc.family_supports_the_child_in_continuing_education, doc.family_is_using_final_compensation_for_childs_benefit, doc.family_is_linked_to_a_social_security_welfare_scheme_of_the_government, doc.familys_knowledge_and_understanding_of_csa_has_increased, doc.family_understands_importance_of_being_regular_with_court_hearings, doc.childfamily_is_able_to_procure_basic_case_related_documents_with_haqs_intervention, doc.complaint_of_domestic_violence_is_filed, doc.referral_services_provided_to_family_members_facing_domestic_violence, doc.family_members_facing_domestic_violence_are_able_to_find_shelter_and_protection, doc.mother_is_able_to_find_work_employment_financial_security_in_incest_cases]])
           }"
 
       # Table 9

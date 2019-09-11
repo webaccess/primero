@@ -32,7 +32,6 @@ class AppealInAppellateController < ApplicationController
 		cases_pending_formal_intake = Child.by_cases_pending_formal_intake.startkey([start_date]).endkey([end_date,{}])['rows']
 		cases_previous_year = Child.by_cases_pending_formal_intake.startkey([start_date_x]).endkey([end_date_x,{}])['rows']
 
-
 		for year in year_array
 			@total_case = 0
 			@cases_pending = 0
@@ -49,8 +48,10 @@ class AppealInAppellateController < ApplicationController
 					recieved_year = i['key'][0].split('-')[0]
 					if recieved_year.to_i == year
 						@total_case += 1
-						if i['key'][1].include? "closed"
-							@formal_close += 1
+						if i['key'][1]!=nil
+							if i['key'][1].include? "closed"
+								@formal_close += 1
+							end
 						end
 						@totalab = @total_case
 					end
@@ -61,32 +62,34 @@ class AppealInAppellateController < ApplicationController
 				if j['key'][0]!=nil
 					recieved_year = j['key'][0].split('-')[0]
 					if recieved_year.to_i == year
-						if j['key'][1].include? "referral_84755" and j['key'][2].include? "open" and j['key'][3] == nil
-							@cases_pending += 1	
-						end
-						if j['key'][1].include? "referral_84755" and j['key'][2].include? "closed" and j['key'][3] == nil
-							@before_formal_close += 1	
+						if j['key'][1]!=nil and j['key'][2]!=nil
+							if j['key'][1].include? "referral_84755" and j['key'][2].include? "open" and j['key'][3] == nil
+								@cases_pending += 1	
+							end
+						
+							if j['key'][1].include? "referral_84755" and j['key'][2].include? "closed" and j['key'][3] == nil
+								@before_formal_close += 1	
+							end
 						end
 						@totalcg = @cases_pending + @before_formal_close
 					end
 				end
 			end
-			#puts @totalcg
 
 			for k in cases_previous_year
 				if k['key'][0]!=nil
 					recieved_year = k['key'][0].split('-')[0]
 					if recieved_year.to_i == year
-						if k['key'][1].include? "referral_84755" and k['key'][2].include? "open" and k['key'][3] == nil
-							@cases_previous += 1	
+						if k['key'][1]!=nil and k['key'][2]!=nil 
+							if k['key'][1].include? "referral_84755" and k['key'][2].include? "open" and k['key'][3] == nil
+								@cases_previous += 1	
+							end
 						end
 						@totalab += @cases_previous
 					end
 				end
 			end
-			#puts @cases_pending
-			#puts @cases_previous
-		
+
 			@testtotal = @totalab - @totalcg
 			@balance = @testtotal - @formal_close 
 			puts @balance
