@@ -30,7 +30,6 @@ class PsychologicalProgressImpactAchievementController < ApplicationController
         end
 
         psychosocial_data_count = Child.by_psychological_progress_impact_achievement.startkey([start_date]).endkey([end_date,{}])['rows']
-        
         for year in year_array
             @family_stopped_blamming_child = 0
             @family_has_attended_atleast_3_parents_supp_grp = 0
@@ -52,6 +51,7 @@ class PsychologicalProgressImpactAchievementController < ApplicationController
                 if i['key'][0]!=nil
                     recieved_year = i['key'][0].split('-')[0]
                     if recieved_year.to_i == year
+                        
                         if i['key'][1]!= nil and i['key'][1].length > 0
                             if i['key'][1][0]!= nil and i['key'][1][0].include? "yes" 
                                 @family_stopped_blamming_child += 1
@@ -125,8 +125,8 @@ class PsychologicalProgressImpactAchievementController < ApplicationController
             "mother_able_to_file_work_empolyment" => @mother_able_to_file_work_empolyment
             })
         end
-    @start_date = start_date
-    @end_date = (Date.parse(end_date)-1).to_s 
-		render "show_report"
+        @start_date = start_date
+        @end_date = (Date.parse(end_date)-1).to_s 
+        render "show_report"
 	end	
 end

@@ -37,7 +37,7 @@ class TrialCourtCasesController < ApplicationController
 				if i['key'][0]!=nil
 					if i['key'][0].split("-")[0].to_i == year
 						if i['key'][1][0]!=nil
-							if i['key'][1][0].include? "legal"
+							if i['key'][1][0].include? "psy_so_cum_legal"
 								@legal_cases += 1
 							end
 						end

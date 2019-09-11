@@ -32,6 +32,9 @@ class RightfulConvictionIndicatorsController < ApplicationController
 
 		monthly_lawyer_vakalatnama = Child.by_vakalatnama_monthly_lawyer.startkey([start_date]).endkey([end_date,{}])['rows']
 		indicator_three = Child.by_child_before_testimony.startkey([start_date]).endkey([end_date,{}])['rows']
+		indicator_four = Child.by_judgement_is_pronounced.startkey([start_date]).endkey([end_date,{}])['rows']
+		indicator_six = Child.by_bail_app_result.startkey([start_date]).endkey([end_date,{}])['rows']
+		indicator_one = Child.by_closure_form_lawyer.startkey([start_date]).endkey([end_date,{}])['rows']
 
 		@institution = 0
 		@parentalsupport = 0
@@ -42,6 +45,21 @@ class RightfulConvictionIndicatorsController < ApplicationController
 		@conferencing_record = 0
 		@court_record = 0
 		@totaltestimony = 0
+
+		@legalcount = 0
+		@legaljudgement = 0
+		@judgementpercent = 0
+		@legalconvicted = 0
+		@convictionpercent = 0
+
+		@disposaldate = 0
+		@appdispos = 0
+		@lawdismissed = 0
+
+		@incest = 0
+		@incestdisposal = 0
+		@reasonincest = 0
+		@incestpercent = 0
 
 		for year in year_array
 			for i in monthly_lawyer_vakalatnama
@@ -82,8 +100,73 @@ class RightfulConvictionIndicatorsController < ApplicationController
 					end
 				end
 			end
+
+			for l in indicator_four
+				received_year = l['key'][0].split("-")[0].to_i
+				if received_year== year
+					if l['key'][1]!= nil
+						if l['key'][1].include? "legal_25204"
+							@legalcount += 1
+						end
+						if l['key'][1].include? "legal_25204" and l['key'][2]!=nil
+							@legaljudgement += 1
+						end
+						if l['key'][1].include? "legal_25204" and l['key'][2]!=nil and l['key'][3].include? "convicted_37330"
+							@legalconvicted += 1
+						end
+					end
+				end
+			end
+
+			for m in indicator_six
+				received_year = m['key'][0].split("-")[0].to_i
+				if received_year== year
+					if m['key'][1]!=0
+						@disposaldate +=1
+					end
+					if m['key'][1]!=0 and m['key'][3]!=nil
+						if m['key'][1]!=0 and m['key'][3]==true
+							@appdispos +=1
+						end
+					end
+					if m['key'][1]!=0 and m['key'][2]!=nil and m['key'][3]!=nil
+						if m['key'][1]!=0 and m['key'][2].include? "dismissed_09645" and m['key'][3]==true
+							@lawdismissed +=1
+						end
+					end
+				end
+			end
+
+			for n in indicator_one
+				received_year = n['key'][0].split("-")[0].to_i
+				if received_year== year
+					if n['key'][1]!=nil
+						if n['key'][1].include? "incest_47243"
+							@incest +=1
+						end
+						if n['key'][1].include? "incest_and_disability_70022"
+							@incestdisposal +=1
+						end
+						if n['key'][2]!=nil and n['key'][3]!=nil
+							if n['key'][2].include? "leg_66044" and n['key'][3].include? "it_is_a_case_of_incest_and_child_has_turned_hostile_82909"
+								@reasonincest += 1
+							end
+						end
+					end 
+
+
+				end
+			end
+
+
 			
 		end
+		#-------indicator 1 ---------#
+		@totalincest = @incest + @incestdisposal
+		if @totalincest!=0
+			@incestpercent = (@reasonincest.to_f/@totalincest.to_f)*100.round
+		end
+
 		#-------indicator 2 ---------#
 		@totalchildren = @institution + @parentalsupport
 			if @totalchildren!=0
@@ -91,12 +174,20 @@ class RightfulConvictionIndicatorsController < ApplicationController
 			end
 
 		#-------indicator 3 ---------#
-		@totaltestimony = @childtestimony + @conferencing_record
+		@totaltestimony = @conferencing_record + @court_record
 			if @totaltestimony!=0
-				#@testimonypercent = () need to check with bharti
+				@testimonypercent = (@totaltestimony.to_f/@childtestimony.to_f)*100.round 
 			end
 
-			
+		#-------indicator 4 ---------#
+			@judgementpercent = (@legaljudgement.to_f/@legalcount.to_f)*100.round
+
+		#-------indicator 5 ---------#
+			@convictionpercent = (@legalconvicted.to_f/@legaljudgement.to_f)*100.round
+
+		#-------indicator 6 ---------#
+			@bailpercent = (@lawdismissed.to_f/@appdispos.to_f)*100.round
+
 		render "show_report"
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s
