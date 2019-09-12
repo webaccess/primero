@@ -35,8 +35,8 @@ class CasesClosedByLawyersController < ApplicationController
 		for i in by_lawyer_case_closed
 			@cases_closed.push({"case_id":i['key'][1],"first_name":i['key'][2],"case_title":i['key'][3],"stage":i['key'][4],"closure_reason":i['key'][5]})
 		end
-    render "show_report"
     @start_date = start_date
     @end_date = (Date.parse(end_date)-1).to_s
+	render "show_report"
 	end
 end

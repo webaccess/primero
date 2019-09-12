@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row">
+		<div>
+            <h3>Cases where trial completed</h3>
+            <%= form_tag("/all_reports/time_taken_for_completion_of_childs_testimony/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_time_taken_for_completion_of_childs_testimonyt") do %>
+				<label>Start Date</label>
+				<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today)%>
+
+				<label>End Date</label>
+				<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today)%>
+
+				<button type="submit">Submit</button>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+

@@ -145,6 +145,14 @@ Primero::Application.routes.draw do
   match '/all_reports/time_taken_in_disposal_of_cases/submit_form' => 'time_taken_in_disposal_of_cases#submit_form', :as => :time_taken_in_disposal_of_cases_submit_form, :via => :post
   match '/all_reports/time_taken_in_disposal_of_cases/submit_form' => 'time_taken_in_disposal_of_cases#redirect_to_index', :as => :time_taken_in_disposal_of_cases_redirect_to_index, :via => :get
   # ---------------------------------------
+
+# Table annexure-03----------------------------------
+  # --Time taken for completion of childs testimony
+  # Time taken in disposal of cases
+  match '/all_reports/time_taken_for_completion_of_childs_testimony' => 'time_taken_for_completion_of_childs_testimony#index', :as => :time_taken_for_completion_of_childs_testimony_index, :via => :get
+  match '/all_reports/time_taken_for_completion_of_childs_testimony/submit_form' => 'time_taken_for_completion_of_childs_testimony#submit_form', :as => :time_taken_for_completion_of_childs_testimony_submit_form, :via => :post
+  match '/all_reports/time_taken_for_completion_of_childs_testimony/submit_form' => 'time_taken_for_completion_of_childs_testimony#redirect_to_index', :as => :time_taken_for_completion_of_childs_testimony_redirect_to_index, :via => :get
+  # ----------------------------------------------------
 	
   resource :general_report
 
@@ -156,7 +164,6 @@ Primero::Application.routes.draw do
   
   resources :status_as_on
 
-	resources :supported_by_lawyers
 	
 	#resources :case_intake_and_closure
   

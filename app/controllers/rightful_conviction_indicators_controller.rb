@@ -188,8 +188,8 @@ class RightfulConvictionIndicatorsController < ApplicationController
 		#-------indicator 6 ---------#
 			@bailpercent = (@lawdismissed.to_f/@appdispos.to_f)*100.round
 
-		render "show_report"
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s
+		render "show_report"
 	end
 end

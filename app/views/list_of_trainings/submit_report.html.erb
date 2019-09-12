@@ -1,0 +1,41 @@
+<div class="container">
+	<div class="row">
+		<div>
+		<h3>List of Trainings</h3>
+			<%= form_tag("/list_of_trainings/submit_form", method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_monthly_report") do %>
+				<label for="email">Start Date:</label>
+				<%= date_field_tag(:start_date, Date.today.prev_month, :id => 'start_date_field', :max => Date.today)%>
+				<label for="pwd">End Date</label>
+				<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today)%>
+				<button type="submit">Submit</button>
+		<% end %>
+		</div>
+		<br>
+		<br>
+		<br>
+		<div style="margin-top: 5%;">
+			<table class="dataTable in_content_area reports">
+				<thead>
+					<tr>
+					<td>Date</td>
+					<td>Facilitator</td>
+					<td>Police District</td>
+					<td>Participant Group</td>
+					<td>No. of participants</td>
+					</tr>
+				</thead>
+				<tbody>
+					<% @list.each do |x| %>
+					<tr>
+						<td id="date_of_training"><%= x[:date_of_training] %></td>
+						<td id="facilitated_by"><%= x[:facilitated_by] %></td>
+						<td id="organised"><%= x[:organised] %></td>
+						<td id="description"><%= x[:description] %></td>
+						<td id="number_of_participants"><%= x[:number_of_participants] %></td>
+					</tr>
+					<% end %>
+				</tbody>	
+			</table>
+		</div>
+	</div>
+</div>

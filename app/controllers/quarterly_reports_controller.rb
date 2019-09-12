@@ -1,0 +1,3 @@
+class QuarterlyReportsController < ApplicationController
+	
+end

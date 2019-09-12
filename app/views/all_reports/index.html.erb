@@ -1,3 +1,17 @@
+<style>
+table.fold-table > tbody > tr.view td:first-child::before, table.fold-table > tbody > tr.view th:first-child::before {
+	position: absolute;
+	top: 50%;
+	left: 5px;
+	width: 9px;
+	height: 16px;
+	margin-top: -8px;
+	font: 16px fontawesome;
+	color: #999;
+	content: "\25be";
+	transition: all .3s ease;
+}
+</style>
 <div class="container">
 	<div class="row">
 		<div class="head-reports">&nbsp;</div>
@@ -176,6 +190,9 @@
 											<tr>
 												<td><a href="/all_reports/cases_closed_by_lawyers">Closure of Psychosocial cum Legal Cases and Reasons</a></td>
 											</tr>
+											<tr>
+												<td><a href="/all_reports/time_taken_for_completion_of_childs_testimony">Time taken for completion of childs testimony from start date to end date</a></td>
+											</tr>
 										</tbody>
 									</table>          
 								</div>
@@ -195,9 +212,6 @@
 											</tr>
 											<tr>
 												<td><a href="/all_reports/cases_where_identified">Unmet needs and reasons</a></td>
-											</tr>
-											<tr>
-												<td><a href="/all_reports/cases_where_trial_completed">Case where trial completed</a></td>
 											</tr>
 										</tbody>
 									</table>          
