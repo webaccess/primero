@@ -1,0 +1,288 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+function get_data_for_new_regisered_applications() {  	
+	var police_count, exclients_count, word_of_mouth_count, self_count, lawyers_legal_org_count, ngo_count, go_count,       icw_pw_count,any_other_count;
+   	police_count=0;
+	exclients_count=0;
+	word_of_mouth_count=0;
+	self_count=0;
+	lawyers_legal_org_count=0;
+	ngo_count=0;
+	go_count=0;
+	icw_pw_count=0;
+	any_other_count=0;
+        console.log("Basic " + btoa("primero" + ":" + "primero"));
+	
+
+      	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "http://192.168.2.136:5984/primero_child_development/_design/regapplication/_view/regapp?group=true", true);
+	xhr.withCredentials = true;
+	xhr.setRequestHeader("Authorization", 'Basic ' + btoa('primero:primero'));
+	xhr.onload = function () {
+	    console.log(xhr.responseText);
+	};
+	xhr.send();
+	
+	document.getElementById("police_count").innerHTML = police_count; 
+ 	document.getElementById("exclients_count").innerHTML = exclients_count;
+	document.getElementById("word_of_mouth_count").innerHTML = word_of_mouth_count; 
+	document.getElementById("self_count").innerHTML = self_count; 
+	document.getElementById("lawyers_legal_org_count").innerHTML = lawyers_legal_org_count; 
+	document.getElementById("ngo_count").innerHTML = ngo_count; 
+	document.getElementById("go_count").innerHTML = go_count; 
+	document.getElementById("icw_pw_count").innerHTML = icw_pw_count; 
+	document.getElementById("any_other_count").innerHTML = any_other_count;  
+}
+</script>
+<style>
+	.cssShow {
+	display : inline-block;
+	}
+	
+	.label-cell {
+    display: inline;
+}
+	.cssHide {
+		display : none;
+	}
+	
+table.in_content_area tbody tr td:last-child, table.in_content_area thead th:last-child {
+    border-right: 1px solid #aec687 !important;
+}
+
+table.in_content_area tbody tr td:first-child, table.in_content_area thead th:first-child {
+    border-left: 1px solid #aec687 !important;
+}
+
+table.dataTable thead td {
+    background: #fff !important;
+    border-left: 1px solid #aec687 !important;
+}
+
+table.in_content_area thead th:last-child {
+    border-right: 1px solid #aec687 !important;
+    border-bottom: 1px solid #aec687 !important;
+}
+
+table.in_content_area thead th:first-child {
+    border-left: 1px solid #aec687 !important;
+    border-top: 1px solid #aec687 !important;
+}
+
+
+</style>
+
+<div class="container">
+  <h2>Reports</h2>
+<div class="row">
+<div>
+	<label>Location</label>
+</div>
+<div class="col-sm-2" id="states">
+	<select id="report-state">
+		<option value="">select...</optin>  
+		<option value="maharashtra_94827">Maharashtra</option>
+		<option value="delhi_64730">Delhi</option>
+		<option value="ncw">NCW</option>
+	</select>
+</div>
+<div id="Cell">
+<div class="label-cell">
+	<lable>Cell</label>
+</div>
+<div id="Maharashtra" class="cell">
+
+	<select id="distr-maha">
+		<option value="">select...</option>
+		<option>Dadar</option>
+		<option>Kandivali</option>
+		<option>CBD Belapur</option><option>Kurla</option><option>Vakola</option><option>Vikhroli</option><option>Nashik</option><option>Dhule</option>
+		<option>Pune</option><option>Nanded</option><option>Aurangabad</option><option>Yawatmal</option><option>Wardha</option>
+	</select>
+</div>
+
+
+<div id="Delhi" class="cell">
+	<select id="distr-delhi">
+		<option value="">select...</option>
+		<option>Malviya Nagar</option>
+		<option>Sabji Mandi</option>
+		<option>Rani Bagh</option><option>Nand Nagri</option><option>Kamla Market</option><option>Mandir Marg</option><option>Saket</option><option>Dwarka</option>
+		<option>Sri Niwas Puri</option><option>Gazipur</option><option>Kirti Nagar</option><option>Rohini</option><option>Police LinePolice Line</option>
+		<option>Shahdara</option><option>Delhi Cantt</option>
+	</select>
+</div>
+
+
+<div id="NCW" class="cell">
+	<select id="distr-ncw">
+		<option value="">select...</option>
+		<option>Kamrup</option>
+		<option>East Khasi Hills-Shillong</option>
+		<option>Greater Chennai</option><option>Salem</option><option>Tirunelveli</option><option>Madurai</option><option>Darbhanga</option><option>Bhagalpur</option>
+		<option>Kishanganj</option><option>Motihari</option><option>Gaya</option><option>Ludhiana</option><option>Amritsar</option>
+		<option>SAS Nagar-Mohali</option><option>Bhopal</option><option>Gwalior</option><option>Indore</option><option>Jabalpur</option>
+		<option>Sagar</option><option>Balasore</option><option>Rourkela</option>
+	</select>
+</div>
+</div>
+
+	<div class="col-sm-2">
+		<button onclick="get_data_for_new_regisered_applications()" type="button" class="button btn_submit large">Result</button>
+	</div>
+</div>
+  <table class="dataTable in_content_area">
+    <thead>
+			<tr>
+				<th colspan="2" style="text-align:center" align="center">Special Cells for Women</th>
+			</tr>
+			<tr>
+				<th colspan="2" style="text-align:center" align="center">Consolidated Monthly Progress Report</th>
+			</tr>
+			<tr>
+				<th colspan="2" style="text-align:center" align="center">Details</th>
+			</tr>     
+    </thead>
+    <tbody>
+      <tr>
+				<td><b>New Registered applications</b></td>
+				<td id="registered_app">Count</td>
+      </tr>
+      <tr>
+        <td>Police</td>
+        <td id="police_count"></td>
+      </tr>
+      <tr>
+        <td>Ex-clients</td>
+        <td id="exclients_count"></td>
+      </tr>
+      <tr>
+        <td>Word of mouth</td>
+        <td id="word_of_mouth_count"></td>
+      </tr>
+      <tr>
+        <td>Self (info. through media / poster / internet etc.)</td>
+        <td id="self_count"></td>
+      </tr>
+      <tr>
+        <td>Lawyers/ legal organisations</td>
+        <td id="lawyers_legal_org_count"></td>
+      </tr>
+      <tr>
+        <td>Non-Govermental Organisation</td>
+        <td id="ngo_count"></td>
+      </tr>
+      <tr>
+        <td>Govermental Organisation</td>
+        <td id="go_count"></td>
+      </tr>
+      <tr>
+        <td>Independent Community Worker/ Political worker</td>
+        <td id="icw_pw_count"></td>
+      </tr>
+      <tr>
+        <td>Any other (for ex. Pvt. Hospitals etc.)</td>
+        <td id="any_other_count"></td>
+      </tr>
+      <tr>
+        <td><b>Home visits/Outreach details</b></td>
+        <td id="home_visit_outsearch"></td>
+      </tr>
+      <tr>
+        <td>Home visits</td>
+        <td id="home_visit"></td>
+      </tr>
+      <tr>
+        <td>Collateral visits</td>
+        <td id="collateral_visit"></td>
+      </tr>
+      
+      <tr>
+        <td>Individual meeting/sessions</td>
+        <td id="individual_meeting"></td>
+      </tr>
+      
+      <tr>
+        <td>Group meetings and sessions (Joint meeting)</td>
+        <td id="group_meeting"></td>
+      </tr>
+
+      <tr>
+        <td>Engaging police help</td>
+        <td id="engaging_police_help"></td>
+      </tr>
+      
+      <tr>
+        <td>Participation in workshops/conferences/ programmes/seminars/ meetings</td>
+        <td id="participation_in_workshop"></td>
+      </tr>
+      <tr>
+        <td>Programmes organised</td>
+        <td id="programmes_organised"></td>
+      </tr>
+      <tr>
+        <td>Conducted or facilitated a session or programme as a resource person</td>
+        <td id="conducted_session_or_prog"></td>
+      </tr>
+      <tr>
+        <td><b>Referred to:</b></td>
+        <td id="referred_to"></td>
+      </tr>
+      <tr>
+        <td>Police</td>
+        <td id="police"></td>
+      </tr>
+      <tr>
+        <td>Medical</td>
+        <td id="medical"></td>
+      </tr>
+      <tr>
+        <td>Shelter</td>
+        <td id="shelter"></td>
+       </tr>
+      <tr>
+        <td>Legal services</td>
+        <td id="legal_services"></td>
+      </tr>
+      <tr>
+        <td>Protection officer</td>
+        <td id="protection_officer"></td>
+      </tr>
+      <tr>
+        <td>NGO/CBO/Any other/Zila lok shiyakat niwaran karyalya/Govt. Offices</td>
+        <td id="lok_shiyakat_niwaran"></td>
+      </tr>
+      
+
+    </tbody>
+  </table>
+
+</div>
+<script>
+	$(document).ready(function() {
+	$('#states option[value=""]').attr("selected",true);
+	$('#Cell').addClass('cssHide');
+	$('#Maharashtra,#Delhi,#NCW').addClass('cssHide');
+ 
+	$('#states').on('change', function() {		
+		if($(this).find('option:selected').val() != ""){
+			var selectedState = $(this).find('option:selected').text();
+			$('#Cell').removeClass('cssHide').addClass('cssShow');
+			$('.cell').each(function() {
+				if ($(this).hasClass('cssShow')){
+					$(this).removeClass('cssShow').addClass('cssHide');
+				}
+			});
+			$('#' + selectedState).removeClass('cssHide').addClass('cssShow');
+		}else{
+			$('#Cell').removeClass('cssShow').addClass('cssHide');
+		}
+	}); 
+ });
+	
+</script>

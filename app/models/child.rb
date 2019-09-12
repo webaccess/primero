@@ -428,10 +428,11 @@ class Child < CouchRest::Model::Base
       }"
       
        # Annexure 3
-       view 	:by_time_taken_for_completion_of_childs_testimony,
-       :map => "function(doc) {
-         emit([new Date(doc.registration_date),[doc.date_on_which_victim_testimony_commenced, doc.date_on_which_victim_testimony_was_completed_or_ended]])
-       }"
+      view 	:by_time_taken_for_completion_of_childs_testimony,
+      :map => "function(doc) {
+        emit([new Date(doc.registration_date),[doc.date_on_which_victim_testimony_commenced, doc.date_on_which_victim_testimony_was_completed_or_ended]])
+      }"
+
       
 						
   end

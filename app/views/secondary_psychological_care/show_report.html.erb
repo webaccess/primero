@@ -1,14 +1,113 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>   
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+
+$(document).ready(function() {
+	document.getElementById("validation_div").innerHTML= "";
+    document.getElementById("submit_tag").addEventListener("click", function(event){
+		document.getElementById("validation_div").innerHTML= "";
+		var validation_content='';	
+		var start_date = document.getElementById("start_date_field").value;
+		var end_date = document.getElementById("end_date_field").value;
+		if (start_date == "" || end_date == "")
+		{
+			if (start_date == "")
+			{
+				validation_content += '<label id = "start_date_validate1" style="color: red">please select start date</label>';
+			}
+			if (end_date == "")
+			{
+				validation_content += '<label id = "end_date_validate1" style="color: red">please select end date</label>'; 
+			}
+			if (start_date!= "" && end_date!= "")
+			{
+				if(new Date(start_date)> new Date(end_date))
+				{
+					validation_content += '<label id = "date_validation1" style="color: red">start date cannot be greater than end date</label>';
+				}
+				
+			}
+
+			event.preventDefault();
+		}
+		else if (start_date!= "" && end_date!= "")
+		{
+			if(new Date(start_date)> new Date(end_date))
+			{
+				validation_content += '<label id = "date_validation1" style="color: red">start date cannot be greater than end date</label>';
+				event.preventDefault();
+			}
+			
+		}
+		document.getElementById("validation_div").innerHTML= validation_content;
+	});
+
+	$('#end_date_field').on('change', function() {
+		var end_date = document.getElementById("end_date_field").value;
+		var start_date = document.getElementById("start_date_field").value;
+		if (end_date!="")
+		  {
+		var element_exist =  document.getElementById('end_date_validate1');
+		if (typeof(element_exist) != 'undefined' && element_exist != null)
+		  {
+			document.getElementById("end_date_validate1").innerHTML = ""; 
+		  }
+		}
+		if (start_date!= "" && end_date!= "")
+		  {
+			if(new Date(start_date)<= new Date(end_date))
+			  {
+				var element_exist =  document.getElementById('date_validation1');
+				if (typeof(element_exist) != 'undefined' && element_exist != null)
+				  {
+					document.getElementById("date_validation1").innerHTML = "";
+				  }
+			  }
+			
+		  }
+		
+	  });
+	  
+	  $('#start_date_field').on('change', function() {
+		var start_date = document.getElementById("start_date_field").value;
+		var end_date = document.getElementById("end_date_field").value;
+		if (start_date!="")
+		  {
+			var element_exist =  document.getElementById('start_date_validate1');
+			if (typeof(element_exist) != 'undefined' && element_exist != null)
+				{
+					document.getElementById("start_date_validate1").innerHTML = "";  
+				}
+		  }
+		if (start_date!= "" && end_date!= "")
+		  {
+			if(new Date(start_date)<= new Date(end_date))
+			  {
+				var element_exist =  document.getElementById('date_validation1');
+				if (typeof(element_exist) != 'undefined' && element_exist != null)
+				  {
+					document.getElementById("date_validation1").innerHTML = "";
+				  }
+			  }
+			
+		  }
+	  });
+
+});
+
+</script>
 <div class="container">
 	<div class="row">
-		<div id = "validation_div">
-			<% if @date_validation == "true" %>
-					<label style="color: red">start date cannot be greater than end date</label>
-			<% end %>
+		
 			<%= form_tag("/all_reports/secondary_psychological_care/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_monthly_report") do %>
 			<div class="title-sub-report">
 				<h3>Secondary Psychological Care</h3>
 			</div>
 			<div class="sub-report-filter">
+				<div id = "validation_div"></div>
 				<div class="col-sm-3">
 					<label>Start Date</label>
 					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
@@ -18,18 +117,28 @@
 					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
 				</div>
 				<div class="col-sm-3">
-					<button type="submit">Submit</button>
+					<button type="submit" id ='submit_tag'>Submit</button>
 					<div class="excel-sheet">
-						<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-						<a id="generate" class="fa fa-file-excel-o" data-toggle="tooltip" title="Download csv" data-placement="bottom" target = "_blank"></a>
+						<a id="generate" class="fa fa-file-excel-o" style ="font-size:30px;align:right" data-toggle="tooltip" title="Download excel" data-placement="bottom" target = "_blank"></a>
 					</div>
 				</div>	
 			<% end %>
 			</div>
-		</div>
-		<div style="margin-top: 5%;" id="report">
+		<div style="margin-top: 5%; overflow-x: auto; overflow-y: auto;"  id="report">
 			<table class="dataTable in_content_area reports">
 				<thead>
+					<tr hidden>
+						<td colspan = 6 align = "center"><h4><b>Secondary Psychological Care</b></h4></td>
+					</tr>
+					<tr hidden>
+						<td>Start Date: <%= @start_date %></td>
+					</tr>
+					<tr hidden>
+						<td>End Date: <%= @end_date %></td>
+					</tr>
+					<tr hidden>
+						<td></td>
+					</tr>
 					<tr>
 						<td>Period</td>
 						<td>Total no. of cases</td>
@@ -52,62 +161,36 @@
 					<% end %>
 				</tbody>	
 			</table>
-			<script>
-			function download_csv(csv, filename) {
-				var csvFile;
-				var downloadLink;
-
-				// CSV FILE
-				csvFile = new Blob([csv], {type: "text/csv"});
-
-				// Download link
-				downloadLink = document.createElement("a");
-
-				// File name
-				downloadLink.download = filename;
-
-				// We have to create a link to the file
-				downloadLink.href = window.URL.createObjectURL(csvFile);
-
-				// Make sure that the link is not displayed
-				downloadLink.style.display = "none";
-
-				// Add the link to your DOM
-				document.body.appendChild(downloadLink);
-
-				// Lanzamos
-				downloadLink.click();
-
-				document.body.removeChild(downloadLink);
-				
-			}
-
-			function export_table_to_csv(html, filename) {
-				var csv = [];
-			
-				csv.push("From Date : <%= @start_date %>");
-				csv.push("To Date : <%= @end_date %>");
-				var rows = html.querySelectorAll("tr");
-				
-				 
-				for (var i = 0; i < rows.length; i++) {
-					var row = [], cols = rows[i].querySelectorAll("td, th");
-						for (var j = 0; j < cols.length; j++)
-						{
-							row.push(cols[j].innerText);
-						}
-						csv.push(row.join(","));		
-					}
-
-					// Download CSV
-					download_csv(csv.join("\n"), filename);
-			}
-
-			document.getElementById("generate").addEventListener("click", function () {
-					var html = document.getElementById("report");
-				export_table_to_csv(html, "Secondary psychological care.csv");
-			});
-		</script>
 		</div>
 	</div>
 </div>
+<script>
+document.getElementById("start_date_field").defaultValue = "<%= @start_date %>";
+document.getElementById("end_date_field").defaultValue = "<%=@end_date %>";
+document.getElementById("generate").addEventListener("click", function () {
+	createDownloadLink("#generate",generateExcel($("#report")),"secondry_psychological_care_report.xlsx");
+  });
+  
+  function generateExcel(el) {
+		var clon = el.clone();
+		var html = clon.wrap('<div>').parent().html();
+
+		//add more symbols if needed...
+		while (html.indexOf('á') != -1) html = html.replace(/á/g, '&aacute;');
+		while (html.indexOf('é') != -1) html = html.replace(/é/g, '&eacute;');
+		while (html.indexOf('í') != -1) html = html.replace(/í/g, '&iacute;');
+		while (html.indexOf('ó') != -1) html = html.replace(/ó/g, '&oacute;');
+		while (html.indexOf('ú') != -1) html = html.replace(/ú/g, '&uacute;');
+		while (html.indexOf('º') != -1) html = html.replace(/º/g, '&ordm;');
+		html = html.replace(/<td>/g, "<td>");			
+		
+		return html;
+	}
+	
+	function createDownloadLink(anchorSelector, str, fileName){			
+			var url = "data:application/vnd.ms-excel," + encodeURIComponent(str);
+			$(anchorSelector).attr("download", fileName);               
+			$(anchorSelector).attr("href", url);
+			
+		}
+</script>

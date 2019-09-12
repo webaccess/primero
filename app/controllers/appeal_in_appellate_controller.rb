@@ -92,7 +92,7 @@ class AppealInAppellateController < ApplicationController
 
 			@testtotal = @totalab - @totalcg
 			@balance = @testtotal - @formal_close 
-			puts @balance
+			
 			@data.push({
 				"year" => year,
 				"total" => @total_case,
@@ -105,6 +105,8 @@ class AppealInAppellateController < ApplicationController
 			})
 
 		end
+		@start_date = start_date
+		@end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"
 	end
 

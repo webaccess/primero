@@ -1,27 +1,118 @@
+<script>     
+$(document).ready(function() {
+	document.getElementById("validation_div").innerHTML= "";
+    document.getElementById("submit_tag").addEventListener("click", function(event){
+		document.getElementById("validation_div").innerHTML= "";
+		var validation_content='';	
+		var start_date = document.getElementById("start_date_field").value;
+		var end_date = document.getElementById("end_date_field").value;
+		if (start_date == "" || end_date == "")
+		{
+			if (start_date == "")
+			{
+				validation_content += '<label id = "start_date_validate1" style="color: red">please select start date</label>';
+			}
+			if (end_date == "")
+			{
+				validation_content += '<label id = "end_date_validate1" style="color: red">please select end date</label>'; 
+			}
+			if (start_date!= "" && end_date!= "")
+			{
+				if(new Date(start_date)> new Date(end_date))
+				{
+					validation_content += '<label id = "date_validation1" style="color: red">start date cannot be greater than end date</label>';
+				}
+				
+			}
+
+			event.preventDefault();
+		}
+		else if (start_date!= "" && end_date!= "")
+		{
+			if(new Date(start_date)> new Date(end_date))
+			{
+				validation_content += '<label id = "date_validation1" style="color: red">start date cannot be greater than end date</label>';
+				event.preventDefault();
+			}
+			
+		}
+		document.getElementById("validation_div").innerHTML= validation_content;
+	});
+
+	$('#end_date_field').on('change', function() {
+		var end_date = document.getElementById("end_date_field").value;
+		var start_date = document.getElementById("start_date_field").value;
+		if (end_date!="")
+		  {
+		var element_exist =  document.getElementById('end_date_validate1');
+		if (typeof(element_exist) != 'undefined' && element_exist != null)
+		  {
+			document.getElementById("end_date_validate1").innerHTML = ""; 
+		  }
+		}
+		if (start_date!= "" && end_date!= "")
+		  {
+			if(new Date(start_date)<= new Date(end_date))
+			  {
+				var element_exist =  document.getElementById('date_validation1');
+				if (typeof(element_exist) != 'undefined' && element_exist != null)
+				  {
+					document.getElementById("date_validation1").innerHTML = "";
+				  }
+			  }
+			
+		  }
+		
+	  });
+	  
+	  $('#start_date_field').on('change', function() {
+		var start_date = document.getElementById("start_date_field").value;
+		var end_date = document.getElementById("end_date_field").value;
+		if (start_date!="")
+		  {
+			var element_exist =  document.getElementById('start_date_validate1');
+			if (typeof(element_exist) != 'undefined' && element_exist != null)
+				{
+					document.getElementById("start_date_validate1").innerHTML = "";  
+				}
+		  }
+		if (start_date!= "" && end_date!= "")
+		  {
+			if(new Date(start_date)<= new Date(end_date))
+			  {
+				var element_exist =  document.getElementById('date_validation1');
+				if (typeof(element_exist) != 'undefined' && element_exist != null)
+				  {
+					document.getElementById("date_validation1").innerHTML = "";
+				  }
+			  }
+			
+		  }
+	  });
+
+});
+
+</script>
+
 <div class="container">
 	<div class="row">
-		<div id = "validation_div">
-			<% if @date_validation == "true" %>
-					<label style="color: red">start date cannot be greater than end date</label>
-			<% end %>
-			<%= form_tag("/all_reports/status_of_psychosocial/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_status_of_psychosocial") do %>
-			<div class="title-sub-report">
-				<h3>Progress on Psychosocial Needs</h3>
-			<div>
-			<div class="sub-report-filter">
-				<div class="col-sm-3">
-					<label>Start Date</label>
-					<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
-				</div>
-				<div class="col-sm-3">
-					<label>End Date</label>
-					<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
-				</div>
-				<div class="col-sm-3">	
-					<button type="submit">Submit</button>
-				</div>
-			<% end %>
+		<%= form_tag("/all_reports/status_of_psychosocial/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_status_of_psychosocial") do %>
+		<div class="title-sub-report">
+			<h3>Progress on Psychosocial Needs</h3>
+		<div>
+		<div class="sub-report-filter">
+			<div class="col-sm-3">
+				<label>Start Date</label>
+				<%= date_field_tag(:start_date, Date.today, :id => 'start_date_field', :max => Date.today, :required => true)%>
 			</div>
+			<div class="col-sm-3">
+				<label>End Date</label>
+				<%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+			</div>
+			<div class="col-sm-3">
+				<button type="submit" id ='submit_tag'>Submit</button>
+			</div>
+		<% end %>
 		</div>
 	</div>
 </div>

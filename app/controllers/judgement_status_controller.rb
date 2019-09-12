@@ -103,6 +103,8 @@ class JudgementStatusController < ApplicationController
                 @data[last_element]["conviction_rate"] = (@data[last_element]["cases_conviction"]/@data[last_element]["trial_complete"])*100
             end
         end
+		@start_date = start_date
+		@end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"
 	end
 end

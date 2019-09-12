@@ -100,10 +100,11 @@ class DetailCaseIntakeClosureController < ApplicationController
 				if k['key'][0]!=nil
 					recieved_year = k['key'][0].split('-')[0]
 					if recieved_year.to_i == year
-						if k['key'][1].include? "referral_84755" and k['key'][2].include? "open" and k['key'][3] == nil
-							@cases_previous += 1	
+						if k['key'][1]!= nil and k['key'][2]!= nil and k['key'][3]!= nil
+							if k['key'][1].include? "referral_84755" and k['key'][2].include? "open" and k['key'][3] == nil
+								@cases_previous += 1	
+							end
 						end
-						
 					end
 				end
 			end
@@ -125,6 +126,8 @@ class DetailCaseIntakeClosureController < ApplicationController
 			})
 
 		end
+		@start_date = start_date
+		@end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"
 	end
 

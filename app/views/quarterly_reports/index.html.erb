@@ -1,0 +1,584 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<style>
+	.cssShow {
+	display : inline-block;
+	}
+	 
+	.cssHide {
+		display : none;
+	}
+	
+	.label-cell {
+    display: inline;
+}
+
+
+table.in_content_area tbody tr td:last-child, table.in_content_area thead th:last-child {
+    border-right: 1px solid #aec687 !important;
+}
+
+table.dataTable thead td {
+    background: #fff !important;
+    border-left: 1px solid #aec687 !important;
+}
+
+table.in_content_area thead th:last-child {
+    border-right: 1px solid #aec687 !important;
+    border-bottom: 1px solid #aec687 !important;
+}
+
+table.in_content_area thead th:first-child {
+    border-left: 1px solid #aec687 !important;
+    border-top: 1px solid #aec687 !important;
+}
+
+table.in_content_area tbody tr td:first-child {
+    border-left: 1px solid #aec687 !important;
+}
+
+
+
+</style>
+
+
+<div class="container">
+  <h2>Reports</h2>
+  <div class="row">
+<div>
+	<label>Location</label>
+</div>
+<div class="col-sm-2" id="states">
+	<select id="report-state">
+		<option value="">select...</optin>  
+		<option value="maharashtra_94827">Maharashtra</option>
+		<option value="delhi_64730">Delhi</option>
+		<option value="ncw">NCW</option>
+	</select>
+</div>
+<div id="Cell">
+<div class="label-cell">
+	<lable>Cell</label>
+</div>
+<div id="Maharashtra" class="cell">
+
+	<select id="distr-maha">
+		<option value="">select...</option>
+		<option>Dadar</option>
+		<option>Kandivali</option>
+		<option>CBD Belapur</option><option>Kurla</option><option>Vakola</option><option>Vikhroli</option><option>Nashik</option><option>Dhule</option>
+		<option>Pune</option><option>Nanded</option><option>Aurangabad</option><option>Yawatmal</option><option>Wardha</option>
+	</select>
+</div>
+
+
+<div id="Delhi" class="cell">
+	<select id="distr-delhi">
+		<option value="">select...</option>
+		<option>Malviya Nagar</option>
+		<option>Sabji Mandi</option>
+		<option>Rani Bagh</option><option>Nand Nagri</option><option>Kamla Market</option><option>Mandir Marg</option><option>Saket</option><option>Dwarka</option>
+		<option>Sri Niwas Puri</option><option>Gazipur</option><option>Kirti Nagar</option><option>Rohini</option><option>Police LinePolice Line</option>
+		<option>Shahdara</option><option>Delhi Cantt</option>
+	</select>
+</div>
+
+
+<div id="NCW" class="cell">
+	<select id="distr-ncw">
+		<option value="">select...</option>
+		<option>Kamrup</option>
+		<option>East Khasi Hills-Shillong</option>
+		<option>Greater Chennai</option><option>Salem</option><option>Tirunelveli</option><option>Madurai</option><option>Darbhanga</option><option>Bhagalpur</option>
+		<option>Kishanganj</option><option>Motihari</option><option>Gaya</option><option>Ludhiana</option><option>Amritsar</option>
+		<option>SAS Nagar-Mohali</option><option>Bhopal</option><option>Gwalior</option><option>Indore</option><option>Jabalpur</option>
+		<option>Sagar</option><option>Balasore</option><option>Rourkela</option>
+	</select>
+</div>
+</div>
+
+	<div class="col-sm-2">
+		<button type="button" class="button btn_submit large">Result</button>
+	</div>
+</div>
+<table class="dataTable in_content_area">
+  <thead>
+		<tr>
+			<th colspan="4" style="text-align:center" align="center">Special Cells for Women</th>
+		</tr>
+		<tr>
+			<th colspan="4" style="text-align:center" align="center">Quarterly Progress Report</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Client Profile</td>
+			<td>Details</td>
+			<td colspan="2">[Please fill quarter] 2018</td>
+		</tr>
+		<tr>
+		<b><td colspan="2">Total clients with whom there was interaction</td></b>
+		<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td colspan="2">Ongoing clients (applications registered before this quarter, but interventions are continuing in this quarter</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>One­ time intervention in this quarter</td>
+			<td>Number of people provided support by the cell without having registered application.</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td rowspan="10">Clients (applications registered in this quarter only) referred by</td></b>
+			<td>Ex­clients</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Self (info. through media / poster / internet etc )</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Police</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>NGO</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Community based organizations ( TMGS / SHG / Mahila Mandal etc.)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Independent community worker/ Political worker</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Word of mouth</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>GO (WCD/ MAVIM/ ICDS/ Asha worker etc)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Lawyers/ legal organisations</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Any other (please specify)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td rowspan="5">Gender of the complainants/ clients (applications registered in this quarter only)</td></b>
+			<td>Adults (female)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Adults (male)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Children (female )</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Children (male)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Third gender/ others</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td rowspan="8">Age of the clients (applications registered in this quarter only)</td></b>
+			<td>Less than 14 years</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>15 – 17 years</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>18 – 24 years</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>25 – 34 years</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>35 – 44 years</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>45 – 54 years</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Above 55 Years</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Information not available</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td rowspan="9">Education of the clients (applications registered in this quarter only)</td></b>
+			<td>Non­ Literate</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Functional literacy</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Primary level (class 4)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Upto SSC</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Upto HSC</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Graduation</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Post Graduation/ Higher studies</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Any other (please specify)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Information not available</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td rowspan="27">Reasons for registering at the Special Cell (multiple response)</td></b>
+			<td>Physical violence by husband</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Emotional / mental violence by husband</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Sexual violence by husband</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Financial violence by husband</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Out of marriage relationship/second marriage by husband</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Refusal to give streedhan</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Alcohol abuse/ substance abuse by husband</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Desertion by husband</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Child custody disputes/ disputes over visitation rights</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Physical violence by marital family</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Emotional/ mental violence by marital family</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Sexual violence by marital family</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Financial violence by marital family</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Harassment of natal family members of the woman by the husband/family</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Deprivation of matrimonial residence</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Child­battering (by husband/family)</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Dowry demands (by husband/family)</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Harassment by natal family</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Harassment by children and their spouses</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Wife has left the matrimonial home (male clients)</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Harassment at work</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Harassment by live­in partner</td>
+			<td colspan="2"></td>
+		</tr>		
+		<tr>
+			<td>Sexual assault</td>
+			<td colspan="2"></td>
+		</tr>		
+		<tr>
+			<td>Sexual harassment in other situation</td>
+			<td colspan="2"></td>
+		</tr>		
+		<tr>
+			<td>Breach of trust in intimate relationship</td>
+			<td colspan="2"></td>
+		</tr>		
+		<tr>
+			<td>Harassment by neighbours</td>
+			<td colspan="2"></td>
+		</tr>		
+		<tr>
+			<td>Any other (please specify) :</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td rowspan="6">Previous intervention before coming to the Cell (multiple response)</td></b>
+			<td>Natal family/ marital family</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Police</td>
+			<td colspan="2"></td>
+		</tr>		
+		<tr>
+			<td>Court / lawyers</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>NGOs</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Panchyat members/Jati Panchyat</td>
+			<td colspan="2"></td>
+		</tr>	
+		<tr>
+			<td>Any other(please specify):</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td colspan="2">Intervention by the Special Cell (multiple response)</td></b>
+			<td>New Clients (applications registered in this quarter)</td>
+			<td>Ongoing Clients (applications registered before this quarter)</td>
+		</tr>
+		<tr>
+			<td colspan="2">Providing emotional support and strengthening psychological self</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Negotiating non­violence with stakeholder</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Building support system</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Enlisting police help or intervention</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Legal aid/ legal referral/ pre­litigation counselling</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Working with men in the interest of violated woman</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Advocacy for financial entitlements</td>
+			<td></td>
+			<td></td>
+		</tr>	
+		<tr>
+			<td colspan="2">Referral for shelter/ other services</td>
+			<td></td>
+			<td></td>
+		</tr>	
+		<tr>
+			<td colspan="2">Developmental counselling</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<b><td rowspan="7">Referrals (multiple response)</td></b>
+			<td>Police</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Court/DLSA</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Shelter home</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Medical</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Lawyer</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Protection Officer</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>Any other (specify):­ for work & school</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<b><td rowspan="6">Other interventions in the community</td></b>
+			<td>Home visits</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Visits to institutions (hospitals/ shelter homes etc.)</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Community education programmes</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Meetings with local groups/social organisations etc</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Interaction with police</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<td>Any other (specify) :­ organizations</td>
+			<td colspan="2"></td>
+		</tr>
+		<tr>
+			<b><td colspan="2">Outcomes(multiple response)</td></b>
+			<td>New Clients (applications registered in this quarter)</td>
+			<td>Ongoing Clients (applications registered before this quarter)</td>
+		</tr>
+		<tr>
+			<td colspan="2">Helped in case filed for divorce/ separation/mutual divorce</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Streedhan retrieval</td>
+			<td></td>
+			<td></td>
+		</tr>		
+		<tr>
+			<td colspan="2">Case filed under PWDVA 2005</td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td colspan="2">Case filed under 498A</td>
+			<td></td>
+			<td></td>
+		</tr>				
+		<tr>
+			<td colspan="2">One – time maintenance/ other financial entitlements</td>
+			<td></td>
+			<td></td>
+		</tr>		
+		<tr>
+			<td colspan="2">Non­violent reconciliation</td>
+			<td></td>
+			<td></td>
+		</tr>		
+		<tr>
+			<td colspan="2">Court orders in the best interest of the woman</td>
+			<td></td>
+			<td></td>
+		</tr>		
+		<tr>
+			<td colspan="2">Any other (specify) : Assurance paper in stalking case from respondent</td>
+			<td></td>
+			<td></td>
+		</tr>		
+					
+	</tbody>
+</table>
+</div>
+<script>
+	$(document).ready(function() {
+	$('#states option[value=""]').attr("selected",true);
+	$('#Cell').addClass('cssHide');
+	$('#Maharashtra,#Delhi,#NCW').addClass('cssHide');
+ 
+	$('#states').on('change', function() {		
+		if($(this).find('option:selected').val() != ""){
+			var selectedState = $(this).find('option:selected').text();
+			$('#Cell').removeClass('cssHide').addClass('cssShow');
+			$('.cell').each(function() {
+				if ($(this).hasClass('cssShow')){
+					$(this).removeClass('cssShow').addClass('cssHide');
+				}
+			});
+			$('#' + selectedState).removeClass('cssHide').addClass('cssShow');
+		}else{
+			$('#Cell').removeClass('cssShow').addClass('cssHide');
+		}
+	}); 
+ });
+	
+</script>
