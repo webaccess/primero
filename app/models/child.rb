@@ -165,27 +165,30 @@ class Child < CouchRest::Model::Base
                     }
                  }
               }"
-              
-    view 	:by_legal_case_closed,
-					:map => "function(doc) {
-							var d = new Date(doc.date_closure);
-							var year = d.getFullYear();
-							var stage = doc.stage.replace(/_/gi,' ');
-							var closure =doc.closure_reason.replace(/_/gi,' ');
-							var lastIndex = stage.lastIndexOf(' ');
-							stage= stage.substring(0, lastIndex);
-							var lastIndex = closure.lastIndexOf(' ');
-							closure= closure.substring(0, lastIndex);
 
-							emit([new Date(doc.registration_date), doc.case_id_display, doc.pseudonym, year,stage ,closure]);
-							}"
+# Table 4.1 List of legal cases closed with reasons for closure     
+    view 	:by_legal_cases_closed_with_reasons_for_closure,
+					:map => "function(doc) {
+            var dateofclosure = new Date(doc.date_closure);
+            var yearofclosure = dateofclosure.getFullYear();
+            
+            var closurestage = doc.stage_of_closure.replace(/_/gi,' ');
+            var lastIndex = closurestage.lastIndexOf(' ');
+            closurestage2= closurestage.substring(0, lastIndex);
+
+            var reasonclosure =doc.what_is_the_reason_for_closing_the_childs_file.replace(/_/gi,' ');
+            var lastIndex = reasonclosure.lastIndexOf(' ');
+            reasonclosure2= reasonclosure.substring(0, lastIndex);
+
+            emit([new Date(doc.registration_date), doc.case_id_display, doc.child_status, doc.pseudonym, yearofclosure, closurestage2, reasonclosure2]);
+					}"
 		
 		view 	:by_victim_compensation,
 					:map => "function(doc) {
 							var court=doc.court.replace(/_/gi,' ');
 							var lastIndex = court.lastIndexOf(' ');
 							court= court.substring(0, lastIndex);
-							emit([new Date(doc.registration_date), doc.case_id_display, court, doc.name_first, doc.grant_date, doc.amount_in_inr, doc.grant_date_final_compensation, doc.amount_in_inr_final_compensation]);
+							emit([new Date(doc.registration_date), doc.case_id_display, court, doc.name_first, doc.interim_compensation_granted_on, doc.amount_granted_in_rupees_for_interim, doc.final_compensation_granted_on, doc.amount_in_inr_final_compensation]);
 						}"
 		
 		view 	:by_victim_compensation_disposed,
@@ -214,14 +217,14 @@ class Child < CouchRest::Model::Base
 													
 			view 	:by_lawyer_case_closed,
 					:map => "function(doc) {
-							var stage = doc.stage.replace(/_/gi,' ');
-							var closure =doc.closure_reason.replace(/_/gi,' ');
+							var stage = doc.stage_of_closure.replace(/_/gi,' ');
+							var closure =doc.child_closure_reason.replace(/_/gi,' ');
 							var lastIndex = stage.lastIndexOf(' ');
 							stage= stage.substring(0, lastIndex);
 							var lastIndex = closure.lastIndexOf(' ');
 							closure= closure.substring(0, lastIndex);
 
-							emit([new Date(doc.registration_date), doc.case_id_display,doc.name_first,doc.case_title,stage,closure]);
+							emit([new Date(doc.registration_date), doc.child_status, doc.case_id_display,doc.name_first,doc.case_title,stage,closure]);
 						}"
 			
 			view 	:high_court_iprobono,

@@ -34,7 +34,11 @@ class StatusOnVictimCompensationController < ApplicationController
 		
 		for i in by_victim_comp
 			@victim_comp.push({"case_id":i['key'][1],"court":i['key'][2],"client_name":i['key'][3],"grant_date":i['key'][4],"amount":i['key'][5],"final_grant_date":i['key'][6],"final_amount":i['key'][7]})
+		
 		end
+
+		puts @victim_comp 
+
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"

@@ -16,7 +16,7 @@ class LegalCasesClosedController < ApplicationController
 	end
 
 	def calculate_report(start_date, end_date)
-		@legal_case = []
+		@legal_closed = []
 
 		start_year = start_date.split('-')[0]
 		end_year = end_date.split('-')[0]
@@ -30,10 +30,10 @@ class LegalCasesClosedController < ApplicationController
 			year_array.push(start_year+i)
     	end
     
-		by_legal_case_closed = Child.by_legal_case_closed.startkey([start_date]).endkey([end_date,{}])['rows']
+		by_legal_case_closed = Child.by_legal_cases_closed_with_reasons_for_closure.startkey([start_date]).endkey([end_date,{}])['rows']
 		
 		for i in by_legal_case_closed
-			@legal_case.push({"case_id":i['key'][1],"pseudonyms":i['key'][2],"year_closure":i['key'][3],"stage":i['key'][4],"closure_reason":i['key'][5]})
+			@legal_closed.push({"case_id":i['key'][1],"pseudonyms":i['key'][3],"year_closure":i['key'][4],"stage":i['key'][5],"closure_reason":i['key'][6]})
     	end
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s
