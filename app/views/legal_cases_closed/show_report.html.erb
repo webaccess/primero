@@ -106,7 +106,7 @@ $(document).ready(function() {
 			<%= form_tag("/all_reports/legal_cases_closed/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
 			<div class="title-sub-report">
 				<h3>List of legal cases closed with reasons for closure</h3>
-			</div>
+			<div>
 			<div class="sub-report-filter">
 				<div id = "validation_div"></div>
 					<div class="col-sm-3">
@@ -149,7 +149,7 @@ $(document).ready(function() {
 					</tr>
 				</thead>
 				<tbody>
-					<% @legal_case.each do |x| %>
+					<% @legal_closed.each do |x| %>
 					<tr>
 						<td><%= x[:case_id] %></td>
 						<td><%= x[:pseudonyms] %></td>
