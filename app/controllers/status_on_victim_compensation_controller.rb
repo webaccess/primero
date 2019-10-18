@@ -16,7 +16,7 @@ class StatusOnVictimCompensationController < ApplicationController
 	end
 	
 	def calculate_report(start_date, end_date)
-		@victim_comp = []
+		@data = []
 
 		start_year = start_date.split('-')[0]
 		end_year = end_date.split('-')[0]
@@ -30,14 +30,42 @@ class StatusOnVictimCompensationController < ApplicationController
 			year_array.push(start_year+i)
     	end
 		
-		by_victim_comp= Child.by_victim_compensation.startkey([start_date]).endkey([end_date,{}])['rows']
+		by_victim_comp= Child.by_status_victim_compensation.startkey([start_date]).endkey([end_date,{}])['rows']
 		
 		for i in by_victim_comp
-			@victim_comp.push({"case_id":i['key'][1],"court":i['key'][2],"client_name":i['key'][3],"grant_date":i['key'][4],"amount":i['key'][5],"final_grant_date":i['key'][6],"final_amount":i['key'][7]})
-		
-		end
+			@uid = 0
+			@court = 0
+			@pname = 0
+			@date_interim = 0
+			@amount_interim = 0
+			@date_final = 0
+			@amount_final = 0
 
-		puts @victim_comp 
+			if i['key'][4]!= nil and i['key'][4].include? "granted_31268"
+				@uid = i['key'][1]
+				@court = i['key'][2]
+				@pname = i['key'][3]
+				@date_interim = i['key'][5]
+				@amount_interim = i['key'][6]
+
+				if i['key'][7]!= nil and i['key'][7].include? "granted_99087"
+					@date_final = i['key'][8]
+					@amount_final = i['key'][9]
+				end
+
+			end
+
+			@data.push({
+				"userid" => @uid,
+				"dcourt" => @court,
+				"pname" => @pname,
+				"dinterim" => @date_interim,
+				"ainterim" => @amount_interim,
+				"datefinal" => @date_final,
+				"amountfinal" => @amount_final
+			})
+
+		end
 
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s

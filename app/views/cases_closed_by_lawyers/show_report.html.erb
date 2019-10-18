@@ -105,7 +105,7 @@ $(document).ready(function() {
 	<div class="row">
 			<%= form_tag("/all_reports/cases_closed_by_lawyers/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_cases_closed_by_lawyers") do %>
 			<div class="title-sub-report">
-				<h3>Cases closed by HAQ lawyerss</h3>
+				<h3>Cases closed by HAQ lawyers</h3>
 			<div>
 			<div class="sub-report-filter">
 				<div id = "validation_div"></div>
@@ -143,20 +143,20 @@ $(document).ready(function() {
 					</tr>
 					<tr>
 						<td>Case ID</td>
-						<td>Childs Name</td>
+						<td>Child's name (Pseudonym)</td>
 						<td>Legal Case Title</td>
 						<td>Stage at the time of closure</td>
 						<td>Reasons for closure</td>
 					</tr>
 				</thead>
 				<tbody>
-					<% @cases_closed.each do |x| %>
+					<% @data.each do |i| %>
 					<tr>
-						<td id="case_id"><%= x[:case_id] %></td>
-						<td id="first_name"><%= x[:first_name] %></td>
-						<td id="first_name"><%= x[:case_title] %></td>
-						<td id="stage"><%= x[:stage] %></td>
-						<td id="closure_reason"><%= x[:closure_reason] %></td>
+						<td id="case_id"><%= i['userid'] %></td>
+						<td id="first_name"><%= i['pseudonym'] %></td>
+						<td id="title"><%= i['casetitle'] %></td>
+						<td id="stage"><%= i['closurestage'] %></td>
+						<td id="closure_reason"><%= i['reasonclosure'] %></td>
 					</tr>
 				<% end %>
 				</tbody>	

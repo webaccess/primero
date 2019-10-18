@@ -1,13 +1,11 @@
 $(document).ready(function(){
     $('#case_narrative__child_age_month').parent().prev('div').find('label').css('visibility','hidden');
     $('#case_narrative__child_institutional_care').closest('.row').hide().nextAll(':lt(4)').hide();
-    $("label").each(function () {
-        var elem = $(this);
-        var labelText = $(elem).text();
-        if (labelText == 'Any Other, Specify') {
-            $(elem).closest('.row').hide();
-        }
-    });
+	
+	$('body select').each(function(){
+		displayHideDropDownFields($(this));
+	});
+    
 
     $('body').delegate("select", "change", function (e) {
         displayHideDropDownFields($(this));

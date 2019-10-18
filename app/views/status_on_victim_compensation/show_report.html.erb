@@ -104,7 +104,7 @@ $(document).ready(function() {
 	<div class="row">
 			<%= form_tag("/all_reports/status_on_victim_compensation/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
 			<div class="title-sub-report">
-				<h3>Status on victim compensation</h3>
+				<h3>Status on Victim Compensation</h3>
 			<div>
 			<div class="sub-report-filter">
 				<div id = "validation_div"></div>
@@ -128,7 +128,7 @@ $(document).ready(function() {
 			<table class="dataTable in_content_area reports">
 				<thead>
 					<tr hidden>
-						<td colspan = 7 align = "center"><h4><b>Status on victim compensation</b></h4></td>
+						<td colspan = 7 align = "center"><h4><b>Status on Victim Compensation</b></h4></td>
 					</tr>
 					<tr hidden>
 						<td>Start Date: <%= @start_date %></td>
@@ -142,7 +142,7 @@ $(document).ready(function() {
 					<tr>
 							<td rowspan="2">Case ID</td>
 							<td rowspan="2">Concerned Court/DLSA</td>
-							<td rowspan="2">Clients</td>
+							<td rowspan="2">Clients Pseudonym</td>
 							<td colspan="2">Interim compensation</td>
 							<td colspan="2">Final compensation</td>
 					</tr>
@@ -154,15 +154,16 @@ $(document).ready(function() {
 					</tr>
 				</thead>
 				<tbody>
-					<% @victim_comp.each do |x| %>
+
+					<% @data.each do |i| %>
 					<tr>
-						<td id="case_id"><%= x[:case_id] %></td>
-						<td id="court"><%= x[:court] %></td>
-						<td id="client_name"><%= x[:client_name] %></td>
-						<td id="grant_date"><%= x[:grant_date] %></td>
-						<td id="amount"><%= x[:amount] %></td>
-						<td id="final_grant_date"><%= x[:final_grant_date] %></td>
-						<td id="final_amount"><%= x[:final_amount] %></td>
+						<td id="case_id"><%= i['userid'] %></td>
+						<td id="court"><%= i['dcourt'] %></td>
+						<td id="client_name"><%= i['pname'] %></td>
+						<td id="grant_date"><%= i['dinterim'] %></td>
+						<td id="amount"><%= i['ainterim'] %></td>
+						<td id="final_grant_date"><%= i['datefinal'] %></td>
+						<td id="final_amount"><%= i['amountfinal'] %></td>
 					</tr>
 				<% end %>
 				</tbody>	

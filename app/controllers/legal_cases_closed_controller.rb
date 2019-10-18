@@ -16,7 +16,7 @@ class LegalCasesClosedController < ApplicationController
 	end
 
 	def calculate_report(start_date, end_date)
-		@legal_closed = []
+		@data = []
 
 		start_year = start_date.split('-')[0]
 		end_year = end_date.split('-')[0]
@@ -32,9 +32,41 @@ class LegalCasesClosedController < ApplicationController
     
 		by_legal_case_closed = Child.by_legal_cases_closed_with_reasons_for_closure.startkey([start_date]).endkey([end_date,{}])['rows']
 		
+		
 		for i in by_legal_case_closed
-			@legal_closed.push({"case_id":i['key'][1],"pseudonyms":i['key'][3],"year_closure":i['key'][4],"stage":i['key'][5],"closure_reason":i['key'][6]})
-    	end
+			@uid = 0
+			@cname = 0
+			@cdate = 0
+			@cstage = 0
+			@creason = 0
+			if i['key'][3]!= nil and i['key'][3].include? "legal_25204" or i['key'][3].include? "psy_so_cum_legal_17991"
+				@uid = i['key'][1]
+				@cname = i['key'][4]
+				@cdate = i['key'][5]
+
+				if i['key'][6]!= nil and i['key'][6].include? "any other specify"
+					@cstage = i['key'][7]
+				else
+					@cstage = i['key'][6]
+				end
+
+				if i['key'][8]!= nil and i['key'][8].include? "any other specify"
+					@creason = i['key'][9]
+				else
+					@creason = i['key'][8]
+				end
+			end
+			@data.push({
+				"userid" => @uid,
+				"pseudonym" => @cname,
+				"dateclosure" => @cdate,
+				"closurestage" => @cstage,
+				"reasonclosure" => @creason
+			})
+		end
+		
+			
+
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"
