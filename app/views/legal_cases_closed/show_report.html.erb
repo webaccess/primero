@@ -149,13 +149,13 @@ $(document).ready(function() {
 					</tr>
 				</thead>
 				<tbody>
-					<% @legal_closed.each do |x| %>
+					<% @data.each do |i| %>
 					<tr>
-						<td><%= x[:case_id] %></td>
-						<td><%= x[:pseudonyms] %></td>
-						<td><%= x[:year_closure] %></td>
-						<td><%= x[:stage] %></td>
-						<td><%= x[:closure_reason] %></td>
+						<td id="case_id"><%= i['userid'] %></td>
+						<td id="first_name"><%= i['pseudonym'] %></td>
+						<td id="cdate"><%= i['dateclosure'] %></td>
+						<td id="stage"><%= i['closurestage'] %></td>
+						<td id="closure_reason"><%= i['reasonclosure'] %></td>
 					</tr>
 				<% end %>
 				</tbody>	

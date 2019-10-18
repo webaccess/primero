@@ -180,15 +180,17 @@ class Child < CouchRest::Model::Base
             var lastIndex = reasonclosure.lastIndexOf(' ');
             reasonclosure2= reasonclosure.substring(0, lastIndex);
 
-            emit([new Date(doc.registration_date), doc.case_id_display, doc.child_status, doc.pseudonym, yearofclosure, closurestage2, reasonclosure2]);
+            emit([new Date(doc.registration_date), doc.case_id_display, doc.child_status, doc.case_type_legal_psycho, doc.pseudonym, yearofclosure, closurestage2, doc.other_stage_of_closure, reasonclosure2 , doc.closure_reason_other]);
 					}"
-		
-		view 	:by_victim_compensation,
+	#Table 12: Status on victim compensation-----	
+		view 	:by_status_victim_compensation,
 					:map => "function(doc) {
-							var court=doc.court.replace(/_/gi,' ');
-							var lastIndex = court.lastIndexOf(' ');
-							court= court.substring(0, lastIndex);
-							emit([new Date(doc.registration_date), doc.case_id_display, court, doc.name_first, doc.interim_compensation_granted_on, doc.amount_granted_in_rupees_for_interim, doc.final_compensation_granted_on, doc.amount_in_inr_final_compensation]);
+
+            var court = doc.court_cognizance.replace(/_/gi,' ');
+            var lastIndex = court.lastIndexOf(' ');
+            court2= court.substring(0, lastIndex);
+              
+            emit([new Date(doc.registration_date), doc.case_id_display, court2, doc.pseudonym, doc.interim_compensation_status, doc.interim_compensation_granted_on, doc.amount_granted_in_rupees_for_interim, doc.final_compensation_application_status, doc.final_compensation_granted_on, doc.amount_granted_in_rupees_for_final]);
 						}"
 		
 		view 	:by_victim_compensation_disposed,
@@ -213,19 +215,21 @@ class Child < CouchRest::Model::Base
 								var lastIndex = closure.lastIndexOf(' ');
 								closure= closure.substring(0, lastIndex);
 								emit(closure,doc.cp_psychosocial_needs_status_subform_type_of_need)
-							}"
-													
-			view 	:by_lawyer_case_closed,
+              }"
+              
+#Annexure-03--------------------------------										
+			view 	:by_cases_closed_by_haq_lawyer,
 					:map => "function(doc) {
-							var stage = doc.stage_of_closure.replace(/_/gi,' ');
-							var closure =doc.child_closure_reason.replace(/_/gi,' ');
-							var lastIndex = stage.lastIndexOf(' ');
-							stage= stage.substring(0, lastIndex);
-							var lastIndex = closure.lastIndexOf(' ');
-							closure= closure.substring(0, lastIndex);
+            var closurestage = doc.stage_of_closure.replace(/_/gi,' ');
+            var lastIndex = closurestage.lastIndexOf(' ');
+            closurestage2= closurestage.substring(0, lastIndex);
 
-							emit([new Date(doc.registration_date), doc.child_status, doc.case_id_display,doc.name_first,doc.case_title,stage,closure]);
-						}"
+            var reasonclosure =doc.what_is_the_reason_for_closing_the_childs_file.replace(/_/gi,' ');
+            var lastIndex = reasonclosure.lastIndexOf(' ');
+            reasonclosure2= reasonclosure.substring(0, lastIndex);
+
+            emit([new Date(doc.registration_date), doc.case_id_display, doc.case_type_legal_psycho, doc.pseudonym, doc.cause_title, closurestage2, doc.other_stage_of_closure, reasonclosure2, doc.closure_reason_other]);				
+          }"
 			
 			view 	:high_court_iprobono,
 					:map => "function(doc) {
