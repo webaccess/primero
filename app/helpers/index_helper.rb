@@ -232,7 +232,7 @@ module IndexHelper
     header_list << {title: '', sort_title: 'select'}
     header_list << {title: 'id', sort_title: 'short_id'}
     header_list << {title: 'Pseudo id', sort_title: 'pseudo_id'} 
-    header_list << {title: 'name', sort_title: 'sortable_name'} if (@is_cp && !@is_manager && !@id_search.present?)
+    header_list << {title: 'name', sort_title: 'sortable_name'} #if (@is_cp && !@is_manager && !@id_search.present?)
     header_list << {title: 'survivor_code', sort_title: 'survivor_code_no'} if (@is_gbv && !@is_manager)
     header_list << {title: 'age', sort_title: 'age'} if @is_cp || @id_search.present?
     header_list << {title: 'sex', sort_title: 'sex'} if @is_cp || @id_search.present?
