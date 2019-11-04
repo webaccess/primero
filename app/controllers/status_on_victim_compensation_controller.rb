@@ -41,14 +41,14 @@ class StatusOnVictimCompensationController < ApplicationController
 			@date_final = 0
 			@amount_final = 0
 
-			if i['key'][4]!= nil and i['key'][4].include? "granted_31268"
+			if i['key'][4]!= nil or i['key'][4].include? "granted_31268"
 				@uid = i['key'][1]
 				@court = i['key'][2]
 				@pname = i['key'][3]
 				@date_interim = i['key'][5]
 				@amount_interim = i['key'][6]
 
-				if i['key'][7]!= nil and i['key'][7].include? "granted_99087"
+				if i['key'][7]!= nil or i['key'][7].include? "granted_99087"
 					@date_final = i['key'][8]
 					@amount_final = i['key'][9]
 				end
