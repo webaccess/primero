@@ -45,8 +45,10 @@ module MediaActions
     if object['document_keys'].include? attachment.name
       doc_forms = object.keys.select{ |k| k.include? '_documents' }
       doc_forms.each do |form_name|
-        file = object[form_name].select{ |f| f.attachment_key == attachment.name }.first
-        return file['file_name'] if file.present? && file['file_name'].present?
+        if form_name === "other_documents"
+          file = object[form_name].select{ |f| f.attachment_key == attachment.name }.first
+          return file['file_name'] if file.present? && file['file_name'].present?
+        end
       end
     end
   end

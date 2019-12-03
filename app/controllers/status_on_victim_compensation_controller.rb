@@ -30,8 +30,8 @@ class StatusOnVictimCompensationController < ApplicationController
 			year_array.push(start_year+i)
     	end
 		
-		by_victim_comp= Child.by_status_victim_compensation.startkey([start_date]).endkey([end_date,{}])['rows']
-		
+		by_victim_comp = Child.by_status_victim_compensation.startkey([start_date]).endkey([end_date,{}])['rows']
+
 		for i in by_victim_comp
 			@uid = 0
 			@court = 0
@@ -40,20 +40,19 @@ class StatusOnVictimCompensationController < ApplicationController
 			@amount_interim = 0
 			@date_final = 0
 			@amount_final = 0
-
-			if i['key'][4]!= nil or i['key'][4].include? "granted_31268"
+			if i['key'][4]!= nil and i['key'][4].include? "granted_31268"
 				@uid = i['key'][1]
 				@court = i['key'][2]
 				@pname = i['key'][3]
 				@date_interim = i['key'][5]
 				@amount_interim = i['key'][6]
-
-				if i['key'][7]!= nil or i['key'][7].include? "granted_99087"
-					@date_final = i['key'][8]
-					@amount_final = i['key'][9]
-				end
-
 			end
+
+			if i['key'][7]!= nil and i['key'][7].include? "granted_99087"
+				@date_final = i['key'][8]
+				@amount_final = i['key'][9]
+			end
+		
 
 			@data.push({
 				"userid" => @uid,
