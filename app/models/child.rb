@@ -187,8 +187,8 @@ class Child < CouchRest::Model::Base
 					:map => "function(doc) {
 
             var court = doc.court_cognizance.replace(/_/gi,' ');
-            var lastIndex = court.lastIndexOf(' ');
-            court2= court.substring(0, lastIndex);
+            var change = court.lastIndexOf(' ');
+            court2= court.substring(0, change);
               
             emit([new Date(doc.registration_date), doc.case_id_display, court2, doc.pseudonym, doc.interim_compensation_status, doc.interim_compensation_granted_on, doc.amount_granted_in_rupees_for_interim, doc.final_compensation_application_status, doc.final_compensation_granted_on, doc.amount_granted_in_rupees_for_final]);
 						}"
