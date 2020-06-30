@@ -116,7 +116,7 @@ en:
      home: "HOME"
      cases: "CASES"
      tracing_request: "TRACING REQUESTS"
-     incidents: "INCIDENTS"
+     incidents: "TRAINING"
      potential_match: "MATCHES"
      children: "CHILDREN"
      forms: "FORMS"
@@ -497,7 +497,7 @@ en:
 
   incidents:
     label: "Incidents"
-    register_new_incident: "New Incident"
+    register_new_incident: "New Training"
     selectable_date_options:
       date_of_first_report: "Interview Date"
       incident_date_derived: "Incident Date"
@@ -2286,8 +2286,8 @@ en:
         one: "Case"
         other: "Cases"
       incident:
-        one: "Incident"
-        other: "Incidents"
+        one: "Training"
+        other: "Trainings"
       hash:
         one: "Matching Result"
         other: "Matching Results"
