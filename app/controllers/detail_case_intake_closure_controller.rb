@@ -31,6 +31,8 @@ class DetailCaseIntakeClosureController < ApplicationController
 		
 		start_date_x = (Date.parse(start_date)-365).to_s
 		end_date_x = (Date.parse(end_date)-365).to_s
+		puts(start_date_x);
+		puts(end_date_x);
 
 		appeal_in_appellate = Child.by_appeal_in_appellate.startkey([start_date]).endkey([end_date,{}])['rows']
 		cases_pending_formal_intake = Child.by_cases_pending_formal_intake.startkey([start_date]).endkey([end_date,{}])['rows']

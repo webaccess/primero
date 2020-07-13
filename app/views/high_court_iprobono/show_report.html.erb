@@ -104,7 +104,7 @@ $(document).ready(function() {
 	<div class="row">
 			<%= form_tag("/all_reports/high_court_iprobono/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_supported_by_lawyers") do %>
 			<div class="title-sub-report">
-				<h3>High Court iprobono</h3>
+				<h3>High Court Cases</h3>
 			<div>
 			<div class="sub-report-filter">
 				<div id = "validation_div"></div>
@@ -128,7 +128,7 @@ $(document).ready(function() {
 			<table class="dataTable in_content_area reports">
 				<thead>
 					<tr hidden>
-						<td colspan = 12 align = "center"><h4><b>High Court iprobono</b></h4></td>
+						<td colspan = 12 align = "center"><h4><b>High Court Cases</b></h4></td>
 					</tr>
 					<tr hidden>
 						<td>Start Date: <%= @start_date %></td>
@@ -183,7 +183,7 @@ $(document).ready(function() {
 document.getElementById("start_date_field").defaultValue = "<%= @start_date %>";
 document.getElementById("end_date_field").defaultValue = "<%=@end_date %>";
 document.getElementById("generate").addEventListener("click", function () {
-	createDownloadLink("#generate",generateExcel($("#report")),"high_court_iprobono_report.xlsx");
+	createDownloadLink("#generate",generateExcel($("#report")),"high_court_cases_report.xlsx");
   });
   
   function generateExcel(el) {

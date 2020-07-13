@@ -37,7 +37,7 @@ class OverallPsychosocialCasesController < ApplicationController
 				if i['key'][0]!=nil
 					if i['key'][0].split("-")[0].to_i == year	
 						if i['key'][1][0]!=nil
-							if i['key'][1][0].include? "psy_so_99767"
+							if i['key'][1][0].include? "psy_so_99767" 
 								@psycho_cases += 1
 							end
 						end

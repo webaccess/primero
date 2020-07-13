@@ -48,7 +48,6 @@ class CasesClosedByLawyersController < ApplicationController
 			if i['key'][5]!= nil && i['key'][5]!= "any other specify"
 				@cstage = i['key'][5]
 			else i['key'][5].include? "any other specify"
-				puts "test2"
 				@cstage = i['key'][6]
 			end
 

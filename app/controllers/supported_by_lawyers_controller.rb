@@ -61,7 +61,7 @@ class SupportedByLawyersController < ApplicationController
 									if j.has_key? ("stage") and j["stage"].include? stage[0] #----match stage
 										if_stage_present += 1 
 										@court_hearings += 1
-										if j.has_key? ("lawyer_present_for_hearing") and j['lawyer_present_for_hearing'] == true
+										if j.has_key? ("lawyer_present_for_hearing") and j['lawyer_present_for_hearing'].include? "yes_11013"
 											@hearing_atend_by_haq_lawyer += 1
 										else
 											@no_of_heaing_missed_by_haq_lawyer += 1
@@ -81,11 +81,11 @@ class SupportedByLawyersController < ApplicationController
 											end
                                         end
                                         
-                                        if j.has_key? ("effective_court_hearing") and j['effective_court_hearing'] == true
+                                        if j.has_key? ("effective_court_hearing") and j['effective_court_hearing'].include? "yes_11013"
                                             @effective_court_hearing += 1
                                         end
 
-                                        if j.has_key? ("adjournment") and j['adjournment'] == true
+                                        if j.has_key? ("adjournment") and j['adjournment'].include? "yes_11013"
                                             @adjornments_count += 1
                                         end
 									end

@@ -1,4 +1,4 @@
-module IndexHelper
+	module IndexHelper
   def index_case_name(record)
     if record.hidden_name
       I18n.t("cases.hidden_text_field_text")
@@ -231,7 +231,7 @@ module IndexHelper
     header_list = []
     header_list << {title: '', sort_title: 'select'}
     header_list << {title: 'id', sort_title: 'short_id'}
-    header_list << {title: 'Pseudo id', sort_title: 'pseudo_id'} 
+    header_list << {title: 'Pseudo id', sort_title: 'pseudo_id'}
     header_list << {title: 'name', sort_title: 'sortable_name'} #if (@is_cp && !@is_manager && !@id_search.present?)
     header_list << {title: 'survivor_code', sort_title: 'survivor_code_no'} if (@is_gbv && !@is_manager)
     header_list << {title: 'age', sort_title: 'age'} if @is_cp || @id_search.present?
@@ -239,6 +239,7 @@ module IndexHelper
     header_list << {title: 'registration_date', sort_title: 'registration_date'} if @is_cp && !@id_search.present?
     header_list << {title: 'case_opening_date', sort_title: 'created_at'} if @is_gbv && !@id_search.present?
     header_list << {title: 'social_worker', sort_title: 'owned_by'} if @is_manager && !@id_search.present?
+	header_list << {title: 'Referrals', sort_title: 'assigned_user'} 
     header_list << {title: 'owned_by', sort_title: 'owned_by'} if @is_cp && @id_search.present?
     header_list << {title: 'owned_by_agency', sort_title: 'owned_by_agency'} if @is_cp && @id_search.present?
     header_list << {title: '', sort_title: 'view'} if @id_search.present? && @can_display_view_page
@@ -255,10 +256,10 @@ module IndexHelper
     header_list << {title: 'id', sort_title: 'short_id'}
 
     header_list << {title: 'date_of_interview', sort_title: 'date_of_first_report'} if @is_gbv || @is_cp
-    header_list << {title: 'date_of_incident', sort_title: 'incident_date_derived'}
-    header_list << {title: 'violence_type', sort_title: 'gbv_sexual_violence_type'} if @is_gbv || @is_cp
-    header_list << {title: 'incident_location', sort_title: 'incident_location'} if @is_mrm
-    header_list << {title: 'violations', sort_title: 'violations'} if @is_mrm
+    #header_list << {title: 'date_of_incident', sort_title: 'incident_date_derived'}
+    #header_list << {title: 'violence_type', sort_title: 'gbv_sexual_violence_type'} if @is_gbv || @is_cp
+    #header_list << {title: 'incident_location', sort_title: 'incident_location'} if @is_mrm
+    #header_list << {title: 'violations', sort_title: 'violations'} if @is_mrm
     header_list << {title: 'social_worker', sort_title: 'owned_by'} if @is_manager
 
     return header_list

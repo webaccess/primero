@@ -43,13 +43,15 @@ class StatusOnFinancialNeedsController < ApplicationController
 			@interim_compensation_status = 0
 			@financial_needs = 0
 			@application_filed_on_final = 0
-			
+			@total_financial_need = 0
+	
 			for i in status_on_financial_needs
 				if i['key'][0].split("-")[0].to_i == year
 					if i['key'][1][0]!=nil and i['key'][1][1]!=nil and i['key'][1][2]!=nil
-						if i['key'][1][0]!= "referral" and i['key'][1][1].include? "open" and i['key'][1][2].include? "approved"
+						if i['key'][1][0].include? "psy_so" or i['key'][1][0].include? "psy_so_cum_legal" and i['key'][1][1].include? "open" and i['key'][1][2].include? "approved"
 							@no_of_total_cases += 1 
 						end
+					end
 					end
 					if i['key'][1][4] == nil
 						@application_filed_on_interim += 1
@@ -69,12 +71,12 @@ class StatusOnFinancialNeedsController < ApplicationController
 							end
 						end
 						if j.has_key?('psychosocial_need_financial')
-							if j['psychosocial_need_financial'].include? "no_need_identified"
-								@assessed_no_need_identified += 1
+							if j['psychosocial_need_financial'].exclude? "no_need_assessment_done"
+								@total_financial_need += 1
 							end
 						end
 						if j.has_key?('need_fulfilment_financial')
-							if j['need_fulfilment_financial'].include? "partially_met"
+							if j['need_fulfilment_financial'].include? "partially_met" or j['need_fulfilment_financial'].include? "fully_met"
 								@financial_met_partially += 1
 							end
 						end
@@ -99,9 +101,10 @@ class StatusOnFinancialNeedsController < ApplicationController
 							end
 						end
 					end
-					@total_financial_need = @assessed_need_identified + @assessed_no_need_identified 
+					#@total_financial_need = @assessed_need_identified + @assessed_no_need_identified 
 				end
-			end
+			
+
 		end
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s

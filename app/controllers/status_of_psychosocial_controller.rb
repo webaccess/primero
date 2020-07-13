@@ -19,7 +19,7 @@ class StatusOfPsychosocialController < ApplicationController
      
         @type_of_need = [['Emotional/Psychological','psychosocial_need_emotional','need_fulfilment_emotional'],['Medical Needs','psychosocial_need_medical','need_fulfilment_medical'],['Shelter/Protection Needs','psychosocial_need_shelter_protection','need_fulfilment_shelter_protection'],['Educational/ Vocational','psychosocial_need_educational_vocational','need_fulfilment_educational_vocational'],['Financial Needs','psychosocial_need_financial','need_fulfilment_financial'],['Paralegal Needs','psychosocial_need_paralegal','need_fulfilment_paralegal'],['Familial Needs','psychosocial_need_familial','need_fulfilment_familial']]
         
-        total_cases = Child.all['total_rows']
+        #total_cases = Child.all['total_rows']
 
 		
 		psychosocial_data_count = Child.by_status_of_psychosocial.startkey([start_date]).endkey([end_date,{}])['rows']
@@ -66,8 +66,8 @@ class StatusOfPsychosocialController < ApplicationController
                     end
                 end
             end
-            total = @assessment_made + @no_need_assessment_done + @no_need_identified + @need_re_occured + @need_identified + @need_fulfilled_fully_met + @need_fulfilled_partially_met + @could_not_be_met + @efforts_ongoing
-
+            total =  @need_fulfilled_fully_met + @need_fulfilled_partially_met + @could_not_be_met + @efforts_ongoing
+			total_cases = @assessment_made + @no_need_assessment_done
             @data.push({
             "need" => need[0],
             "length" => 1,
@@ -88,7 +88,7 @@ class StatusOfPsychosocialController < ApplicationController
         @data.push({
             "need" => "Total",
             "length" => 1,
-            "total_cases" => total_cases,
+            "total_cases" => 0,
             "assessment_made" => 0,
             "no_need_assessment_done" => 0,
             "no_need_identified" => 0,
@@ -105,6 +105,7 @@ class StatusOfPsychosocialController < ApplicationController
 
 		for i in @data
             if i['need']!= 'Total'
+			    @data[length]['total_cases'] += i['total_cases']
                 @data[length]['assessment_made'] += i['assessment_made']
                 @data[length]['no_need_assessment_done'] += i['no_need_assessment_done']
                 @data[length]['no_need_identified'] += i['no_need_identified']
