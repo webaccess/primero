@@ -65,7 +65,7 @@ class SecondaryPsychologicalCareController < ApplicationController
 				end
 			end
 			if @in_house!= 0
-				@average = (@total_count.to_f/@in_house.to_f)*100.round
+				@average = (@total_count.to_f/@in_house.to_f)
 			end
 			@data.push({
 				"year" => year,

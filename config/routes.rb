@@ -154,6 +154,12 @@ Primero::Application.routes.draw do
   match '/all_reports/time_taken_for_completion_of_childs_testimony/submit_form' => 'time_taken_for_completion_of_childs_testimony#redirect_to_index', :as => :time_taken_for_completion_of_childs_testimony_redirect_to_index, :via => :get
   # ----------------------------------------------------
 	
+# Table Lawyer
+  # Lawyer's next date of hearing  
+  match '/all_reports/lawyer_next_date_of_hearing' => 'lawyer_next_date_of_hearing#index', :as => :lawyer_next_date_of_hearing_index, :via => :get
+  match '/all_reports/lawyer_next_date_of_hearing/submit_form' => 'lawyer_next_date_of_hearing#submit_form', :as => :lawyer_next_date_of_hearing_submit_form, :via => :post
+  match '/all_reports/lawyer_next_date_of_hearing/submit_form' => 'lawyer_next_date_of_hearing#redirect_to_index', :as => :lawyer_next_date_of_hearing_redirect_to_index, :via => :get
+
   resource :general_report
 
   

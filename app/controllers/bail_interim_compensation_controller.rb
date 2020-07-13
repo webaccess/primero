@@ -59,7 +59,7 @@ class BailInterimCompensationController < ApplicationController
 									if j.has_key? ("stage") and j["stage"].include? stage[0] #----match stage
 										if_stage_present += 1 
 										@court_hearings += 1
-										if j.has_key? ("lawyer_present_for_hearing") and j['lawyer_present_for_hearing'] == true
+										if j.has_key? ("lawyer_present_for_hearing") and j['lawyer_present_for_hearing'].include? "yes"
 											@hearing_atend_by_haq_lawyer += 1
 										else
 											@no_of_heaing_missed_by_haq_lawyer += 1

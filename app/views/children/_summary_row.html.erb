@@ -49,6 +49,10 @@
     <% #TODO - Get name or code.  Prob should be in helper. Should this be owned_by_text?%>
     <td><%= record.owned_by %></td>
   <% end %>
+  <% if fields_to_show.include? 'assigned_user' %>
+    <td><%= record.assigned_user_names %>
+    </td>
+  <% end %>
   <% if fields_to_show.include? 'owned_by_agency' %>
     <td><%= record.owned_by_agency %></td>
   <% end %>

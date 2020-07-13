@@ -47,6 +47,9 @@ class PsychologicalProgressImpactAchievementController < ApplicationController
             @reffereal_services_provided_to_family_mem = 0
             @family_domestic_vio_able_to_find_shelter = 0
             @mother_able_to_file_work_empolyment = 0
+			@drop_out_of_school_due_to_the_incident = 0
+			@child_is_able_to_resume_studies_with_social_workers_efforts = 0
+
             for i in psychosocial_data_count
                 if i['key'][0]!=nil
                     recieved_year = i['key'][0].split('-')[0]
@@ -101,6 +104,12 @@ class PsychologicalProgressImpactAchievementController < ApplicationController
                             if i['key'][1][15]!= nil and i['key'][1][15].include? "yes" 
                                 @mother_able_to_file_work_empolyment += 1
                             end
+							if i['key'][1][16]!= nil and i['key'][1][16].include? "yes_43896" 
+                                @drop_out_of_school_due_to_the_incident += 1
+                            end
+							if i['key'][1][17]!= nil and i['key'][1][17].include? "yes_43896" 
+                                @child_is_able_to_resume_studies_with_social_workers_efforts += 1
+                            end
                         end
                     end
                 end
@@ -122,7 +131,9 @@ class PsychologicalProgressImpactAchievementController < ApplicationController
             "complaint_of_domestic_violence" => @complaint_of_domestic_violence,
             "reffereal_services_provided_to_family_mem" => @reffereal_services_provided_to_family_mem,
             "family_domestic_vio_able_to_find_shelter" => @family_domestic_vio_able_to_find_shelter,
-            "mother_able_to_file_work_empolyment" => @mother_able_to_file_work_empolyment
+            "mother_able_to_file_work_empolyment" => @mother_able_to_file_work_empolyment,
+			"drop_out_of_school_due_to_the_incident" => @drop_out_of_school_due_to_the_incident,
+			"child_is_able_to_resume_studies_with_social_workers_efforts" => @child_is_able_to_resume_studies_with_social_workers_efforts
             })
         end
         @start_date = start_date

@@ -161,6 +161,7 @@ $(document).ready(function() {
                 <% @data.each_with_index do |i,index|%>
                     <tr>
                         <td><%= i['need'] %></td>
+						<!--
                         <% if index == 0 %>		
                             <td rowspan = 7> <%= i['total_cases'] %> </td>
                         <% else %>
@@ -168,6 +169,8 @@ $(document).ready(function() {
                                  <td> <%= i['total_cases'] %> </td>
                             <% end %>
                         <% end %>
+						//-->
+						<td><%= i['total_cases'] %></td>
                         <td><%= i['assessment_made'] %></td>
                         <td><%= i['no_need_assessment_done']%></td>
                         <td><%= i['no_need_identified']%></td>
