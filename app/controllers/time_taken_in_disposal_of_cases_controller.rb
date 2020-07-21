@@ -124,9 +124,9 @@ class TimeTakenInDisposalOfCasesController < ApplicationController
                             if j.has_key? ("stage") and j["stage"]!=nil
                                 if j["stage"]!= "police_investigation_31129" and j["stage"]!= "argument_on_sentencing_01489" and j["stage"]!= "order_on_sentencing_47946" and !j["stage"].include? "post_disposal_58753" and j["stage"] != ""   
                                     if j.has_key? ("effective_court_hearing") and j.has_key? ("adjournment")
-                                        if j['effective_court_hearing'] == true and j['adjournment'] == false 
+                                        if j['effective_court_hearing'].include? "yes" and j['adjournment'].include? "no" 
                                             @effective += 1
-                                        elsif j['effective_court_hearing'] == false and j['adjournment'] == true
+                                        elsif j['effective_court_hearing'].include? "no" and j['adjournment'].include? "yes"
                                             @adjournment += 1
                                         end
                                     else

@@ -1,6 +1,6 @@
 class DisposalController < ApplicationController
 	def index
-		
+
 	end
 
 	def redirect_to_index
@@ -20,12 +20,12 @@ class DisposalController < ApplicationController
 		start_year = start_date.split('-')[0]
 		end_year = end_date.split('-')[0]
 
-		end_year = end_year.to_i 
+		end_year = end_year.to_i
 		start_year = start_year.to_i
         diff_year = end_year-start_year
         year_array = [start_year]
 
-        (1..diff_year).each do |i|   
+        (1..diff_year).each do |i|
 			year_array.push(start_year+i)
         end
 
@@ -57,7 +57,7 @@ class DisposalController < ApplicationController
                     end
                 end
             end
-        end            
+        end
         @total = @cases_conviction + @cases_abeted + @cases_acquittal + @cases_discharged
         if @total!=0
             @cases_conviction_percent = (@cases_conviction.to_f/@total.to_f)*100.round
@@ -68,7 +68,7 @@ class DisposalController < ApplicationController
         end
 
     @start_date = start_date
-    @end_date = (Date.parse(end_date)-1).to_s   
+    @end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"
 	end
 end

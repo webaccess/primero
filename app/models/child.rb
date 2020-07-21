@@ -323,12 +323,12 @@ class Child < CouchRest::Model::Base
 
     view 	:by_closure_form_lawyer,
       :map => "function(doc) {
-			emit([new Date(doc.registration_date),doc.special_focus,doc.type_of_closure,doc.closure_reason]);      
+			emit([new Date(doc.registration_date),doc.protection_concerns,doc.type_of_closure,doc.what_is_the_reason_for_closing_the_childs_file]);      
       }"
 
-    view 	:by_vakalatnama_monthly_lawyer,
+    view 	:by_institutional_care,
 		:map => "function(doc) {
-			 emit([new Date(doc.registration_date),[doc.cp_lawyer_monthly_update_subform_vakalatnama_information]]);
+			 emit([new Date(doc.registration_date),doc.case_type_legal_psycho,doc.child_currently_living_with]);
           }"
 
     view 	:by_child_before_testimony,
@@ -343,23 +343,18 @@ class Child < CouchRest::Model::Base
 
     view 	:by_bail_app_result,
 		:map => "function(doc) {
-			var a = doc.cp_lawyer_monthly_update_subform_bail_related_information
-			if(a!=0){
-				for (var i in a){
-					emit([new Date(doc.registration_date),a[i].date_of_disposal,a[i].decision_on_bail_application,a[i].lawyer_present_and_opposed_bail_application]); 
-				}	
-			}     
+			emit([new Date(doc.registration_date),doc.cp_bail_information_subform_bail_details]);
 		}"
 						
      view 	:by_bail_interim_compensation_witness_protection,
 		 :map => "function(doc) {
-					  emit([new Date(doc.registration_date),doc.cp_court_hearing_subform_next_date_purpose]);
-				  }"
+			emit([new Date(doc.registration_date),doc.cp_court_hearing_subform_next_date_purpose]);
+		}"
 		  
      view 	:by_status_court_hearings_supported_by_lawyers,
 		:map => "function(doc) {
-                  emit([new Date(doc.registration_date),doc.cp_court_hearing_subform_next_date_purpose]);
-              }"
+			emit([new Date(doc.registration_date),doc.cp_court_hearing_subform_next_date_purpose]);
+        }"
       
      view 	:by_reason_of_adjournments,
 		:map => "function(doc) {
@@ -388,7 +383,14 @@ class Child < CouchRest::Model::Base
 
     view 	:by_time_taken_in_disposal_of_cases,
 		:map => "function(doc) {
-			emit([new Date(doc.registration_date),[doc.case_id_display, doc.case_type_legal_psycho, doc.pseudonym, doc.court_cognizance, doc.convicted_acquitted_abated_discharged, doc.date_of_cognizance_by_court, doc.date_of_pronouncement_of_judgment, doc.cp_court_hearing_subform_next_date_purpose ]])
+			if (doc['couchrest-type'] == 'Child')
+			{
+				if (!doc.hasOwnProperty('duplicate') || !doc['duplicate']) {
+					if (doc['convicted_acquitted_abated_discharged'] != null) {
+						emit([new Date(doc.registration_date),[doc.case_id_display, doc.case_type_legal_psycho, doc.pseudonym, doc.court_cognizance, doc.convicted_acquitted_abated_discharged, doc.date_of_cognizance_by_court, doc.date_of_pronouncement_of_judgment, doc.cp_court_hearing_subform_next_date_purpose ]])
+					}
+				}
+			}
 		}"
 
     view 	:by_disposal_of_cases,
@@ -398,15 +400,22 @@ class Child < CouchRest::Model::Base
 
     view 	:by_cases_where_trial_completed,
 		:map => "function(doc) {
-			emit([new Date(doc.registration_date),[doc.date_of_cognizance_by_court, doc.date_of_pronouncement_of_judgment]])
-     }"
+			emit([new Date(doc.registration_date),[doc.date_of_cognizance_by_court, doc.date_of_pronouncement_of_judgment,doc.convicted_acquitted_abated_discharged]])
+		}"
       
     view 	:by_time_taken_for_completion_of_childs_testimony,
 		:map => "function(doc) {
 			emit([new Date(doc.registration_date),[doc.date_on_which_victim_testimony_commenced, doc.date_on_which_victim_testimony_was_completed_or_ended]])
 		}"
 
-      
+    view 	:by_lawyer_next_date_of_hearing,
+		:map => "function(doc) {
+			if( doc.cp_court_hearing_subform_next_date_purpose ) {
+				for( var i=0, l=doc.cp_court_hearing_subform_next_date_purpose.length; i<l; i++) {
+					emit([new Date(doc.registration_date),[doc.name, doc.cp_court_hearing_subform_next_date_purpose[i]]]);
+				}
+			}	
+		}"
 						
   end
 
