@@ -46,7 +46,7 @@ class CasesWhereTrialCompletedController < ApplicationController
         for i in cases_where_trial_completed
             if i['key'][0]!=nil
                 if i['key'][1]!= nil and i['key'][1].length > 0
-                    if i['key'][1][0]!= nil and i['key'][1][1]!= nil
+                    if i['key'][1][0]!= nil and i['key'][1][1]!= nil and i['key'][1][2]!= nil
                         cognizanceDate = Date.parse(i['key'][1][0])
                         judgementDate = Date.parse(i['key'][1][1])
                         if cognizanceDate <= judgementDate

@@ -179,16 +179,16 @@ $(document).ready(function() {
 					<% @data.each do |i|%>
 						<tr>
 							<td><%= i['year'] %></td>
-							<td><%= i['total'] %></td>						
+							<td><%= i['pending_live'] %></td>						
 							<td><%= i['previous'] %></td>					
 							<td><%= i['before_close'] %></td>					
-              <td><%= i['psychosocial'] %></td>
+							<td><%= i['psychosocial'] %></td>
 							<td><%= i['psycholegal'] %></td>
 							<td><%= i['totalpyscholegal'] %></td>
 							<td><%= i['psychosocial_closed'] %></td>
 							<td><%= i['psycholegal_closed'] %></td> 
 							<td><%= i['totalpyscholegal_closed'] %></td>  
-							<td><%= i['pending_live'] %></td>
+							<td><%= i['livereferrals'] %></td>
 							<td><%= i['totalformalcase'] %></td>                                                   
 						</tr>
 					<% end %>

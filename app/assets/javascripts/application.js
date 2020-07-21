@@ -64,11 +64,11 @@
 //= require router
 //= require category
 //= require compensation
-//= require accused
 //= require caselog
 //= require mental_assessment
 //= require others
 //= require referral
+
 
 //= require turbolinks
 //= require primero_libs/turbolinks-compatibility

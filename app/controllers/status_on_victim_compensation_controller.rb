@@ -53,7 +53,15 @@ class StatusOnVictimCompensationController < ApplicationController
 				@amount_final = i['key'][9]
 			end
 		
-
+			
+			puts @uid
+			puts @court
+			puts @pname
+			puts @date_interim
+			puts @amount_interim
+			puts @date_final
+			puts @amount_final
+			
 			@data.push({
 				"userid" => @uid,
 				"dcourt" => @court,
