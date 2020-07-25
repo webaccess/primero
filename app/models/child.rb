@@ -265,7 +265,9 @@ class Child < CouchRest::Model::Base
           
      view  :by_appeal_in_appellate,
         :map => "function(doc) {
-				emit([new Date(doc.registration_date), doc.child_status]);         
+			if ((doc['couchrest-type'] == 'Child') && (doc['date_of_filing'] != null)) {
+				emit([new Date(doc.registration_date), doc.date_of_filing, doc.date_of_disposal, doc.child_status]);   
+            }				
         }"    
 
      view 	:by_family_members_directely_impacted,
@@ -313,7 +315,7 @@ class Child < CouchRest::Model::Base
 	
 	view 	:by_status_on_financial_needs,
 		:map => "function(doc) {
-			emit([new Date(doc.registration_date),[doc.case_type_legal_psycho, doc.child_status, doc.approval_status_case_plan, doc.cp_psychosocial_needs_status_subform_type_of_need,doc.application_filed_on_interim,doc.interim_compensation_status,doc.application_filed_on_final]]);
+			emit([new Date(doc.registration_date),[doc.case_type_legal_psycho, doc.child_status, doc.approval_status_case_plan, doc.cp_psychosocial_needs_status_subform_type_of_need]]);
 		}"
 			
 	view  :by_victim_testimony_preparation,
@@ -412,7 +414,7 @@ class Child < CouchRest::Model::Base
 		:map => "function(doc) {
 			if( doc.cp_court_hearing_subform_next_date_purpose ) {
 				for( var i=0, l=doc.cp_court_hearing_subform_next_date_purpose.length; i<l; i++) {
-					emit([new Date(doc.registration_date),[doc.name, doc.cp_court_hearing_subform_next_date_purpose[i]]]);
+					emit([new Date(doc.registration_date),[doc.name, doc.cp_court_hearing_subform_next_date_purpose[i], doc.cause_title, doc.case_id_display]]);
 				}
 			}	
 		}"

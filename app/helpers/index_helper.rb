@@ -231,7 +231,7 @@
     header_list = []
     header_list << {title: '', sort_title: 'select'}
     header_list << {title: 'id', sort_title: 'short_id'}
-    header_list << {title: 'Pseudo id', sort_title: 'pseudo_id'}
+    header_list << {title: 'pseudo_id', sort_title: 'pseudo_case_id'}
     header_list << {title: 'name', sort_title: 'sortable_name'} #if (@is_cp && !@is_manager && !@id_search.present?)
     header_list << {title: 'survivor_code', sort_title: 'survivor_code_no'} if (@is_gbv && !@is_manager)
     header_list << {title: 'age', sort_title: 'age'} if @is_cp || @id_search.present?
@@ -239,7 +239,7 @@
     header_list << {title: 'registration_date', sort_title: 'registration_date'} if @is_cp && !@id_search.present?
     header_list << {title: 'case_opening_date', sort_title: 'created_at'} if @is_gbv && !@id_search.present?
     header_list << {title: 'social_worker', sort_title: 'owned_by'} if @is_manager && !@id_search.present?
-	header_list << {title: 'Referrals', sort_title: 'assigned_user'} 
+	header_list << {title: 'Referrals', sort_title: 'assigned_user_names'} 
     header_list << {title: 'owned_by', sort_title: 'owned_by'} if @is_cp && @id_search.present?
     header_list << {title: 'owned_by_agency', sort_title: 'owned_by_agency'} if @is_cp && @id_search.present?
     header_list << {title: '', sort_title: 'view'} if @id_search.present? && @can_display_view_page
@@ -254,13 +254,17 @@
     header_list << {title: '', sort_title: 'select'}
     #TODO - do I need to handle Incident Code???
     header_list << {title: 'id', sort_title: 'short_id'}
-
-    header_list << {title: 'date_of_interview', sort_title: 'date_of_first_report'} if @is_gbv || @is_cp
+    header_list << {title: 'training_created', sort_title: 'date_of_first_report'} if @is_gbv || @is_cp
+	header_list << {title: 'date_of_training',sort_title: 'date_of_training'}
+	header_list << {title: 'facilitated_by',sort_title: 'facilitated_by'}
+	header_list << {title: 'police_district',sort_title: 'organised_by'}
+	header_list << {title: 'participant_group',sort_title: 'description_of_participants'}
+	header_list << {title: 'participants',sort_title: 'number_of_participants'}
     #header_list << {title: 'date_of_incident', sort_title: 'incident_date_derived'}
     #header_list << {title: 'violence_type', sort_title: 'gbv_sexual_violence_type'} if @is_gbv || @is_cp
     #header_list << {title: 'incident_location', sort_title: 'incident_location'} if @is_mrm
     #header_list << {title: 'violations', sort_title: 'violations'} if @is_mrm
-    header_list << {title: 'social_worker', sort_title: 'owned_by'} if @is_manager
+    #header_list << {title: 'social_worker', sort_title: 'owned_by'} if @is_manager
 
     return header_list
   end

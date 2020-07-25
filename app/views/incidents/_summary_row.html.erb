@@ -17,6 +17,25 @@
   <% if fields_to_show.include? 'incident_date_derived' %>
     <td><%= field_format_date(record.incident_date_derived) %></td>
   <% end %>
+  <% if fields_to_show.include? 'date_of_training' %>
+    <td><%= field_format_date(record.date_of_training) %></td>
+  <% end %>
+  <% if fields_to_show.include? 'facilitated_by' %>
+    <td><%= record.facilitated_by %></td>
+  <% end %>
+  <% if fields_to_show.include? 'organised_by' %>
+	<% @myData =  record.organised_by.to_s %>
+	<% @organised =   @myData.to(-6).gsub! '_', ' ' %>
+    <td><%= @organised %></td>
+  <% end %>
+  <% if fields_to_show.include? 'description_of_participants' %>
+	<% @myString =  record.description_of_participants.to_s %>
+		<% @participants =   @myString.to(-6).gsub! '_', ' ' %>
+    <td><%= @participants %></td>
+  <% end %>
+    <% if fields_to_show.include? 'number_of_participants' %>
+    <td><%= record.number_of_participants %></td>
+  <% end %>
   <% if fields_to_show.include? 'gbv_sexual_violence_type' %>
     <td><%= record.display_field(@gbv_sexual_violence_type_field) %></td>
   <% end %>

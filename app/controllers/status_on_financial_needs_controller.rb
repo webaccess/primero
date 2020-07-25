@@ -32,80 +32,75 @@ class StatusOnFinancialNeedsController < ApplicationController
     status_on_financial_needs = Child.by_status_on_financial_needs.startkey([start_date]).endkey([end_date,{}])['rows']
     
     for year in year_array
-			@no_of_total_cases = 0
-			@assessed_need_identified = 0
-			@assessed_no_need_identified = 0
-			@financial_met_partially = 0
-			@efforts_ongoing = 0
-			@could_not_meet_reason = 0
-			@status_financial = 0
-			@application_filed_on_interim = 0
-			@interim_compensation_status = 0
-			@financial_needs = 0
-			@application_filed_on_final = 0
-			@total_financial_need = 0
-	
-			for i in status_on_financial_needs
-				if i['key'][0].split("-")[0].to_i == year
-					if i['key'][1][0]!=nil and i['key'][1][1]!=nil and i['key'][1][2]!=nil
-						if i['key'][1][0].include? "psy_so" or i['key'][1][0].include? "psy_so_cum_legal" and i['key'][1][1].include? "open" and i['key'][1][2].include? "approved"
-							@no_of_total_cases += 1 
-						end
-					end
-					end
-					if i['key'][1][4] == nil
-						@application_filed_on_interim += 1
-					end
-					if i ['key'][1][5]!=nil
-						if i ['key'][1][5].include? "pending"
-							@interim_compensation_status += 1
-						end
-					end
-					if i ['key'][1][6] == nil
-						@application_filed_on_final += 1
-					end
-					for j in i['key'][1][3]
-						if j.has_key?('psychosocial_need_financial')
-							if j['psychosocial_need_financial'].include? "need_identified"
-								@assessed_need_identified += 1
-							end
-						end
-						if j.has_key?('psychosocial_need_financial')
-							if j['psychosocial_need_financial'].exclude? "no_need_assessment_done"
-								@total_financial_need += 1
-							end
-						end
-						if j.has_key?('need_fulfilment_financial')
-							if j['need_fulfilment_financial'].include? "partially_met" or j['need_fulfilment_financial'].include? "fully_met"
-								@financial_met_partially += 1
-							end
-						end
-						if j.has_key?('need_fulfilment_financial')
-							if j['need_fulfilment_financial'].include? "efforts_ongoing"
-								@efforts_ongoing += 1
-							end
-						end
-						if j.has_key?('need_fulfilment_financial')
-							if j['need_fulfilment_financial'].include? "could_not_be_met_reason"
-								@could_not_meet_reason += 1
-							end
-						end
-						if j.has_key?('status_financial')
-							if j['status_financial']!= nil and j['status_financial']!= ''
-								@status_financial += 1
-							end
-						end
-						if j.has_key?('financial_needs') and j.has_key?('psychosocial_need_financial')
-							if j['financial_needs'].include? "survivor_and_or_family_member_s_can_avail_the_benefits_of_social_security_schemes_such_as_disability_benefits_ladli_yojna_old_age_pension_widow_pension_etc_need_to_be_referred_connected_to_relevant_schemes_38829" and j['psychosocial_need_financial'].include? "need_identified_19219"
-								@financial_needs += 1
-							end
-						end
-					end
-					#@total_financial_need = @assessed_need_identified + @assessed_no_need_identified 
-				end
-			
+		@no_of_total_cases = 0
+		@assessed_need_identified = 0
+		@assessed_no_need_identified = 0
+		@financial_met_partially = 0
+		@efforts_ongoing = 0
+		@could_not_meet_reason = 0
+		@status_financial = 0
+		@financial_needs = 0
+		@total_financial_need = 0
+		@trying = 0
+		@reviewing = 0
+		@appy_for_final = 0
+		@applied_pending = 0
 
+		for i in status_on_financial_needs
+			if i['key'][0].split("-")[0].to_i == year
+				if i['key'][1][0]!=nil and i['key'][1][1]!=nil and i['key'][1][2]!=nil
+					if i['key'][1][0].include? "psy_so_99767" or i['key'][1][0].include? "psy_so_cum_legal_17991" and i['key'][1][2].include? "approved"
+						@no_of_total_cases += 1 
+					end
+				end
+			end
+			
+			if  i['key'][1][3]!= nil
+				for j in i['key'][1][3]
+					if j.has_key?('psychosocial_need_financial')
+						if j['psychosocial_need_financial'].include? "need_identified"
+							@assessed_need_identified += 1
+						end
+					end
+					if j.has_key?('psychosocial_need_financial')
+						if j['psychosocial_need_financial'].exclude? "no_need_assessment_done"
+							@total_financial_need += 1
+						end
+					end
+					if j.has_key?('need_fulfilment_financial')
+						if j['need_fulfilment_financial'].include? "partially_met" or j['need_fulfilment_financial'].include? "fully_met"
+							@financial_met_partially += 1
+						end
+					end
+					if j.has_key?('need_fulfilment_financial')
+						if j['need_fulfilment_financial'].include? "efforts_ongoing"
+							@efforts_ongoing += 1
+						end
+					end
+					if j.has_key?('need_fulfilment_financial')
+						if j['need_fulfilment_financial'].include? "could_not_be_met_reason"
+							@could_not_meet_reason += 1
+						end
+					end
+					if j.has_key?('ongoing_effect_financial_needs') 
+						if j['ongoing_effect_financial_needs'].include? "trying_for_other_social_security_schemes_as_interim_compensation_may_be_difficult_nature_of_case_and_circumstances_45618"
+							@trying +=1
+						end
+						if j['ongoing_effect_financial_needs'].include? "not_applied_11372"  or j['ongoing_effect_financial_needs'].include? "reviewing_grounds_97162" 
+							@reviewing +=1
+						end
+						if j['ongoing_effect_financial_needs'].include? "applied_21040" or j['ongoing_effect_financial_needs'].include? "pending_15746" 
+							@applied_pending +=1
+						end
+						if j['ongoing_effect_financial_needs'].include? "to_apply_for_final_compensation_43074" 
+							@appy_for_final +=1
+						end
+					end 
+				end
+			end
+			
 		end
+	end
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"

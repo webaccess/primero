@@ -95,11 +95,8 @@ class DetailCaseIntakeClosureController < ApplicationController
 			end
 			
 			@totalreferrals = @cases_pending + @cases_previous
-			puts(@totalreferrals)
 			@totalclosed = @before_formal_close + @totalpsylegal_close
-			puts(@totalclosed)
 			@livereferrals = @totalreferrals - @totalclosed
-			puts(@livereferrals)
 				
 			@data.push({
 				"year" => year,

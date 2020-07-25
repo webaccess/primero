@@ -18,7 +18,7 @@
       <% end %>
     </td>
   <% end %>
-  <% if fields_to_show.include? 'pseudo_id' %>
+  <% if fields_to_show.include? 'pseudo_case_id' %>
     <td><%= record.pseudo_case_id %>
     </td>
   <% end %>
@@ -49,7 +49,7 @@
     <% #TODO - Get name or code.  Prob should be in helper. Should this be owned_by_text?%>
     <td><%= record.owned_by %></td>
   <% end %>
-  <% if fields_to_show.include? 'assigned_user' %>
+  <% if fields_to_show.include? 'assigned_user_names' %>
     <td><%= record.assigned_user_names %>
     </td>
   <% end %>
