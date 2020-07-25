@@ -173,23 +173,23 @@ $(document).ready(function() {
 						</tr>
 						<tr>
 							<td>Status of ongoing efforts for fulfilling the financial need</td>
-							<td><%= @status_financial %></td>
+							<td></td>
 						</tr>
 						<tr>
 							<td>Not Applied, reviewing grounds</td>
-							<td><%= @application_filed_on_interim %></td>
+							<td><%= @reviewing %></td>
 						</tr>
 						<tr>
 							<td>Applied, pending</td>
-							<td><%= @interim_compensation_status %></td>
+							<td><%= @applied_pending %></td>
 						</tr>
 						<tr>
 							<td>Trying for other social security schemes as interim compensation may be difficult nature of case and circumstances</td>
-							<td><%= @financial_needs %></td>
+							<td><%= @trying %></td>
 						</tr>
 						<tr>
 							<td>To apply for final compensation</td>
-							<td><%= @application_filed_on_final %></td>
+							<td><%= @appy_for_final %></td>
 						</tr>
 					</tbody>	
 				</table>

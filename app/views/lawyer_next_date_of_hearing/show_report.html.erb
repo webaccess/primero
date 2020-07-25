@@ -103,7 +103,7 @@ $(document).ready(function() {
 	<div class="row">
 		<%= form_tag("/all_reports/lawyer_next_date_of_hearing/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_lawyer_next_date_of_hearing") do %>
         <div class="title-sub-report">
-            <h3>Lawyer next date of hearings</h3>
+            <h3>Court Hearing Calendar</h3>
         <div>
         <div class="sub-report-filter">
             <div id = "validation_div"></div>
@@ -117,9 +117,6 @@ $(document).ready(function() {
             </div>
             <div class="col-sm-3">
                 <button type="submit" id ='submit_tag'>Submit</button>
-                <div class="excel-sheet">
-                    <a id="generate" class="fa fa-file-excel-o" style ="font-size:30px;align:right" data-toggle="tooltip" title="Download excel" data-placement="bottom" target = "_blank"></a>
-                </div>
             </div>
         <% end %>
         </div>
@@ -127,7 +124,7 @@ $(document).ready(function() {
 			<table class="dataTable in_content_area reports">
 				<thead>
 					<tr hidden>
-						<td colspan = 17 align = "center"><h4><b>Lawyer next date of hearings</b></h4></td>
+						<td colspan = 17 align = "center"><h4><b>Court Hearing Calendar</b></h4></td>
 					</tr>
 					<tr hidden>
 						<td>Start Date: <%= @start_date %></td>
@@ -141,6 +138,8 @@ $(document).ready(function() {
 					<tr>
 						<td>Last Date</td>
 						<td>Next Date</td>
+						<td>Case ID</td>
+						<td>Case Title</td>
 						<td>Case Name</td>
 						<td>Court</td>
 						<td>Judge</td>
@@ -152,7 +151,9 @@ $(document).ready(function() {
                     <% @data.each do |x| %>
                         <tr>
 							<td><%= x["hearingdate"] %></td>
-							<td><%= x["nexthearing"] %></td>     
+							<td><%= x["nexthearing"] %></td> 
+							<td><%= x["caseid"] %></td> 
+							<td><%= x["causetitle"] %></td> 							
 							<td><%= x["casename"] %></td> 
 							<td><%= x["court"] %></td> 
 							<td><%= x["judge"] %></td> 	

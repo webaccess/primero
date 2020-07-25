@@ -48,6 +48,9 @@ class LawyerNextDateOfHearingController < ApplicationController
 				@stage = "-"
 				@purpose = "-"
 				@judge = "-"
+				@causetitle = "-"
+				@caseid = "-"
+
 
 				if i["key"][1][0]!= nil and i["key"][1][0]!= ""
                         @casename = i["key"][1][0]
@@ -74,6 +77,14 @@ class LawyerNextDateOfHearingController < ApplicationController
 						end							
 				end
 				
+				if i["key"][1][2]!= nil and i["key"][1][2]!= ""
+                    @causetitle = i["key"][1][2]
+                end
+				
+				if i["key"][1][3]!= nil and i["key"][1][3]!= ""
+                   @caseid = i["key"][1][3]
+                end
+				
 			end
 		 end
 
@@ -85,7 +96,8 @@ class LawyerNextDateOfHearingController < ApplicationController
             "stage" => @stage.split(' ')[0...-1].join(' '),
 			"purpose" => @purpose,
 			"judge" => @judge,
-
+			"causetitle" => @causetitle,
+			"caseid" => @caseid,
             })
 	end
 	@start_date = start_date

@@ -29,79 +29,53 @@ class AppealInAppellateController < ApplicationController
 		end_date_x = (Date.parse(end_date)-365).to_s
 
 		appeal_in_appellate = Child.by_appeal_in_appellate.startkey([start_date]).endkey([end_date,{}])['rows']
-		cases_pending_formal_intake = Child.by_cases_pending_formal_intake.startkey([start_date]).endkey([end_date,{}])['rows']
-		cases_previous_year = Child.by_cases_pending_formal_intake.startkey([start_date_x]).endkey([end_date_x,{}])['rows']
-
+		previous_year_cases = Child.by_appeal_in_appellate.startkey([start_date_x]).endkey([end_date_x,{}])['rows']
+	
 		for year in year_array
 			@total_case = 0
-			@cases_pending = 0
-			@cases_previous = 0
+			@previous_year = 0
 			@formal_close = 0
 			@before_formal_close = 0
-			@totalcg = 0
-			@testtotal = 0
-			@totalab = 0
-			@balance = 0
+			@balance_cases = 0
+			@pending_cases = 0
+			@live_cases = 0
 
 			for i in appeal_in_appellate
 				if i['key'][0]!=nil
 					recieved_year = i['key'][0].split('-')[0]
 					if recieved_year.to_i == year
 						@total_case += 1
-						if i['key'][1]!=nil
-							if i['key'][1].include? "closed"
+						if i['key'][3]!=nil
+							if i['key'][3].include? "closed"
 								@formal_close += 1
 							end
 						end
-						@totalab = @total_case
 					end
 				end
 			end
-
-			for j in cases_pending_formal_intake
-				if j['key'][0]!=nil
-					recieved_year = j['key'][0].split('-')[0]
-					if recieved_year.to_i == year
-						if j['key'][1]!=nil and j['key'][2]!=nil
-							if j['key'][1].include? "referral_84755" and j['key'][2].include? "open" and j['key'][3] == nil
-								@cases_pending += 1	
-							end
-						
-							if j['key'][1].include? "referral_84755" and j['key'][2].include? "closed" and j['key'][3] == nil
-								@before_formal_close += 1	
-							end
-						end
-						@totalcg = @cases_pending + @before_formal_close
-					end
-				end
-			end
-
-			for k in cases_previous_year
-				if k['key'][0]!=nil
-					recieved_year = k['key'][0].split('-')[0]
-					if recieved_year.to_i == year
-						if k['key'][1]!=nil and k['key'][2]!=nil 
-							if k['key'][1].include? "referral_84755" and k['key'][2].include? "open" and k['key'][3] == nil
-								@cases_previous += 1	
-							end
-						end
-						@totalab += @cases_previous
-					end
-				end
-			end
-
-			@testtotal = @totalab - @totalcg
-			@balance = @testtotal - @formal_close 
 			
+			for i in previous_year_cases
+				if i['key'][0]!=nil
+					recieved_year = i['key'][0].split('-')[0]
+					if recieved_year.to_i + 1  == year
+						@previous_year += 1
+					end
+				end
+			end
+			
+			@formal_intake_total = ((@total_case + @previous_year) - @before_formal_close)
+			@balance_cases = (@formal_intake_total - @formal_close)
+			@pending_cases = (@balance_cases - @previous_year)
+				
 			@data.push({
 				"year" => year,
 				"total" => @total_case,
 				"close" => @formal_close,
-				"pending" => @cases_pending,
-				"previous" => @cases_previous,
-				"before_close" => @before_formal_close,
-				"Dtotal" => @testtotal, 
-				"balance" => @balance
+				"previous" => @previous_year,
+				"formalTotal" => @formal_intake_total,
+				"beforeClose" => @before_formal_close,
+				"balance" => @balance_cases,
+				"pending" => @pending_cases
 			})
 
 		end
