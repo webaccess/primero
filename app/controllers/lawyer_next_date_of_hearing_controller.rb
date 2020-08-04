@@ -50,6 +50,7 @@ class LawyerNextDateOfHearingController < ApplicationController
 				@judge = "-"
 				@causetitle = "-"
 				@caseid = "-"
+				@lawyer = "-"
 
 
 				if i["key"][1][0]!= nil and i["key"][1][0]!= ""
@@ -85,6 +86,12 @@ class LawyerNextDateOfHearingController < ApplicationController
                    @caseid = i["key"][1][3]
                 end
 				
+				if i["key"][1][4]!= nil and i["key"][1][4]!= ""
+                   for j in i["key"][1][4]
+						@lawyer = i["key"][1][4].grep(/lc/)
+					end 
+                end
+				
 			end
 		 end
 
@@ -98,6 +105,7 @@ class LawyerNextDateOfHearingController < ApplicationController
 			"judge" => @judge,
 			"causetitle" => @causetitle,
 			"caseid" => @caseid,
+			"lawyer" => @lawyer
             })
 	end
 	@start_date = start_date

@@ -82,17 +82,17 @@ class StatusOnFinancialNeedsController < ApplicationController
 							@could_not_meet_reason += 1
 						end
 					end
-					if j.has_key?('ongoing_effect_financial_needs') 
-						if j['ongoing_effect_financial_needs'].include? "trying_for_other_social_security_schemes_as_interim_compensation_may_be_difficult_nature_of_case_and_circumstances_45618"
+					if j.has_key?('need_fulfilment_financial') and j.has_key?('ongoing_effect_financial_needs') 
+						if j['need_fulfilment_financial'].include? "efforts_ongoing" and j['ongoing_effect_financial_needs'].include? "trying_for_other_social_security_schemes_as_interim_compensation_may_be_difficult_nature_of_case_and_circumstances_45618"
 							@trying +=1
 						end
-						if j['ongoing_effect_financial_needs'].include? "not_applied_11372"  or j['ongoing_effect_financial_needs'].include? "reviewing_grounds_97162" 
+						if j['ongoing_effect_financial_needs'].include? "not_applied_11372"  or j['ongoing_effect_financial_needs'].include? "reviewing_grounds_97162"  and j['need_fulfilment_financial'].include? "efforts_ongoing" 
 							@reviewing +=1
 						end
-						if j['ongoing_effect_financial_needs'].include? "applied_21040" or j['ongoing_effect_financial_needs'].include? "pending_15746" 
+						if j['ongoing_effect_financial_needs'].include? "applied_21040" or j['ongoing_effect_financial_needs'].include? "pending_15746" and j['need_fulfilment_financial'].include? "efforts_ongoing" 
 							@applied_pending +=1
 						end
-						if j['ongoing_effect_financial_needs'].include? "to_apply_for_final_compensation_43074" 
+						if j['ongoing_effect_financial_needs'].include? "to_apply_for_final_compensation_43074"  and j['need_fulfilment_financial'].include? "efforts_ongoing" 
 							@appy_for_final +=1
 						end
 					end 
