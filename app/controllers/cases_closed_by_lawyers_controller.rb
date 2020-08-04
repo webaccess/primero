@@ -30,30 +30,29 @@ class CasesClosedByLawyersController < ApplicationController
 			year_array.push(start_year+i)
     end
 		
-	by_lawyer_case_closed = Child.by_cases_closed_by_haq_lawyer.startkey([start_date]).endkey([end_date,{}])['rows']
+	by_lawyer_case_closed = Child.by_legal_cases_closed_with_reasons_for_closure.startkey([start_date]).endkey([end_date,{}])['rows']
 
 	for i in by_lawyer_case_closed
-		@uid = 0
-		@cname = 0
-		@ctitle = 0
-		@cstage = 0
-		@creason = 0
+		@uid = "-"
+		@cname = "-"
+		@ctitle = "-"
+		@cstage = "-"
+		@creason = "-"
 
-		if i['key'][2]!= nil and i['key'][2].include? "legal_25204" or i['key'][2].include? "psy_so_cum_legal_17991"
+		if i['key'][3].include? "legal_25204" or i['key'][3].include? "psy_so_cum_legal_17991"
 			@uid = i['key'][1]
-			@cname = i['key'][3]
-			@ctitle = i['key'][4]
+			@cname = i['key'][4]
+			@ctitle = i['key'][10]
 		
-
-			if i['key'][5]!= nil && i['key'][5]!= "any other specify"
-				@cstage = i['key'][5]
-			else i['key'][5].include? "any other specify"
+			if i['key'][6]!= nil and i['key'][6].include? "any other specify"
+				@cstage = i['key'][7]
+			else
 				@cstage = i['key'][6]
 			end
 
-			if i['key'][7]!= nil && i['key'][7]!= "any other specify"
-				@creason = i['key'][7]
-			else i['key'][7].include? "any other specify"
+			if i['key'][8]!= nil and i['key'][8].include? "any other specify"
+				@creason = i['key'][9]
+			else
 				@creason = i['key'][8]
 			end
 		end

@@ -100,7 +100,6 @@ $(document).ready(function() {
 
 </script>
 
-
 <div class="container">
 	<div class="row">
 		<%= form_tag("/all_reports/disposal/submit_form", class: "form-inline" ,method: "post", class: 'form-inline', name:"myForm", id:"submit_form_for_disposal") do %>
@@ -166,6 +165,21 @@ $(document).ready(function() {
 									<td>Discharge</td>
 									<td><%= @cases_discharged %></td>
 									<td><%= @cases_discharged_percent %></td>
+						 </tr>
+						 <tr>
+									<td>P.O.Consigned</td>
+									<td><%= @cases_consigned %></td>
+									<td><%= @cases_consigned_percent %></td>
+						 </tr>
+						 <tr>
+									<td>Transferred</td>
+									<td><%= @cases_transferred %></td>
+									<td><%= @cases_transferred_percent %></td>
+						 </tr>
+						 <tr>
+									<td>Other</td>
+									<td><%= @cases_others %></td>
+									<td><%= @cases_others_percent %></td>
 						 </tr>
 						 <tr>
 									<td><b>Total</b></td>

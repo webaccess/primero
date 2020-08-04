@@ -50,6 +50,153 @@
   ],
   "FormSection": [
     {
+      "_id": "06328bb0b2f8aabd4b920600613ddb7d",
+      "fields": [
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date of Offence from",
+          "name": "occurrence_date_of_offence_from",
+          "help_text_en": "will consider as exact date if \"Date of Offence to\" is null",
+          "visible": true,
+          "type": "date_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_pt": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_pt": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": "",
+          "date_validation": "default_date_validation"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date of offence to",
+          "name": "occurrence_date_of_offence_to",
+          "help_text_en": "fill in, only if the date is not specific",
+          "visible": true,
+          "type": "date_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_pt": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_pt": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": "",
+          "date_validation": "default_date_validation"
+        }
+      ],
+      "is_summary_section": false,
+      "base_language": "en",
+      "name_en": "Occurrence of Offence",
+      "description_en": "Occurrence of Offence",
+      "name_fr": "Occurrence of Offence",
+      "description_fr": "Occurrence of Offence",
+      "name_ar": "Occurrence of Offence",
+      "description_ar": "Occurrence of Offence",
+      "name_ar-LB": "Occurrence of Offence",
+      "description_ar-LB": "Occurrence of Offence",
+      "name_so": "Occurrence of Offence",
+      "description_so": "Occurrence of Offence",
+      "name_es": "Occurrence of Offence",
+      "description_es": "Occurrence of Offence",
+      "name_pt": "Occurrence of Offence",
+      "description_pt": "Occurrence of Offence",
+      "name_bn": "Occurrence of Offence",
+      "description_bn": "Occurrence of Offence",
+      "name_my": "Occurrence of Offence",
+      "description_my": "Occurrence of Offence",
+      "name_th": "Occurrence of Offence",
+      "description_th": "Occurrence of Offence",
+      "name_ku": "Occurrence of Offence",
+      "description_ku": "Occurrence of Offence",
+      "unique_id": "cp_fir_details_subform_occurrence_of_offence_subform",
+      "parent_form": "case",
+      "visible": false,
+      "order": 999,
+      "order_form_group": 5,
+      "order_subform": 1,
+      "form_group_keyed": false,
+      "editable": true,
+      "fixed_order": false,
+      "perm_visible": false,
+      "perm_enabled": false,
+      "core_form": false,
+      "validations": [
+
+      ],
+      "is_nested": true,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "collapsed_fields": [
+
+      ],
+      "subform_prevent_item_removal": false,
+      "subform_header_links": [
+
+      ],
+      "display_help_text_view": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": "",
+      "couchrest-type": "FormSection"
+    },
+    {
       "_id": "0824c73de7eb0c40eeca719be27b23b2",
       "fields": [
         {
@@ -1333,92 +1480,6 @@
           "editable": true,
           "multi_select": false,
           "required": false,
-          "display_name_en": "Number of Effective Hearings",
-          "name": "no_of_effective_hearings_judgment_sentence",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "display_name_pt": "",
-          "help_text_pt": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Number of Adjourned Hearings",
-          "name": "no_of_adjourned_hearings_judgment_sentence",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "display_name_pt": "",
-          "help_text_pt": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
           "display_name_en": "Date when case was listed for pronouncement of sentence",
           "name": "date_when_case_was_listed_for_pronouncement_of_sentence",
           "help_text_en": "",
@@ -1524,12 +1585,367 @@
             {
               "id": "discharged_20076",
               "display_text": "Discharged"
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": "P.O. Consigned"
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": "Transferred"
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": "Any Other (Specify)"
             }
           ],
           "option_strings_source": "",
           "multi_select": false,
           "visible": true,
           "type": "radio_button",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_pt": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_pt": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": "",
+          "option_strings_text_fr": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_ar": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_ar-LB": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_so": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_es": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_pt": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_bn": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_my": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_th": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ],
+          "option_strings_text_ku": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_19853",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_80254",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_25485",
+              "display_text": ""
+            }
+          ]
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Any Other, Specify",
+          "name": "other_disposed",
+          "help_text_en": "",
+          "visible": true,
+          "type": "text_field",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
@@ -1722,6 +2138,92 @@
           "editable": true,
           "multi_select": false,
           "required": false,
+          "display_name_en": "Number of Effective Hearings",
+          "name": "no_of_effective_hearings_judgment_sentence",
+          "help_text_en": "",
+          "visible": true,
+          "type": "numeric_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": "",
+          "display_name_pt": "",
+          "help_text_pt": ""
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Number of Adjourned Hearings",
+          "name": "no_of_adjourned_hearings_judgment_sentence",
+          "help_text_en": "",
+          "visible": true,
+          "type": "numeric_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": "",
+          "display_name_pt": "",
+          "help_text_pt": ""
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
           "display_name_en": "Remarks/ Comments",
           "name": "remarks_comments_judgment_sentence",
           "help_text_en": "",
@@ -1846,8 +2348,8 @@
           "editable": true,
           "multi_select": false,
           "required": false,
-          "display_name_en": "Date of Completion of Final Arguments",
-          "name": "date_of_completion_of_final_arguments",
+          "display_name_en": "Date of Submission of Written Argument",
+          "name": "date_of_submission_of_written_argument",
           "help_text_en": "",
           "visible": true,
           "type": "date_field",
@@ -1869,8 +2371,8 @@
           "editable": true,
           "multi_select": false,
           "required": false,
-          "display_name_en": "Date of Submission of Written Argument",
-          "name": "date_of_submission_of_written_argument",
+          "display_name_en": "Date of Completion of Final Arguments",
+          "name": "date_of_completion_of_final_arguments",
           "help_text_en": "",
           "visible": true,
           "type": "date_field",
@@ -3748,12 +4250,60 @@
           "display_name_en": "Date of offence",
           "name": "date_of_offence_range",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "date_range",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
           "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Occurrence of Offence",
+          "name": "occurrence_of_offence",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-occurrence-of-offence-75ee7b6",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Occurrence of Offence",
+          "name": "cp_fir_details_subform_occurrence_of_offence_subform",
+          "help_text_en": "",
+          "visible": true,
+          "type": "subform",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "subform_section_id": "cp_fir_details_subform_occurrence_of_offence_subform"
         },
         {
           "highlight_information": {
@@ -4430,6 +4980,88 @@
       "display_help_text_view": false,
       "hide_subform_placeholder": false,
       "mobile_form": true,
+      "header_message_link": "",
+      "couchrest-type": "FormSection"
+    },
+    {
+      "_id": "271493ae1d9cfa5af06901539e7c78ce",
+      "fields": [
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "display_name_en": "Date of offence",
+          "name": "date_of_offence_range",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_range",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        }
+      ],
+      "is_summary_section": false,
+      "base_language": "en",
+      "name_en": "Date of offence",
+      "description_en": "Date of offence",
+      "name_fr": "Date of offence",
+      "description_fr": "Date of offence",
+      "name_ar": "Date of offence",
+      "description_ar": "Date of offence",
+      "name_ar-LB": "Date of offence",
+      "description_ar-LB": "Date of offence",
+      "name_so": "Date of offence",
+      "description_so": "Date of offence",
+      "name_es": "Date of offence",
+      "description_es": "Date of offence",
+      "name_pt": "Date of offence",
+      "description_pt": "Date of offence",
+      "name_bn": "Date of offence",
+      "description_bn": "Date of offence",
+      "name_my": "Date of offence",
+      "description_my": "Date of offence",
+      "name_th": "Date of offence",
+      "description_th": "Date of offence",
+      "name_ku": "Date of offence",
+      "description_ku": "Date of offence",
+      "unique_id": "cp_fir_details_subform_date_of_offence_subform",
+      "parent_form": "case",
+      "visible": false,
+      "order": 999,
+      "order_form_group": 5,
+      "order_subform": 1,
+      "form_group_keyed": false,
+      "editable": true,
+      "fixed_order": false,
+      "perm_visible": false,
+      "perm_enabled": false,
+      "core_form": false,
+      "validations": [
+
+      ],
+      "is_nested": true,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "collapsed_fields": [
+
+      ],
+      "subform_prevent_item_removal": false,
+      "subform_header_links": [
+
+      ],
+      "display_help_text_view": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
       "header_message_link": "",
       "couchrest-type": "FormSection"
     },
@@ -15289,232 +15921,6 @@
           "help_text_my": "",
           "help_text_th": "",
           "help_text_ku": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_identification_violence",
-          "type": "select_box",
-          "display_name_en": "Identification of Violence Case",
-          "option_strings_source": "lookup lookup-incident-identification",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_date",
-          "type": "date_field",
-          "display_name_en": "Date of Incident",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_location_type",
-          "type": "select_box",
-          "display_name_en": "Area of the Incident",
-          "option_strings_source": "lookup lookup-incident-location",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_location_type_other",
-          "type": "text_field",
-          "display_name_en": "If 'Other', please specify",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_location",
-          "type": "select_box",
-          "display_name_en": "Location of the Incident",
-          "option_strings_source": "Location",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_timeofday",
-          "type": "select_box",
-          "display_name_en": "Time of Incident",
-          "option_strings_source": "lookup lookup-time-of-day",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_timeofday_actual",
-          "type": "text_field",
-          "display_name_en": "Please specify the actual time of the Incident",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_violence_type",
-          "type": "select_box",
-          "display_name_en": "Type of Violence",
-          "option_strings_source": "lookup lookup-cp-violence-type",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_previous_incidents",
-          "type": "radio_button",
-          "display_name_en": "Has the case been previously abused?",
-          "option_strings_source": "lookup lookup-yes-no",
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "visible": false,
-          "mobile_visible": true,
-          "editable": true,
-          "disabled": false,
-          "multi_select": false,
-          "required": false,
-          "show_on_minify_form": false,
-          "name": "cp_incident_previous_incidents_description",
-          "type": "textarea",
-          "display_name_en": "If yes please describe in brief",
-          "base_language": "en"
         },
         {
           "highlight_information": {
@@ -30251,92 +30657,6 @@
           "editable": true,
           "multi_select": false,
           "required": false,
-          "display_name_en": "Number of Effective Hearings",
-          "name": "no_of_effective_hearings_judgment_sentence",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": true,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "display_name_pt": "",
-          "help_text_pt": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Number of Adjourned Hearings",
-          "name": "no_of_adjourned_hearings_judgment_sentence",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": true,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "display_name_pt": "",
-          "help_text_pt": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
           "display_name_en": "Date when case was listed for pronouncement of sentence",
           "name": "date_when_case_was_listed_for_pronouncement_of_sentence",
           "help_text_en": "",
@@ -30480,6 +30800,18 @@
             {
               "id": "discharged_20076",
               "display_text": "Discharged"
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": "P.O. Consigned"
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": "Transferred"
+            },
+            {
+              "id": "any_other_specify_42153",
+              "display_text": "Any Other (Specify)"
             }
           ],
           "option_strings_source": "",
@@ -30524,6 +30856,18 @@
             {
               "id": "discharged_20076",
               "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
+              "display_text": ""
             }
           ],
           "option_strings_text_ar": [
@@ -30541,6 +30885,18 @@
             },
             {
               "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
               "display_text": ""
             }
           ],
@@ -30560,6 +30916,18 @@
             {
               "id": "discharged_20076",
               "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
+              "display_text": ""
             }
           ],
           "option_strings_text_so": [
@@ -30577,6 +30945,18 @@
             },
             {
               "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
               "display_text": ""
             }
           ],
@@ -30596,6 +30976,18 @@
             {
               "id": "discharged_20076",
               "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
+              "display_text": ""
             }
           ],
           "option_strings_text_bn": [
@@ -30613,6 +31005,18 @@
             },
             {
               "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
               "display_text": ""
             }
           ],
@@ -30632,6 +31036,18 @@
             {
               "id": "discharged_20076",
               "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
+              "display_text": ""
             }
           ],
           "option_strings_text_th": [
@@ -30649,6 +31065,18 @@
             },
             {
               "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
               "display_text": ""
             }
           ],
@@ -30668,8 +31096,75 @@
             {
               "id": "discharged_20076",
               "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
+              "display_text": ""
+            }
+          ],
+          "display_name_pt": "",
+          "help_text_pt": "",
+          "option_strings_text_pt": [
+            {
+              "id": "convicted_37330",
+              "display_text": ""
+            },
+            {
+              "id": "acquitted_16768",
+              "display_text": ""
+            },
+            {
+              "id": "abated_67632",
+              "display_text": ""
+            },
+            {
+              "id": "discharged_20076",
+              "display_text": ""
+            },
+            {
+              "id": "p_o_consigned_02942",
+              "display_text": ""
+            },
+            {
+              "id": "transferred_12979",
+              "display_text": ""
+            },
+            {
+              "id": "any_other_specify_42153",
+              "display_text": ""
             }
           ]
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Any Other, Specify",
+          "name": "other_disposed",
+          "help_text_en": "",
+          "visible": true,
+          "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
         },
         {
           "highlight_information": {
@@ -30882,6 +31377,92 @@
           "mobile_visible": true,
           "show_on_minify_form": false,
           "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Number of Effective Hearings",
+          "name": "no_of_effective_hearings_judgment_sentence",
+          "help_text_en": "",
+          "visible": true,
+          "type": "numeric_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": "",
+          "display_name_pt": "",
+          "help_text_pt": ""
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Number of Adjourned Hearings",
+          "name": "no_of_adjourned_hearings_judgment_sentence",
+          "help_text_en": "",
+          "visible": true,
+          "type": "numeric_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": "",
+          "display_name_pt": "",
+          "help_text_pt": ""
         },
         {
           "highlight_information": {
@@ -32163,6 +32744,29 @@
           "editable": true,
           "multi_select": false,
           "required": false,
+          "display_name_en": "Date of Submission of Written Argument",
+          "name": "date_of_submission_of_written_argument",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
           "display_name_en": "Date of Completion of Final Arguments",
           "name": "date_of_completion_of_final_arguments",
           "help_text_en": "",
@@ -32191,29 +32795,6 @@
           "help_text_th": "",
           "help_text_ku": "",
           "date_validation": "default_date_validation"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Date of Submission of Written Argument",
-          "name": "date_of_submission_of_written_argument",
-          "help_text_en": "",
-          "visible": true,
-          "type": "date_field",
-          "disabled": true,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
         },
         {
           "highlight_information": {
@@ -56023,6 +56604,656 @@
       "couchrest-type": "FormSection"
     },
     {
+      "_id": "b7451037670c7d96b2f43f6d6e7c6307",
+      "fields": [
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Whether the application of Special Relief was filed",
+          "name": "whether_the_application_of_special_relief_was_filed",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-yes-no-suo-motto-836aa67",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Reason(s) for filing Special Relief Application",
+          "name": "reasons_for_filing_special_relief_application",
+          "help_text_en": "",
+          "visible": true,
+          "type": "textarea",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date of Filing Application",
+          "name": "date_filing_app_special_relief",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date of Decision on Application Filed",
+          "name": "date_of_decision_on_application_filed",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Outcome of the Application",
+          "name": "outcome_of_the_application",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-outcome-of-the-application-eac5400",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Amount Granted (In Rupees)",
+          "name": "amount_granted_special_relief",
+          "help_text_en": "",
+          "visible": true,
+          "type": "numeric_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date when relief was received",
+          "name": "date_when_relief_was_received",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Reason(s) for rejection of application",
+          "name": "reasons_for_rejection_of_application",
+          "help_text_en": "",
+          "visible": true,
+          "type": "textarea",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Reason(s) for keeping application pending",
+          "name": "reasons_for_keeping_application_pending",
+          "help_text_en": "",
+          "visible": true,
+          "type": "textarea",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Follow-up by Social Worker ",
+          "name": "followup_by_social_worker",
+          "help_text_en": "",
+          "visible": true,
+          "type": "text_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Follow-up by Lawyer",
+          "name": "followup_by_lawyer",
+          "help_text_en": "",
+          "visible": true,
+          "type": "text_field",
+          "disabled": true,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        }
+      ],
+      "is_summary_section": false,
+      "base_language": "en",
+      "name_en": "Special Relief Referral",
+      "description_en": "Special Relief for Referral",
+      "name_fr": "",
+      "description_fr": "",
+      "name_ar": "",
+      "description_ar": "",
+      "name_ar-LB": "",
+      "description_ar-LB": "",
+      "name_so": "",
+      "description_so": "",
+      "name_es": "",
+      "description_es": "",
+      "name_pt": "",
+      "description_pt": "",
+      "name_bn": "",
+      "description_bn": "",
+      "name_my": "",
+      "description_my": "",
+      "name_th": "",
+      "description_th": "",
+      "name_ku": "",
+      "description_ku": "",
+      "unique_id": "cp_special_relief_referral",
+      "parent_form": "case",
+      "visible": true,
+      "order": 999,
+      "order_form_group": 999,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_name": "Compensation Information",
+      "editable": true,
+      "fixed_order": false,
+      "perm_visible": false,
+      "perm_enabled": false,
+      "core_form": false,
+      "validations": [
+
+      ],
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "collapsed_fields": [
+
+      ],
+      "subform_prevent_item_removal": false,
+      "subform_header_links": [
+
+      ],
+      "display_help_text_view": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": "",
+      "couchrest-type": "FormSection"
+    },
+    {
+      "_id": "b7451037670c7d96b2f43f6d6e7c6657",
+      "fields": [
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Whether the application of Special Relief was filed",
+          "name": "whether_the_application_of_special_relief_was_filed",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-yes-no-suo-motto-836aa67",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_pt": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_pt": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": ""
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Reason(s) for filing Special Relief Application",
+          "name": "reasons_for_filing_special_relief_application",
+          "help_text_en": "",
+          "visible": true,
+          "type": "textarea",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date of Filing Application",
+          "name": "date_filing_app_special_relief",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date of Decision on Application Filed",
+          "name": "date_of_decision_on_application_filed",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Outcome of the Application",
+          "name": "outcome_of_the_application",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-outcome-of-the-application-eac5400",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Amount Granted (In Rupees)",
+          "name": "amount_granted_special_relief",
+          "help_text_en": "",
+          "visible": true,
+          "type": "numeric_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Date when relief was received",
+          "name": "date_when_relief_was_received",
+          "help_text_en": "",
+          "visible": true,
+          "type": "date_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Reason(s) for rejection of application",
+          "name": "reasons_for_rejection_of_application",
+          "help_text_en": "",
+          "visible": true,
+          "type": "textarea",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Reason(s) for keeping application pending",
+          "name": "reasons_for_keeping_application_pending",
+          "help_text_en": "",
+          "visible": true,
+          "type": "textarea",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "display_name_en": "Follow-up by Social Worker ",
+          "name": "followup_by_social_worker",
+          "help_text_en": "",
+          "visible": true,
+          "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "editable": true,
+          "multi_select": false,
+          "required": false,
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "display_name_en": "Follow-up by Lawyer",
+          "name": "followup_by_lawyer",
+          "help_text_en": "",
+          "visible": true,
+          "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        }
+      ],
+      "is_summary_section": false,
+      "base_language": "en",
+      "name_en": "Special Relief",
+      "description_en": "",
+      "name_fr": "",
+      "description_fr": "",
+      "name_ar": "",
+      "description_ar": "",
+      "name_ar-LB": "",
+      "description_ar-LB": "",
+      "name_so": "",
+      "description_so": "",
+      "name_es": "",
+      "description_es": "",
+      "name_pt": "",
+      "description_pt": "",
+      "name_bn": "",
+      "description_bn": "",
+      "name_my": "",
+      "description_my": "",
+      "name_th": "",
+      "description_th": "",
+      "name_ku": "",
+      "description_ku": "",
+      "unique_id": "cp_special_relief",
+      "parent_form": "case",
+      "visible": true,
+      "order": 999,
+      "order_form_group": 999,
+      "order_subform": 0,
+      "form_group_keyed": false,
+      "form_group_name": "Compensation Information",
+      "editable": true,
+      "fixed_order": false,
+      "perm_visible": false,
+      "perm_enabled": false,
+      "core_form": false,
+      "validations": [
+
+      ],
+      "is_nested": false,
+      "is_first_tab": false,
+      "initial_subforms": 0,
+      "collapsed_fields": [
+
+      ],
+      "subform_prevent_item_removal": false,
+      "subform_header_links": [
+
+      ],
+      "display_help_text_view": false,
+      "hide_subform_placeholder": false,
+      "mobile_form": false,
+      "header_message_link": "",
+      "couchrest-type": "FormSection"
+    },
+    {
       "_id": "b801e5db4a294b7bdd4adf9cc41ec09a",
       "fields": [
         {
@@ -58486,7 +59717,27 @@
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
-          "base_language": "en"
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_pt": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_pt": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": ""
         },
         {
           "highlight_information": {
@@ -58575,12 +59826,56 @@
           "display_name_en": "Status of ongoing efforts for fulfilling the need",
           "name": "status_emotional",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "text_field",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
           "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Status of ongoing efforts for fulfilling the need",
+          "name": "ongoing_effect_emotional_needs",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-status-of-ongoing-efforts-5542427",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en",
+          "display_name_fr": "",
+          "display_name_ar": "",
+          "display_name_ar-LB": "",
+          "display_name_so": "",
+          "display_name_es": "",
+          "display_name_pt": "",
+          "display_name_bn": "",
+          "display_name_my": "",
+          "display_name_th": "",
+          "display_name_ku": "",
+          "help_text_fr": "",
+          "help_text_ar": "",
+          "help_text_ar-LB": "",
+          "help_text_so": "",
+          "help_text_es": "",
+          "help_text_pt": "",
+          "help_text_bn": "",
+          "help_text_my": "",
+          "help_text_th": "",
+          "help_text_ku": ""
         },
         {
           "highlight_information": {
@@ -58780,8 +60075,32 @@
           "display_name_en": "Status of ongoing efforts for fulfilling the need",
           "name": "status_medical",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Status of ongoing efforts for fulfilling the need",
+          "name": "ongoing_effect_medical_needs",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-status-of-ongoing-efforts-5542427",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
@@ -58985,8 +60304,32 @@
           "display_name_en": "Status of ongoing efforts for fulfilling the need",
           "name": "status_shelter",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Status of ongoing efforts for fulfilling the need",
+          "name": "ongoing_effect_shelter_needs",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-status-of-ongoing-efforts-5542427",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
@@ -59214,8 +60557,32 @@
           "display_name_en": "Status of ongoing efforts for fulfilling the need",
           "name": "status_educational_vocational",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Status of ongoing efforts for fulfilling the need",
+          "name": "ongoing_effect_educational_needs",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-status-of-ongoing-efforts-5542427",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
@@ -59399,8 +60766,32 @@
           "display_name_en": "Status of ongoing efforts for fulfilling the need",
           "name": "status_financial",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Status of ongoing efforts for fulfilling the need",
+          "name": "ongoing_effect_financial_needs",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-status-of-ongoing-efforts-5542427",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
@@ -59584,8 +60975,32 @@
           "display_name_en": "Status of ongoing efforts for fulfilling the need",
           "name": "status_paralegal",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Status of ongoing efforts for fulfilling the need",
+          "name": "ongoing_effect_paralegal_needs",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-status-of-ongoing-efforts-5542427",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
@@ -60011,8 +61426,32 @@
           "display_name_en": "Status of ongoing efforts for fulfilling the need",
           "name": "status_familial",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "text_field",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Status of ongoing efforts for fulfilling the need",
+          "name": "ongoing_effect_familial_needs",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-status-of-ongoing-efforts-5542427",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
           "disabled": false,
           "mobile_visible": true,
           "show_on_minify_form": false,
@@ -60226,938 +61665,6 @@
       "order_subform": 0,
       "form_group_keyed": false,
       "form_group_name": "Psychosocials Need",
-      "editable": true,
-      "fixed_order": false,
-      "perm_visible": false,
-      "perm_enabled": false,
-      "core_form": false,
-      "validations": [
-
-      ],
-      "is_nested": false,
-      "is_first_tab": false,
-      "initial_subforms": 0,
-      "collapsed_fields": [
-
-      ],
-      "subform_prevent_item_removal": false,
-      "subform_header_links": [
-
-      ],
-      "display_help_text_view": false,
-      "hide_subform_placeholder": false,
-      "mobile_form": true,
-      "header_message_link": "",
-      "couchrest-type": "FormSection"
-    },
-    {
-      "_id": "cb99b503406a4225594a935e0f69040e",
-      "fields": [
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Number of Accused",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "name": "number_of_accused",
-          "help_text_en": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "option_strings_text_en": [
-            {
-              "id": "1_28493",
-              "display_text": "1"
-            },
-            {
-              "id": "2_05935",
-              "display_text": "2"
-            },
-            {
-              "id": "3_60577",
-              "display_text": "3"
-            },
-            {
-              "id": "4_21369",
-              "display_text": "4"
-            }
-          ],
-          "option_strings_source": "",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Name of Accused(s)",
-          "name": "name_of_accuseds",
-          "help_text_en": "",
-          "visible": true,
-          "type": "separator",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 1",
-          "name": "names_of_accused_1",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 2",
-          "name": "name_of_accused_2",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 3 ",
-          "name": "name_of_accused_3",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 4",
-          "name": "name_of_accused_4",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Gender of Accused",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "name": "gender_of_accused_all",
-          "help_text_en": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "visible": true,
-          "type": "separator",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 1",
-          "name": "gender_of_accused_1",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-gender",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 2",
-          "name": "gender_of_accused_2",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-gender",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 3",
-          "name": "gender_of_accused_3",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-gender",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 4",
-          "name": "gender_of_accused_4",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-gender",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Age of the Accused",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "name": "age_of_the_accused_all",
-          "help_text_en": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "visible": true,
-          "type": "separator",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 1",
-          "name": "age_of_the_accused_1",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 2",
-          "name": "age_of_the_accused_2",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused_3",
-          "name": "age_of_the_accused_3",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused_4",
-          "name": "age_of_the_accused_4",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Occupation of the Accused",
-          "name": "occupation_of_the_accused_all",
-          "help_text_en": "",
-          "visible": true,
-          "type": "separator",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 1",
-          "name": "occupation_of_the_accused_1",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 2",
-          "name": "occupation_of_the_accused_2",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 3",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "name": "occupation_of_the_accused_3",
-          "help_text_en": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Accused 4",
-          "name": "occupation_of_the_accused_4",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Marital Status of the Accused",
-          "name": "marital_status_of_the_accused_all",
-          "help_text_en": "",
-          "visible": true,
-          "type": "separator",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 1",
-          "name": "marital_status_of_the_accused_1",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-marital-status-with-spouse",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 2",
-          "name": "marital_status_of_the_accused_2",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-marital-status",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 3",
-          "name": "marital_status_of_the_accused_3",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-marital-status",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Accused 4",
-          "name": "marital_status_of_the_accused",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-marital-status",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Whether the Accused was Known to the Child or Stranger",
-          "name": "whether_the_accused_was_known_to_the_child_or_stranger",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-known-stranger-e0f49a2",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en",
-          "display_name_fr": "",
-          "display_name_ar": "",
-          "display_name_ar-LB": "",
-          "display_name_so": "",
-          "display_name_es": "",
-          "display_name_pt": "",
-          "display_name_bn": "",
-          "display_name_my": "",
-          "display_name_th": "",
-          "display_name_ku": "",
-          "help_text_fr": "",
-          "help_text_ar": "",
-          "help_text_ar-LB": "",
-          "help_text_so": "",
-          "help_text_es": "",
-          "help_text_pt": "",
-          "help_text_bn": "",
-          "help_text_my": "",
-          "help_text_th": "",
-          "help_text_ku": ""
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Remarks/ Comments",
-          "name": "remarks_comments",
-          "help_text_en": "",
-          "visible": true,
-          "type": "textarea",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        }
-      ],
-      "is_summary_section": false,
-      "base_language": "en",
-      "name_en": "Accused Related Info",
-      "description_en": "",
-      "name_fr": "",
-      "description_fr": "",
-      "name_ar": "",
-      "description_ar": "",
-      "name_ar-LB": "",
-      "description_ar-LB": "",
-      "name_so": "",
-      "description_so": "",
-      "name_es": "",
-      "description_es": "",
-      "name_pt": "",
-      "description_pt": "",
-      "name_bn": "",
-      "description_bn": "",
-      "name_my": "",
-      "description_my": "",
-      "name_th": "",
-      "description_th": "",
-      "name_ku": "",
-      "description_ku": "",
-      "unique_id": "cp_accused_related_info",
-      "parent_form": "case",
-      "visible": true,
-      "order": 999,
-      "order_form_group": 4,
-      "order_subform": 0,
-      "form_group_keyed": false,
-      "form_group_name": "Psychosocial Information",
       "editable": true,
       "fixed_order": false,
       "perm_visible": false,
@@ -70801,7 +71308,7 @@
           "display_name_en": "MLC RELATED INFORMATION",
           "name": "mlc_related_information",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "separator",
           "disabled": false,
           "mobile_visible": true,
@@ -70824,7 +71331,7 @@
           "display_name_en": "MLC RELATED INFORMATION",
           "name": "cp_lawyer_monthly_update_subform_mlc_related_information",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "subform",
           "disabled": false,
           "mobile_visible": true,
@@ -71200,7 +71707,7 @@
           "display_name_en": "DEFENCE EVIDENCE",
           "name": "cp_lawyer_monthly_update_subform_defence_evidence",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "subform",
           "disabled": false,
           "mobile_visible": true,
@@ -71247,7 +71754,7 @@
           "display_name_en": "FINAL ARGUMENTS",
           "name": "cp_lawyer_monthly_update_subform_final_arguments",
           "help_text_en": "",
-          "visible": true,
+          "visible": false,
           "type": "subform",
           "disabled": false,
           "mobile_visible": true,
@@ -73101,253 +73608,6 @@
       "couchrest-type": "FormSection"
     },
     {
-      "_id": "fadbdd893f7263873397ad61a07e6c37",
-      "fields": [
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Name of Accused",
-          "name": "name_of_accused",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Gender of Accused",
-          "name": "gender_of_accused",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-gender",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Age of the Accused",
-          "name": "age_of_the_accused",
-          "help_text_en": "",
-          "visible": true,
-          "type": "numeric_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Occupation of the Accused",
-          "name": "occupation_of_the_accused",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Marital Status of the Accused",
-          "name": "marital_status_of_the_accused",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-marital-status-unknown",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Relationship of the Accused with the Child",
-          "name": "relationship_of_the_accused_with_the_child",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-relationship-with-accused-1d32b19",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "required": false,
-          "display_name_en": "Whether the Accused was Known to the Child or Stranger",
-          "name": "accused_known_stranger",
-          "help_text_en": "",
-          "option_strings_source": "lookup lookup-known-stranger-e0f49a2",
-          "multi_select": false,
-          "visible": true,
-          "type": "select_box",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        },
-        {
-          "highlight_information": {
-            "order": "",
-            "highlighted": false
-          },
-          "hidden_text_field": false,
-          "autosum_total": false,
-          "autosum_group": "",
-          "create_property": true,
-          "hide_on_view_page": false,
-          "editable": true,
-          "multi_select": false,
-          "required": false,
-          "display_name_en": "Remarks/ Comments",
-          "name": "remarks_comments",
-          "help_text_en": "",
-          "visible": true,
-          "type": "text_field",
-          "disabled": false,
-          "mobile_visible": true,
-          "show_on_minify_form": false,
-          "base_language": "en"
-        }
-      ],
-      "is_summary_section": false,
-      "base_language": "en",
-      "name_en": "Accused Details ",
-      "description_en": "Accused Details ",
-      "name_fr": "Accused Details ",
-      "description_fr": "Accused Details ",
-      "name_ar": "Accused Details ",
-      "description_ar": "Accused Details ",
-      "name_ar-LB": "Accused Details ",
-      "description_ar-LB": "Accused Details ",
-      "name_so": "Accused Details ",
-      "description_so": "Accused Details ",
-      "name_es": "Accused Details ",
-      "description_es": "Accused Details ",
-      "name_pt": "Accused Details ",
-      "description_pt": "Accused Details ",
-      "name_bn": "Accused Details ",
-      "description_bn": "Accused Details ",
-      "name_my": "Accused Details ",
-      "description_my": "Accused Details ",
-      "name_th": "Accused Details ",
-      "description_th": "Accused Details ",
-      "name_ku": "Accused Details ",
-      "description_ku": "Accused Details ",
-      "unique_id": "cp_accused_related_information_subform_accused_details",
-      "parent_form": "case",
-      "visible": false,
-      "order": 999,
-      "order_form_group": 999,
-      "order_subform": 1,
-      "form_group_keyed": false,
-      "editable": true,
-      "fixed_order": false,
-      "perm_visible": false,
-      "perm_enabled": false,
-      "core_form": false,
-      "validations": [
-
-      ],
-      "is_nested": true,
-      "is_first_tab": false,
-      "initial_subforms": 0,
-      "collapsed_fields": [
-
-      ],
-      "subform_prevent_item_removal": false,
-      "subform_header_links": [
-
-      ],
-      "display_help_text_view": false,
-      "hide_subform_placeholder": false,
-      "mobile_form": false,
-      "header_message_link": "",
-      "couchrest-type": "FormSection"
-    },
-    {
       "_id": "ffdbbca803f0bced8b8ce2cc06e6175a",
       "fields": [
         {
@@ -73496,14 +73756,38 @@
             "order": "",
             "highlighted": false
           },
-          "editable": true,
-          "multi_select": false,
-          "required": false,
           "hidden_text_field": false,
           "autosum_total": false,
           "autosum_group": "",
           "create_property": true,
           "hide_on_view_page": false,
+          "editable": true,
+          "required": false,
+          "display_name_en": "Relationship of the Accused with the Child",
+          "name": "relationship_of_the_accused_with_the_child",
+          "help_text_en": "",
+          "option_strings_source": "lookup lookup-relationship-with-accused-1d32b19",
+          "multi_select": false,
+          "visible": true,
+          "type": "select_box",
+          "disabled": false,
+          "mobile_visible": true,
+          "show_on_minify_form": false,
+          "base_language": "en"
+        },
+        {
+          "highlight_information": {
+            "order": "",
+            "highlighted": false
+          },
+          "hidden_text_field": false,
+          "autosum_total": false,
+          "autosum_group": "",
+          "create_property": true,
+          "hide_on_view_page": false,
+          "editable": true,
+          "multi_select": false,
+          "required": false,
           "display_name_en": "Remarks/ Comments",
           "name": "remarks_comments",
           "help_text_en": "",
@@ -91115,6 +91399,56 @@
         {
           "id": "nationality10",
           "display_text": "Nationality10"
+        }
+      ],
+      "base_language": "en",
+      "couchrest-type": "Lookup"
+    },
+    {
+      "_id": "lookup-occurrence-of-offence-75ee7b6",
+      "locked": false,
+      "name_en": "Occurrence Of Offence",
+      "lookup_values_en": [
+        {
+          "id": "one_time_79048",
+          "display_text": "One time"
+        },
+        {
+          "id": "multiple_time_32298",
+          "display_text": "Multiple Time"
+        }
+      ],
+      "base_language": "en",
+      "couchrest-type": "Lookup"
+    },
+    {
+      "_id": "lookup-outcome-of-the-application-eac5400",
+      "locked": false,
+      "name_en": "Outcome Of The Application",
+      "lookup_values_en": [
+        {
+          "id": "allowed_and_recommended_to_dlsa_u_s_357a_cr_p_c_80708",
+          "display_text": "Allowed and recommended to DLSA u/S. 357A Cr.P.C."
+        },
+        {
+          "id": "allowed_and_recommended_to_dcpu_34874",
+          "display_text": "Allowed and recommended to DCPU"
+        },
+        {
+          "id": "allowed_and_funds_utilised_from_jj_fund_u_s_105_of_the_jj_act_2015_37491",
+          "display_text": "Allowed and Funds utilised from JJ Fund u/s. 105 of the JJ Act, 2015"
+        },
+        {
+          "id": "not_allowed_68714",
+          "display_text": "Not Allowed"
+        },
+        {
+          "id": "kept_pending_54949",
+          "display_text": "Kept Pending"
+        },
+        {
+          "id": "any_other_specify_09664",
+          "display_text": "Any Other (Specify)"
         }
       ],
       "base_language": "en",
@@ -111740,6 +112074,39 @@
       "couchrest-type": "Lookup"
     },
     {
+      "_id": "lookup-status-of-ongoing-efforts-5542427",
+      "locked": false,
+      "name_en": "Status Of Ongoing Efforts",
+      "lookup_values_en": [
+        {
+          "id": "not_applied_11372",
+          "display_text": "Not Applied"
+        },
+        {
+          "id": "reviewing_grounds_97162",
+          "display_text": "Reviewing grounds"
+        },
+        {
+          "id": "applied_21040",
+          "display_text": "Applied"
+        },
+        {
+          "id": "pending_15746",
+          "display_text": "Pending"
+        },
+        {
+          "id": "trying_for_other_social_security_schemes_as_interim_compensation_may_be_difficult_nature_of_case_and_circumstances_45618",
+          "display_text": "Trying for other social security schemes as interim compensation may be difficult nature of case and circumstances"
+        },
+        {
+          "id": "to_apply_for_final_compensation_43074",
+          "display_text": "To apply for final compensation"
+        }
+      ],
+      "base_language": "en",
+      "couchrest-type": "Lookup"
+    },
+    {
       "_id": "lookup-task-for-caselog-3e02f1c",
       "locked": false,
       "name_en": "Task For Caselog",
@@ -115765,6 +116132,31 @@
       "couchrest-type": "Lookup"
     },
     {
+      "_id": "lookup-yes-no-suo-motto-836aa67",
+      "locked": false,
+      "name_en": "Yes No Suo Motto",
+      "lookup_values_en": [
+        {
+          "id": "yes_22897",
+          "display_text": "Yes"
+        },
+        {
+          "id": "no_14253",
+          "display_text": "No"
+        },
+        {
+          "id": "not_required_56589",
+          "display_text": "Not Required"
+        },
+        {
+          "id": "suo_motto_cognizance_taken_by_cwc_33145",
+          "display_text": "Suo motto cognizance taken by CWC"
+        }
+      ],
+      "base_language": "en",
+      "couchrest-type": "Lookup"
+    },
+    {
       "_id": "lookup-yes-no-undecided",
       "locked": false,
       "name_en": "Yes, No, Or Undecided",
@@ -115780,20 +116172,16 @@
       "name_ku": "",
       "lookup_values_en": [
         {
-          "display_text": "Yes",
-          "id": "true"
+          "id": "true",
+          "display_text": "Yes"
         },
         {
-          "display_text": "No",
-          "id": "false"
+          "id": "false",
+          "display_text": "No"
         },
         {
-          "display_text": "Undecided",
-          "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": "NA"
+          "id": "undecided",
+          "display_text": "Undecided"
         }
       ],
       "lookup_values_fr": [
@@ -115808,10 +116196,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_ar": [
@@ -115826,10 +116210,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_ar-LB": [
@@ -115844,10 +116224,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_so": [
@@ -115862,10 +116238,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_es": [
@@ -115880,10 +116252,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_pt": [
@@ -115898,10 +116266,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_bn": [
@@ -115916,10 +116280,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_my": [
@@ -115934,10 +116294,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_th": [
@@ -115952,10 +116308,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "lookup_values_ku": [
@@ -115970,10 +116322,6 @@
         {
           "display_text": "",
           "id": "undecided"
-        },
-        {
-          "id": "na_45560",
-          "display_text": ""
         }
       ],
       "base_language": "en",
@@ -116149,7 +116497,11 @@
         "tracing_request_subform_section",
         "cp_mental_wellbeing_assessment_scale_others",
         "cp_victim_testimony_subform_date_of_each_victim_interaction_session",
-        "cp_victim_testimony_r_subform_cp_victim_testimony_subform_date_of_each_victim_interaction_session"
+        "cp_victim_testimony_r_subform_cp_victim_testimony_subform_date_of_each_victim_interaction_session",
+        "cp_fir_details_subform_date_of_offence_subform",
+        "cp_fir_details_subform_occurrence_of_offence_subform",
+        "cp_special_relief",
+        "cp_special_relief_referral"
       ],
       "core_resource": false,
       "field_map": {
@@ -117669,10 +118021,11 @@
         "cp_prosecution_evidence_r",
         "cp_psychosocial_needs_status",
         "record_owner",
+        "cp_special_relief_referral",
         "cp_statement_of_accused_r",
-        "cp_training_referral",
         "cp_vakalatnama_information_r",
         "cp_victim_testimony_r",
+        "cp_incident_form",
         "approval_subforms",
         "cp_chargesheet_related_information_subform_name_of_accuseds_chargesheeted",
         "cp_court_hearing_subform_next_date_purpose",
@@ -117682,12 +118035,10 @@
         "notes_section",
         "other_identity_details_subform_no_of_siblings",
         "other_identity_details_subform_place_of_medical_examination",
-        "cp_other_case_narrative_r_subform_other_identity_details_subform_proximity_between_accussed_victim",
+        "other_identity_details_subform_proximity_between_accussed_victim",
         "cp_psychosocial_needs_status_subform_type_of_need",
         "reopened_logs",
-        "record_owner_subform_communication_information",
-        "other_identity_details_subform_proximity_between_accussed_victim",
-        "cp_victim_testimony_r_subform_cp_victim_testimony_subform_date_of_each_victim_interaction_session"
+        "record_owner_subform_communication_information"
       ],
       "referral": true,
       "transfer": false,
@@ -117853,8 +118204,8 @@
         "cp_psychosocial_needs_status",
         "record_owner",
         "referral_transfer",
+        "cp_special_relief",
         "cp_statement_of_accused",
-        "cp_training",
         "cp_vakalatnama_information",
         "cp_victim_testimony",
         "cp_incident_form",
@@ -117867,6 +118218,7 @@
         "cp_daily_case_logs_asw_subform_follow_up_asw",
         "cp_daily_case_logs_cslr_subform_follow_up_cslr",
         "cp_daily_case_logs_subform_followup",
+        "cp_fir_details_subform_occurrence_of_offence_subform",
         "cp_fir_details_subform_accuse_by_name",
         "cp_lawyer_monthly_update_subform_general_information",
         "cp_lawyer_monthly_update_subform_vakalatnama_information",
@@ -117875,18 +118227,12 @@
         "cp_lawyer_monthly_update_subform_s_164_crpc_related_information",
         "cp_lawyer_monthly_update_subform_accused_related_information",
         "cp_lawyer_monthly_update_subform_chargesheet_related_information",
-        "cp_lawyer_monthly_update_subform_cognizance",
         "cp_lawyer_monthly_update_subform_support_person_related_information",
         "cp_lawyer_monthly_update_subform_supply_of_documents",
         "cp_lawyer_monthly_update_subform_witness_protection",
-        "cp_lawyer_monthly_update_subform_framing_of_charge",
         "cp_lawyer_monthly_update_subform_victim_testimony_pevt",
-        "cp_lawyer_monthly_update_subform_victim_testimony_postvt",
-        "cp_lawyer_monthly_update_subform_fsl",
-        "cp_lawyer_monthly_update_subform_statement_of_accused",
         "cp_lawyer_monthly_update_subform_defence_evidence",
         "cp_lawyer_monthly_update_subform_final_arguments",
-        "cp_lawyer_monthly_update_subform_judgement",
         "cp_lawyer_monthly_update_subform_argument_order_on_sentencing",
         "cp_lawyer_monthly_update_subform_victim_interim_compensation",
         "cp_lawyer_monthly_update_subform_victim_final_compensation",
@@ -118181,8 +118527,8 @@
         "cp_age_inquiry",
         "approvals",
         "cp_bail_information",
-        "cp_case_plan",
         "basic_identity",
+        "cp_case_plan",
         "cp_chargesheet_related_information",
         "closure_form",
         "cp_court_related_information",
@@ -118213,10 +118559,11 @@
         "cp_psychosocial_needs_status",
         "record_owner",
         "referral_transfer",
+        "cp_special_relief",
         "cp_statement_of_accused_r",
-        "cp_training",
         "cp_vakalatnama_information",
         "cp_victim_testimony_r",
+        "cp_incident_form",
         "cp_accused_related_information_subform_accused_details",
         "approval_subforms",
         "cp_bail_information_subform_bail_details",
@@ -118226,6 +118573,7 @@
         "cp_daily_case_logs_asw_subform_follow_up_asw",
         "cp_daily_case_logs_cslr_subform_follow_up_cslr",
         "cp_daily_case_logs_subform_followup",
+        "cp_fir_details_subform_occurrence_of_offence_subform",
         "cp_fir_details_subform_accuse_by_name",
         "cp_lawyer_monthly_update_subform_general_information",
         "cp_lawyer_monthly_update_subform_vakalatnama_information",
@@ -118234,18 +118582,12 @@
         "cp_lawyer_monthly_update_subform_s_164_crpc_related_information",
         "cp_lawyer_monthly_update_subform_accused_related_information",
         "cp_lawyer_monthly_update_subform_chargesheet_related_information",
-        "cp_lawyer_monthly_update_subform_cognizance",
         "cp_lawyer_monthly_update_subform_support_person_related_information",
         "cp_lawyer_monthly_update_subform_supply_of_documents",
         "cp_lawyer_monthly_update_subform_witness_protection",
-        "cp_lawyer_monthly_update_subform_framing_of_charge",
         "cp_lawyer_monthly_update_subform_victim_testimony_pevt",
-        "cp_lawyer_monthly_update_subform_victim_testimony_postvt",
-        "cp_lawyer_monthly_update_subform_fsl",
-        "cp_lawyer_monthly_update_subform_statement_of_accused",
         "cp_lawyer_monthly_update_subform_defence_evidence",
         "cp_lawyer_monthly_update_subform_final_arguments",
-        "cp_lawyer_monthly_update_subform_judgement",
         "cp_lawyer_monthly_update_subform_argument_order_on_sentencing",
         "cp_lawyer_monthly_update_subform_victim_interim_compensation",
         "cp_lawyer_monthly_update_subform_victim_final_compensation",
@@ -118257,8 +118599,7 @@
         "cp_psychosocial_needs_status_subform_type_of_need",
         "reopened_logs",
         "record_owner_subform_communication_information",
-        "transitions",
-        "cp_victim_testimony_r_subform_cp_victim_testimony_subform_date_of_each_victim_interaction_session"
+        "transitions"
       ],
       "referral": false,
       "transfer": false,
@@ -118337,10 +118678,11 @@
         "cp_prosecution_evidence_r",
         "cp_psychosocial_needs_status",
         "record_owner",
+        "cp_special_relief",
         "cp_statement_of_accused_r",
-        "cp_training_referral",
         "cp_vakalatnama_information_r",
         "cp_victim_testimony_r",
+        "cp_incident_form",
         "cp_accused_related_information_subform_accused_details",
         "approval_subforms",
         "cp_bail_information_subform_bail_details",
@@ -118356,8 +118698,7 @@
         "other_identity_details_subform_proximity_between_accussed_victim",
         "cp_psychosocial_needs_status_subform_type_of_need",
         "reopened_logs",
-        "record_owner_subform_communication_information",
-        "cp_victim_testimony_r_subform_cp_victim_testimony_subform_date_of_each_victim_interaction_session"
+        "record_owner_subform_communication_information"
       ],
       "referral": false,
       "transfer": false,
@@ -118417,8 +118758,8 @@
         "cp_accused_related_information",
         "cp_age_inquiry",
         "cp_bail_information",
-        "cp_case_plan",
         "cp_case_narrative_r",
+        "cp_case_plan",
         "cp_chargesheet_related_information",
         "closure_form",
         "cp_court_related_information",
@@ -118444,15 +118785,17 @@
         "cp_progress_impact_and_achievement_referral",
         "cp_prosecution_evidence",
         "cp_psychosocial_needs_status",
+        "cp_special_relief_referral",
         "cp_statement_of_accused",
-        "cp_training_referral",
         "cp_vakalatnama_information",
         "cp_victim_testimony",
+        "cp_incident_form",
         "cp_accused_related_information_subform_accused_details",
         "cp_bail_information_subform_bail_details",
         "cp_case_plan_subform_case_plan_interventions",
         "cp_chargesheet_related_information_subform_name_of_accuseds_chargesheeted",
         "cp_court_hearing_subform_next_date_purpose",
+        "cp_fir_details_subform_occurrence_of_offence_subform",
         "cp_fir_details_subform_accuse_by_name",
         "cp_lawyer_monthly_update_subform_general_information",
         "cp_lawyer_monthly_update_subform_vakalatnama_information",
@@ -118461,18 +118804,12 @@
         "cp_lawyer_monthly_update_subform_s_164_crpc_related_information",
         "cp_lawyer_monthly_update_subform_accused_related_information",
         "cp_lawyer_monthly_update_subform_chargesheet_related_information",
-        "cp_lawyer_monthly_update_subform_cognizance",
         "cp_lawyer_monthly_update_subform_support_person_related_information",
         "cp_lawyer_monthly_update_subform_supply_of_documents",
         "cp_lawyer_monthly_update_subform_witness_protection",
-        "cp_lawyer_monthly_update_subform_framing_of_charge",
         "cp_lawyer_monthly_update_subform_victim_testimony_pevt",
-        "cp_lawyer_monthly_update_subform_victim_testimony_postvt",
-        "cp_lawyer_monthly_update_subform_fsl",
-        "cp_lawyer_monthly_update_subform_statement_of_accused",
         "cp_lawyer_monthly_update_subform_defence_evidence",
         "cp_lawyer_monthly_update_subform_final_arguments",
-        "cp_lawyer_monthly_update_subform_judgement",
         "cp_lawyer_monthly_update_subform_argument_order_on_sentencing",
         "cp_lawyer_monthly_update_subform_victim_interim_compensation",
         "cp_lawyer_monthly_update_subform_victim_final_compensation",
@@ -118481,9 +118818,8 @@
         "notes_section",
         "other_identity_details_subform_no_of_siblings",
         "other_identity_details_subform_place_of_medical_examination",
-        "cp_other_case_narrative_r_subform_other_identity_details_subform_proximity_between_accussed_victim",
-        "cp_psychosocial_needs_status_subform_type_of_need",
         "other_identity_details_subform_proximity_between_accussed_victim",
+        "cp_psychosocial_needs_status_subform_type_of_need",
         "cp_victim_testimony_subform_date_of_each_victim_interaction_session"
       ],
       "referral": false,
@@ -118556,10 +118892,11 @@
         "cp_prosecution_evidence_r",
         "cp_psychosocial_needs_status",
         "record_owner",
+        "cp_special_relief_referral",
         "cp_statement_of_accused_r",
-        "cp_training_referral",
         "cp_vakalatnama_information_r",
         "cp_victim_testimony_r",
+        "cp_incident_form",
         "cp_accused_related_information_subform_accused_details",
         "approval_subforms",
         "cp_bail_information_subform_bail_details",
@@ -118574,8 +118911,7 @@
         "other_identity_details_subform_proximity_between_accussed_victim",
         "cp_psychosocial_needs_status_subform_type_of_need",
         "reopened_logs",
-        "record_owner_subform_communication_information",
-        "cp_victim_testimony_r_subform_cp_victim_testimony_subform_date_of_each_victim_interaction_session"
+        "record_owner_subform_communication_information"
       ],
       "referral": true,
       "transfer": false,
@@ -118624,8 +118960,8 @@
         "cp_age_inquiry_r",
         "approvals",
         "cp_bail_information",
-        "cp_case_plan",
         "cp_case_narrative_r",
+        "cp_case_plan",
         "cp_chargesheet_related_information_r",
         "closure_form",
         "cp_court_related_information_r",
@@ -118657,10 +118993,11 @@
         "cp_psychosocial_needs_status",
         "record_owner",
         "referral_transfer",
+        "cp_special_relief_referral",
         "cp_statement_of_accused_r",
-        "cp_training",
         "cp_vakalatnama_information_r",
         "cp_victim_testimony_r",
+        "cp_incident_form",
         "cp_accused_related_information_subform_accused_details",
         "approval_subforms",
         "cp_bail_information_subform_bail_details",
@@ -118678,18 +119015,12 @@
         "cp_lawyer_monthly_update_subform_s_164_crpc_related_information",
         "cp_lawyer_monthly_update_subform_accused_related_information",
         "cp_lawyer_monthly_update_subform_chargesheet_related_information",
-        "cp_lawyer_monthly_update_subform_cognizance",
         "cp_lawyer_monthly_update_subform_support_person_related_information",
         "cp_lawyer_monthly_update_subform_supply_of_documents",
         "cp_lawyer_monthly_update_subform_witness_protection",
-        "cp_lawyer_monthly_update_subform_framing_of_charge",
         "cp_lawyer_monthly_update_subform_victim_testimony_pevt",
-        "cp_lawyer_monthly_update_subform_victim_testimony_postvt",
-        "cp_lawyer_monthly_update_subform_fsl",
-        "cp_lawyer_monthly_update_subform_statement_of_accused",
         "cp_lawyer_monthly_update_subform_defence_evidence",
         "cp_lawyer_monthly_update_subform_final_arguments",
-        "cp_lawyer_monthly_update_subform_judgement",
         "cp_lawyer_monthly_update_subform_argument_order_on_sentencing",
         "cp_lawyer_monthly_update_subform_victim_interim_compensation",
         "cp_lawyer_monthly_update_subform_victim_final_compensation",
@@ -118698,13 +119029,11 @@
         "notes_section",
         "other_identity_details_subform_no_of_siblings",
         "other_identity_details_subform_place_of_medical_examination",
-        "cp_other_case_narrative_r_subform_other_identity_details_subform_proximity_between_accussed_victim",
+        "other_identity_details_subform_proximity_between_accussed_victim",
         "cp_psychosocial_needs_status_subform_type_of_need",
         "reopened_logs",
         "record_owner_subform_communication_information",
-        "transitions",
-        "other_identity_details_subform_proximity_between_accussed_victim",
-        "cp_victim_testimony_r_subform_cp_victim_testimony_subform_date_of_each_victim_interaction_session"
+        "transitions"
       ],
       "referral": true,
       "transfer": false,

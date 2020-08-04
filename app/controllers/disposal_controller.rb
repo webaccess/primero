@@ -35,12 +35,20 @@ class DisposalController < ApplicationController
         @cases_discharged = 0
         @cases_acquittal = 0
         @cases_conviction = 0
+        @cases_consigned = 0
+        @cases_transferred = 0
+        @cases_others = 0
         @total = 0
+		
         @cases_abeted_percent = 0
         @cases_discharged_percent = 0
         @cases_acquittal_percent = 0
         @cases_conviction_percent = 0
+        @cases_consigned_percent = 0
+        @cases_transferred_percent = 0
+        @cases_others_percent = 0
         @total_percent = 0
+		
         for i in disposal_of_cases
             if i['key'][0]!=nil
                 if i['key'][1]!= nil and i['key'][1].length > 0
@@ -53,18 +61,29 @@ class DisposalController < ApplicationController
                             @cases_abeted += 1
                         elsif i['key'][1][0].include? "discharged"
                             @cases_discharged += 1
-                        end
+						elsif i['key'][1][0].include? "p_o_consigned"
+                            @cases_consigned += 1
+                        elsif i['key'][1][0].include? "transferred"
+                            @cases_transferred += 1
+                        elsif i['key'][1][0].include? "any_other_specify"
+                            @cases_others += 1
+						end
                     end
                 end
             end
         end
-        @total = @cases_conviction + @cases_abeted + @cases_acquittal + @cases_discharged
+		
+        @total = @cases_conviction + @cases_abeted + @cases_acquittal + @cases_discharged + @cases_consigned + @cases_transferred + @cases_others
+		
         if @total!=0
-            @cases_conviction_percent = (@cases_conviction.to_f/@total.to_f)*100.round
-            @cases_discharged_percent = (@cases_discharged.to_f/@total.to_f)*100.round
-            @cases_acquittal_percent = (@cases_acquittal.to_f/@total.to_f)*100.round
-            @cases_abeted_percent = (@cases_abeted.to_f/@total.to_f)*100.round
-            @total_percent = (@total.to_f/@total.to_f)*100.round
+            @cases_conviction_percent = ((@cases_conviction.to_f/@total.to_f)*100).round(2)
+            @cases_discharged_percent = ((@cases_discharged.to_f/@total.to_f)*100).round(2)
+            @cases_acquittal_percent = ((@cases_acquittal.to_f/@total.to_f)*100).round(2)
+            @cases_abeted_percent = ((@cases_abeted.to_f/@total.to_f)*100).round(2)
+            @cases_consigned_percent = ((@cases_consigned.to_f/@total.to_f)*100).round(2)
+            @cases_transferred_percent = ((@cases_transferred.to_f/@total.to_f)*100).round(2)
+            @cases_others_percent = ((@cases_others.to_f/@total.to_f)*100).round(2)
+            @total_percent = ((@total.to_f/@total.to_f)*100).round(2)
         end
 
     @start_date = start_date

@@ -70,12 +70,12 @@ class CasesWhereTrialCompletedController < ApplicationController
             
         @total = @zeroSixMonth + @sixTweleveMonth + @tweleveEighteenMonth + @eighteenTwentyFourMonth + @greaterThanTwentyFourMonth
         if @total!=0
-            @zeroSixMonthPercent = @zeroSixMonth.to_f / @total.to_f* 100.round
-            @sixTweleveMonthPercent = @sixTweleveMonth.to_f / @total.to_f* 100.round
-            @tweleveEighteenMonthPercent = @tweleveEighteenMonth.to_f / @total.to_f * 100.round
-            @eighteenTwentyFourMonthPercent = @eighteenTwentyFourMonth.to_f / @total.to_f * 100.round
-            @greaterThanTwentyFourMonthPercent = @greaterThanTwentyFourMonth.to_f / @total.to_f* 100.round
-            @totalPercent = @total.to_f / @total.to_f* 100.round
+            @zeroSixMonthPercent = ((@zeroSixMonth.to_f / @total.to_f)* 100).round(2)
+            @sixTweleveMonthPercent = ((@sixTweleveMonth.to_f / @total.to_f)* 100).round(2)
+            @tweleveEighteenMonthPercent = ((@tweleveEighteenMonth.to_f / @total.to_f )* 100).round(2)
+            @eighteenTwentyFourMonthPercent = ((@eighteenTwentyFourMonth.to_f / @total.to_f)* 100).round(2)
+            @greaterThanTwentyFourMonthPercent = ((@greaterThanTwentyFourMonth.to_f / @total.to_f)* 100).round(2)
+            @totalPercent = ((@total.to_f / @total.to_f)* 100).round(2)
         end
 		
 		@start_date = start_date

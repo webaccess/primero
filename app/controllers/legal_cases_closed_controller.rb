@@ -34,12 +34,13 @@ class LegalCasesClosedController < ApplicationController
 		
 		
 		for i in by_legal_case_closed
-			@uid = 0
-			@cname = 0
+			@uid = "-"
+			@cname = "-"
 			@cdate = 0
-			@cstage = 0
-			@creason = 0
-			if i['key'][3]!= nil and i['key'][3].include? "legal_25204" or i['key'][3].include? "psy_so_cum_legal_17991"
+			@cstage = "-"
+			@creason = "-"
+			
+			if i['key'][3].include? "legal_25204" or i['key'][3].include? "psy_so_cum_legal_17991"
 				@uid = i['key'][1]
 				@cname = i['key'][4]
 				@cdate = i['key'][5]
@@ -56,6 +57,7 @@ class LegalCasesClosedController < ApplicationController
 					@creason = i['key'][8]
 				end
 			end
+			
 			@data.push({
 				"userid" => @uid,
 				"pseudonym" => @cname,
@@ -65,8 +67,6 @@ class LegalCasesClosedController < ApplicationController
 			})
 		end
 		
-			
-
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s
 		render "show_report"

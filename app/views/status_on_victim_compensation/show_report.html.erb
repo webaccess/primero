@@ -143,10 +143,13 @@ $(document).ready(function() {
 							<td rowspan="2">Case ID</td>
 							<td rowspan="2">Concerned Court/DLSA</td>
 							<td rowspan="2">Clients Pseudonym</td>
+							<td colspan="2">Special Relief</td>
 							<td colspan="2">Interim compensation</td>
 							<td colspan="2">Final compensation</td>
 					</tr>
 					<tr>
+						<td>Grant Date</td>
+						<td>Amount (in INR)</td>
 						<td>Grant Date</td>
 						<td>Amount (in INR)</td>
 						<td>Grant Date</td>
@@ -160,6 +163,8 @@ $(document).ready(function() {
 						<td id="case_id"><%= i['userid'] %></td>
 						<td id="court"><%= i['dcourt'] %></td>
 						<td id="client_name"><%= i['pname'] %></td>
+						<td id="special_grant_date"><%= i['datespecial']%></td>
+						<td id="special_amount"><%= i['amountspecial']%></td>
 						<td id="grant_date"><%= i['dinterim'] %></td>
 						<td id="amount"><%= i['ainterim'] %></td>
 						<td id="final_grant_date"><%= i['datefinal'] %></td>
