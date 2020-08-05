@@ -40,9 +40,18 @@ class CasesClosedByLawyersController < ApplicationController
 		@creason = "-"
 
 		if i['key'][3].include? "legal_25204" or i['key'][3].include? "psy_so_cum_legal_17991"
-			@uid = i['key'][1]
-			@cname = i['key'][4]
-			@ctitle = i['key'][10]
+		
+			if i['key'][1]!= nil and i['key'][1]!= ""
+				@uid = i['key'][1]
+			end
+			
+			if i['key'][4]!= nil and i['key'][4]!= ""
+				@cname = i['key'][4]
+			end
+			
+			if i['key'][10]!= nil and i['key'][10]!= ""
+				@ctitle = i['key'][10]
+			end
 		
 			if i['key'][6]!= nil and i['key'][6].include? "any other specify"
 				@cstage = i['key'][7]
