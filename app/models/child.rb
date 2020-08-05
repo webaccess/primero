@@ -296,7 +296,14 @@ class Child < CouchRest::Model::Base
 	
 	view 	:by_trial_court_cases,
 		:map => "function(doc) {
-			emit([new Date(doc.registration_date),[doc.case_type_legal_psycho,doc.child_status]]);
+		if (doc['couchrest-type'] == 'Child') 
+			{
+				if (!doc.hasOwnProperty('duplicate') || !doc['duplicate']) {
+					if (doc['case_type_legal_psycho'] != null && doc['child_status'] != null) {
+						emit([new Date(doc.registration_date),[doc.case_type_legal_psycho,doc.child_status]]);
+					}
+				}
+			}
 		}"
 	
 	view 	:by_status_on_financial_needs,
@@ -306,7 +313,7 @@ class Child < CouchRest::Model::Base
 			
 	view  :by_victim_testimony_preparation,
 		:map => "function(doc) {
-			emit([new Date(doc.registration_date),[doc.case_id_display,doc.pseudonym,doc.date_on_which_examinationinchief_commenced,doc.date_on_which_examinationinchief_was_completed,doc.date_on_which_crossexamination_commenced,doc.date_on_which_cross_examination_was_completed,doc.cp_lawyer_monthly_update_subform_victim_testimony_pevt]]);
+			emit([new Date(doc.registration_date), [doc.case_id_display,doc.pseudonym, doc.date_on_which_examinationinchief_commenced, doc.date_on_which_examinationinchief_was_completed, doc.date_on_which_crossexamination_commenced, doc.date_on_which_cross_examination_was_completed, doc.cp_lawyer_monthly_update_subform_victim_testimony_pevt]]);
         }" 
 
     view 	:by_closure_form_lawyer,
