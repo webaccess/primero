@@ -30,15 +30,17 @@ class AppealInAppellateController < ApplicationController
 
 		appeal_in_appellate = Child.by_appeal_in_appellate.startkey([start_date]).endkey([end_date,{}])['rows']
 		previous_year_cases = Child.by_appeal_in_appellate.startkey([start_date_x]).endkey([end_date_x,{}])['rows']
-	
+		@previous_year = 0
+
 		for year in year_array
 			@total_case = 0
-			@previous_year = 0
+			
 			@formal_close = 0
 			@before_formal_close = 0
 			@balance_cases = 0
 			@pending_cases = 0
 			@live_cases = 0
+			@test = []
 
 			for i in appeal_in_appellate
 				if i['key'][0]!=nil
@@ -54,19 +56,10 @@ class AppealInAppellateController < ApplicationController
 				end
 			end
 			
-			for i in previous_year_cases
-				if i['key'][0]!=nil
-					recieved_year = i['key'][0].split('-')[0]
-					if recieved_year.to_i + 1  == year
-						@previous_year += 1
-					end
-				end
-			end
-			
 			@formal_intake_total = ((@total_case + @previous_year) - @before_formal_close)
 			@balance_cases = (@formal_intake_total - @formal_close)
 			@pending_cases = (@balance_cases - @previous_year)
-				
+
 			@data.push({
 				"year" => year,
 				"total" => @total_case,
@@ -78,6 +71,7 @@ class AppealInAppellateController < ApplicationController
 				"pending" => @pending_cases
 			})
 
+			@previous_year = @balance_cases
 		end
 		@start_date = start_date
 		@end_date = (Date.parse(end_date)-1).to_s

@@ -316,29 +316,39 @@ class Child < CouchRest::Model::Base
 			emit([new Date(doc.registration_date), [doc.case_id_display,doc.pseudonym, doc.date_on_which_examinationinchief_commenced, doc.date_on_which_examinationinchief_was_completed, doc.date_on_which_crossexamination_commenced, doc.date_on_which_cross_examination_was_completed, doc.cp_lawyer_monthly_update_subform_victim_testimony_pevt]]);
         }" 
 
-    view 	:by_closure_form_lawyer,
-      :map => "function(doc) {
-			emit([new Date(doc.registration_date),doc.protection_concerns,doc.type_of_closure,doc.what_is_the_reason_for_closing_the_childs_file]);      
+  view 	:by_closure_form_lawyer,
+    :map => "function(doc) {
+      if (doc['protection_concerns'] != null && doc['type_of_closure'] != null && doc['what_is_the_reason_for_closing_the_childs_file'] != null) {
+        emit([new Date(doc.registration_date),doc.protection_concerns,doc.type_of_closure,doc.what_is_the_reason_for_closing_the_childs_file]);  
+      }    
+    }"
+
+  view 	:by_institutional_care,
+		:map => "function(doc) {
+      if (doc['case_type_legal_psycho'] != null && doc['child_currently_living_with'] != null) {
+        emit([new Date(doc.registration_date),doc.case_type_legal_psycho,doc.child_currently_living_with]);
+        }
       }"
 
-    view 	:by_institutional_care,
+  view 	:by_child_before_testimony,
 		:map => "function(doc) {
-			 emit([new Date(doc.registration_date),doc.case_type_legal_psycho,doc.child_currently_living_with]);
-          }"
+      if (doc['whether_child_restored_to_herhis_home_state_before_testimony'] != null && doc['childs_testimony_recorded'] != null){
+        emit([new Date(doc.registration_date),doc.whether_child_restored_to_herhis_home_state_before_testimony,doc.childs_testimony_recorded]);   
+      }   
+    }"
 
-    view 	:by_child_before_testimony,
+  view 	:by_judgement_is_pronounced,
 		:map => "function(doc) {
-			emit([new Date(doc.registration_date),doc.whether_child_restored_to_herhis_home_state_before_testimony,doc.childs_testimony_recorded]);      
-      }"
-
-     view 	:by_judgement_is_pronounced,
-		:map => "function(doc) {
-			emit([new Date(doc.registration_date), doc.case_type_legal_psycho, doc.date_of_pronouncement_of_judgment, doc.convicted_acquitted_abated_discharged]);      
-		}"
+      if (doc['date_of_pronouncement_of_judgment'] != null && doc['convicted_acquitted_abated_discharged'] != null) {
+			  emit([new Date(doc.registration_date), doc.case_type_legal_psycho, doc.date_of_pronouncement_of_judgment, doc.convicted_acquitted_abated_discharged]);      
+      }
+    }"
 
     view 	:by_bail_app_result,
 		:map => "function(doc) {
-			emit([new Date(doc.registration_date), doc.cp_bail_information_subform_bail_details]);
+      if (doc['cp_bail_information_subform_bail_details'] != null){
+        emit([new Date(doc.registration_date), doc.cp_bail_information_subform_bail_details]);
+      }
 		}"
 						
      view 	:by_bail_interim_compensation_witness_protection,

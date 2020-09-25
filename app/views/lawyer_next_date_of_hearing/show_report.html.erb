@@ -113,10 +113,13 @@ $(document).ready(function() {
             </div>
             <div class="col-sm-3">
                 <label>End Date</label>
-                <%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :max => Date.today, :required => true)%>
+                <%= date_field_tag(:end_date, Date.today, :id => 'end_date_field', :required => true)%>
             </div>
             <div class="col-sm-3">
-                <button type="submit" id ='submit_tag'>Submit</button>
+								<button type="submit" id ='submit_tag'>Submit</button>
+								<div class="excel-sheet">
+								<a id="generate" class="fa fa-file-excel-o" style ="font-size:30px;align:right" data-toggle="tooltip" title="Download excel" data-placement="bottom" target = "_blank"></a>
+							</div>
             </div>
         <% end %>
         </div>
@@ -168,3 +171,35 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
+<script>
+document.getElementById("start_date_field").defaultValue = "<%= @start_date %>";
+document.getElementById("end_date_field").defaultValue = "<%=@end_date %>";
+document.getElementById("generate").addEventListener("click", function () {
+	createDownloadLink("#generate",generateExcel($("#report")),"cases_closed_by_lawyers.xlsx");
+  });
+  
+  function generateExcel(el) {
+		var clon = el.clone();
+		var html = clon.wrap('<div>').parent().html();
+
+		//add more symbols if needed...
+		while (html.indexOf('á') != -1) html = html.replace(/á/g, '&aacute;');
+		while (html.indexOf('é') != -1) html = html.replace(/é/g, '&eacute;');
+		while (html.indexOf('í') != -1) html = html.replace(/í/g, '&iacute;');
+		while (html.indexOf('ó') != -1) html = html.replace(/ó/g, '&oacute;');
+		while (html.indexOf('ú') != -1) html = html.replace(/ú/g, '&uacute;');
+		while (html.indexOf('º') != -1) html = html.replace(/º/g, '&ordm;');
+		html = html.replace(/<td>/g, "<td>");			
+		
+		return html;
+	}
+	
+	function createDownloadLink(anchorSelector, str, fileName){			
+			var url = "data:application/vnd.ms-excel," + encodeURIComponent(str);
+			$(anchorSelector).attr("download", fileName);               
+			$(anchorSelector).attr("href", url);
+			
+		}
+
+
+</script>

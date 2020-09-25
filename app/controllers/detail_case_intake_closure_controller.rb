@@ -53,10 +53,10 @@ class DetailCaseIntakeClosureController < ApplicationController
 					recieved_year = j['key'][0].split('-')[0]
 					if recieved_year.to_i == year
 						if j['key'][1]!=nil and j['key'][2]!=nil and j['key'][3]!=nil 
-							if j['key'][1].include? "psy_so_99767" and j['key'][2].include? "open" and j['key'][3].include? "approved"
+							if j['key'][1].include? "psy_so_99767" and j['key'][3].include? "approved"
 								@cases_pyscho += 1	
 							end
-							if j['key'][1].include? "psy_so_cum_legal_17991" and j['key'][2].include? "open" and j['key'][3].include? "approved"
+							if j['key'][1].include? "psy_so_cum_legal_17991" and j['key'][3].include? "approved"
 								@cases_pyslegal += 1	
 							end
 							if j['key'][1].include? "psy_so_99767" and j['key'][2].include? "closed" and j['key'][3].include? "approved"

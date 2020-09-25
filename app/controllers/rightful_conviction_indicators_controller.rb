@@ -80,12 +80,12 @@ class RightfulConvictionIndicatorsController < ApplicationController
 				if received_year== year
 					if k['key'][1]!=nil and k['key'][2]!=nil
 						@childtestimony += 1
-					end
-					if k['key'][1]!=nil and k['key'][2].include? "testimony_recorded_through_video_conferencing_08722"
-						@conferencing_record += 1
-					end
-					if k['key'][1]!=nil and k['key'][2].include? "child_was_asked_to_come_to_court_to_testify_14555"
-						@court_record += 1
+						if k['key'][2].include? "testimony_recorded_through_video_conferencing_08722"
+							@conferencing_record += 1
+						end
+						if k['key'][2].include? "child_was_asked_to_come_to_court_to_testify_14555"
+							@court_record += 1
+						end
 					end
 				end
 			end
@@ -99,9 +99,9 @@ class RightfulConvictionIndicatorsController < ApplicationController
 						end
 						if l['key'][1].include? "legal_25204" and l['key'][2]!=nil
 							@legaljudgement += 1
-						end
-						if l['key'][1].include? "legal_25204" and l['key'][2]!=nil and l['key'][3].include? "convicted"
-							@legalconvicted += 1
+							if l['key'][3]!=nil and l['key'][3].include? "convicted"
+								@legalconvicted += 1
+							end
 						end
 					end
 				end
@@ -130,8 +130,6 @@ class RightfulConvictionIndicatorsController < ApplicationController
 				if received_year== year
 					if n['key'][1]!=nil
 						for p in n['key'][1]
-							puts("test1")
-							puts(p)
 							if p.include? "incest_47243"
 								@incest  += 1
 							end
