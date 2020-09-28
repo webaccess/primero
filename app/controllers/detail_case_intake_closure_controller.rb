@@ -1,4 +1,4 @@
-class DetailCaseIntakeClosureController < ApplicationController
+0class DetailCaseIntakeClosureController < ApplicationController
 	def index
 		
 	end
@@ -34,12 +34,13 @@ class DetailCaseIntakeClosureController < ApplicationController
 
 		cases_pending_formal_intake = Child.by_cases_pending_formal_intake.startkey([start_date]).endkey([end_date,{}])['rows']
 		cases_previous_year = Child.by_cases_pending_formal_intake.startkey([start_date_x]).endkey([end_date_x,{}])['rows']
-	
+		
+		@cases_previous = 0
+
 		for year in year_array
 			@cases_pyscho = 0
 			@cases_pyslegal = 0
 			@cases_pending = 0
-			@cases_previous = 0
 			@before_formal_close = 0
 			@totalpsylegal = 0
 			@pyslegal_formal_close = 0
@@ -80,19 +81,6 @@ class DetailCaseIntakeClosureController < ApplicationController
 					end
 				end
 			end
-
-			for k in cases_previous_year
-				if k['key'][0]!=nil
-					recieved_year = k['key'][0].split('-')[0]
-					if recieved_year.to_i + 1  == year
-						if k['key'][1]!= nil and k['key'][2]!= nil 
-							if k['key'][1].include? "referral_84755" and k['key'][2].include? "open" 
-								@cases_previous += 1	
-							end
-						end
-					end
-				end
-			end
 			
 			@totalreferrals = @cases_pending + @cases_previous
 			@totalclosed = @before_formal_close + @totalpsylegal_close
@@ -112,6 +100,8 @@ class DetailCaseIntakeClosureController < ApplicationController
 				"totalformalcase" => @totalformal,
 				"livereferrals" => @livereferrals
 			})
+
+			@cases_previous = @totalformal
 
 		end
 		@start_date = start_date

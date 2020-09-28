@@ -36,6 +36,7 @@ class SecondaryPsychologicalCareController < ApplicationController
 			@in_house = 0
 			@total_case = 0
 			@total_count = 0
+			@average = 0
 			for i in secondary_psychological_care_data
 				if i['key'][0]!=nil
 					if i['key'][0].split("-")[0].to_i == year
@@ -53,11 +54,9 @@ class SecondaryPsychologicalCareController < ApplicationController
 						end
 						
 						if i['key'][3]!=nil
-						p i['key'][3]
 							for j in i['key'][3]
 								if j.has_key?('date_of_counselling_session')
 									@total_count += 1
-									p @total_count
 								end
 							end
 						end	
@@ -65,7 +64,7 @@ class SecondaryPsychologicalCareController < ApplicationController
 				end
 			end
 			if @in_house!= 0
-				@average = (@total_count.to_f/@in_house.to_f)
+				@average = (@total_count.to_f/@in_house.to_f).round(2)
 			end
 			@data.push({
 				"year" => year,
